@@ -1,9 +1,22 @@
 import React, { Component } from "react";
+import { login } from "./../../actions/login.action";
+import { connect } from "react-redux";
 
 class Login extends Component {
+
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       Email:"",
+       Password:"",
+    }
+  }
+  
+
   render() {
     return (
-      <div class="hold-transition login-page">
+      <div className="hold-transition login-page">
         <div className="login-box">
           {/* /.login-logo */}
           <div className="card card-outline card-primary">
@@ -14,12 +27,14 @@ class Login extends Component {
             </div>
             <div className="card-body">
               <p className="login-box-msg">Sign in to start your session</p>
-              <form action="../../index3.html" method="post">
+              <form>
                 <div className="input-group mb-3">
                   <input
+                    onChange={e=>this.setState({Email:e.target.value})}
                     type="email"
                     className="form-control"
                     placeholder="Email"
+                    name="Email"
                   />
                   <div className="input-group-append">
                     <div className="input-group-text">
@@ -29,9 +44,11 @@ class Login extends Component {
                 </div>
                 <div className="input-group mb-3">
                   <input
+                    onChange={e=>this.setState({Password:e.target.value})}
                     type="password"
                     className="form-control"
                     placeholder="Password"
+                    name="Password"
                   />
                   <div className="input-group-append">
                     <div className="input-group-text">
@@ -48,7 +65,10 @@ class Login extends Component {
                   </div>
                   {/* /.col */}
                   <div className="col-4">
-                    <button type="submit" className="btn btn-block btn-primary btn-sm">
+                    <button 
+                    onClick={e=>{e.preventDefault();
+                    this.props.login(this.props.history,this.state)}}
+                    type="submit" className="btn btn-block btn-primary btn-sm">
                       Sign In
                     </button>
                   </div>
@@ -56,14 +76,14 @@ class Login extends Component {
                 </div>
               </form>
               <p className="mb-1">
-                <button class="btn btn-block btn-outline-primary btn-sm">
+                <button className="btn btn-block btn-outline-primary btn-sm">
                   I forgot my password
                 </button>
               </p>
               <p className="mb-0">
                 <button
                   onClick={() => this.props.history.push("/register")}
-                  class="btn btn-block btn-outline-primary btn-sm"
+                  className="btn btn-block btn-outline-primary btn-sm"
                 >
                   Register a new membership
                 </button>
@@ -78,4 +98,11 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapStateToProps = ({loginReducer}) => ({ loginReducer })
+
+const mapDispatchToProps = {
+  login
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

@@ -1,25 +1,45 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { register } from "./../../actions/register.action";
 
 class Register extends Component {
-
   constructor(props) {
-    super(props)
-  
+    super(props);
+
     this.state = {
-      Firstname:"",
-      Lastname:"",
-       Email:"",
-       citizenId:"",
-       DOB:"",
-       Phone:"",
-       Gender:"",
-       password:""
-    }
+      FirstName: "",
+      LastName: "",
+      Email: "",
+      CitizenId: "",
+      Telno: "",
+      Gender: "1",
+      Password: "",
+      confirm_password: "",
+    };
+  }
+
+  showError = ()=>{
+    return(
+      <div className="alert alert-danger alert-dismissible">
+                  <button
+                    type="button"
+                    className="close"
+                    data-dismiss="alert"
+                    aria-hidden="true"
+                  >
+                    ×
+                  </button>
+                  <h5>
+                    <i className="icon fas fa-ban" /> Error!
+                  </h5>
+                  Incorrect information
+                </div>
+    )
   }
 
   render() {
     return (
-      <div class="hold-transition register-page">
+      <div className="hold-transition register-page">
         <div className="register-box">
           <div className="card card-outline card-primary">
             <div className="card-header text-center">
@@ -31,11 +51,14 @@ class Register extends Component {
               <p className="login-box-msg">Register a new membership</p>
               <form>
                 <div className="input-group mb-3">
-                  <input onChange={e=>this.setState({Email: e.target.value})}
+                  <input
+                    onChange={(e) =>
+                      this.setState({ FirstName: e.target.value })
+                    }
                     type="text"
                     className="form-control"
                     placeholder="Firstname"
-                    name="Firstname"
+                    name="FirstName"
                   />
                   <div className="input-group-append">
                     <div className="input-group-text">
@@ -44,11 +67,14 @@ class Register extends Component {
                   </div>
                 </div>
                 <div className="input-group mb-3">
-                  <input onChange={e=>this.setState({Lastname: e.target.value})}
+                  <input
+                    onChange={(e) =>
+                      this.setState({ LastName: e.target.value })
+                    }
                     type="text"
                     className="form-control"
                     placeholder="Lastname"
-                    name="Lastname"
+                    name="LastName"
                   />
                   <div className="input-group-append">
                     <div className="input-group-text">
@@ -57,11 +83,12 @@ class Register extends Component {
                   </div>
                 </div>
                 <div className="input-group mb-3">
-                  <input onChange={e=>this.setState({Email: e.target.value})}
+                  <input
+                    onChange={(e) => this.setState({ Email: e.target.value })}
                     type="email"
                     className="form-control"
                     placeholder="Email"
-                    namee="Email"
+                    name="Email"
                   />
                   <div className="input-group-append">
                     <div className="input-group-text">
@@ -70,11 +97,14 @@ class Register extends Component {
                   </div>
                 </div>
                 <div className="input-group mb-3">
-                  <input onChange={e=>this.setState({citizenId: e.target.value})}
+                  <input
+                    onChange={(e) =>
+                      this.setState({ CitizenId: e.target.value })
+                    }
                     type="text"
                     className="form-control"
                     placeholder="CitizenId"
-                    name="citizenId"
+                    name="CitizenId"
                   />
 
                   <div className="input-group-append">
@@ -84,34 +114,12 @@ class Register extends Component {
                   </div>
                 </div>
                 <div className="input-group mb-3">
-                  <div
-                    className="input-group date"
-                    id="reservationdate"
-                    data-target-input="nearest"
-                  >
-                    <input onChange={e=>this.setState({DOB: e.target.value})}
-                      type="text"
-                      className="form-control datetimepicker-input"
-                      data-target="#reservationdate"
-                      placeholder="Date of Birth"
-                    />
-                    <div
-                      className="input-group-append"
-                      data-target="#reservationdate"
-                      data-toggle="datetimepicker"
-                    >
-                      <div className="input-group-text">
-                        <i className="fa fa-calendar" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="input-group mb-3">
-                  <input onChange={e=>this.setState({Phone: e.target.value})}
+                  <input
+                    onChange={(e) => this.setState({ Telno: e.target.value })}
                     type="text"
                     className="form-control"
                     placeholder="Phone"
-                    name="phone"
+                    name="Telno"
                   />
                   <div className="input-group-append">
                     <div className="input-group-text">
@@ -121,22 +129,26 @@ class Register extends Component {
                 </div>
 
                 <div className="input-group mb-3">
-                  <select onChange={e=>this.setState({Gender: e.target.value})}
+                  <select
+                    onChange={(e) => this.setState({ Gender: e.target.value })}
                     className="form-control select2bs4"
                     style={{ width: "100%" }}
-                    name="gender"
+                    name="Gender"
                   >
-                    <option selected="selected" value="male">Male</option>
-                    <option value="female">Female</option>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
                   </select>
                 </div>
 
                 <div className="input-group mb-3">
-                  <input onChange={e=>this.setState({password: e.target.value})}
+                  <input
+                    onChange={(e) =>
+                      this.setState({ Password: e.target.value })
+                    }
                     type="password"
                     className="form-control"
                     placeholder="Password"
-                    name="password"
+                    name="Password"
                   />
                   <div className="input-group-append">
                     <div className="input-group-text">
@@ -146,10 +158,13 @@ class Register extends Component {
                 </div>
                 <div className="input-group mb-3">
                   <input
+                    onChange={(e) =>
+                      this.setState({ confirm_password: e.target.value })
+                    }
                     type="password"
                     className="form-control"
                     placeholder="Retype password"
-                    name="Retypepassword"
+                    name="confirm_password"
                   />
                   <div className="input-group-append">
                     <div className="input-group-text">
@@ -157,6 +172,7 @@ class Register extends Component {
                     </div>
                   </div>
                 </div>
+                {this.props.registerReducer.isError && this.showError()}
                 <div className="row">
                   <div className="col-8">
                     <div className="icheck-primary">
@@ -171,10 +187,16 @@ class Register extends Component {
                       </label>
                     </div>
                   </div>
-                  <span>#Debug{JSON.stringify(this.state)}</span>
                   {/* /.col */}
                   <div className="col-4">
-                    <button type="submit" className="btn btn-primary btn-block">
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        this.props.register(this.props.history, this.state);
+                      }}
+                      type="submit"
+                      className="btn btn-primary btn-block"
+                    >
                       Register
                     </button>
                   </div>
@@ -183,7 +205,7 @@ class Register extends Component {
               </form>
               <button
                 onClick={() => this.props.history.goBack()}
-                class="btn btn-block btn-outline-primary btn-sm"
+                className="btn btn-block btn-outline-primary btn-sm"
                 style={{ margin: 8 }}
               >
                 I already have a membership
@@ -198,4 +220,10 @@ class Register extends Component {
   }
 }
 
-export default Register;
+const mapStateToProps = ({ registerReducer }) => ({ registerReducer });
+
+const mapDispatchToProps = {
+  register,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);
