@@ -14,13 +14,25 @@ export const setLoginStateToFail = () => ({
     type: HTTP_LOGIN_FAILED,
 })
 
+export const autoLogin = (history) => {
+    return () => {    
+      if (localStorage.getItem(server.LOGIN_PASSED)  == YES){      
+        //setTimeout(()=>
+        history.push("/home")
+        //, 100)         
+      }
+    } 
+  }
+
 export const login = (history,credential)=>{
-    return async dispatch=>{
+    return async (dispatch , getState)=>{
         dispatch(setLoginStateToFetching())
         let result = await httpClient.post(server.LOGIN_URL, credential);
         if (result.data.result == OK) {
             localStorage.setItem(server.LOGIN_PASSED, YES);
-            //getState().appReducer.app.forceUpdate();
+            let User = JSON.stringify(result.message);
+            // localStorage.setItem("User", User);
+            getState().appReducer.app.forceUpdate();
       
             history.push("/home");
             dispatch(setLoginStateToSuccess(result));
@@ -29,3 +41,7 @@ export const login = (history,credential)=>{
           }
     }
 }
+
+// export const getLogin = ()=>{
+//  return localStorage.getItem("User")
+// }

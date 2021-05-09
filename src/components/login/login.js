@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { login } from "./../../actions/login.action";
+import { login , autoLogin} from "./../../actions/login.action";
 import { connect } from "react-redux";
 
 class Login extends Component {
@@ -12,7 +12,29 @@ class Login extends Component {
        Password:"",
     }
   }
+
+  componentDidMount(){
+    this.props.autoLogin(this.props.history);
+  }
   
+  showError = ()=>{
+    return(
+      <div className="alert alert-danger alert-dismissible">
+                  <button
+                    type="button"
+                    className="close"
+                    data-dismiss="alert"
+                    aria-hidden="true"
+                  >
+                    ×
+                  </button>
+                  <h5>
+                    <i className="icon fas fa-ban" /> Error!
+                  </h5>
+                  Incorrect Email or Password
+                </div>
+    )
+  }
 
   render() {
     return (
@@ -56,6 +78,7 @@ class Login extends Component {
                     </div>
                   </div>
                 </div>
+                {this.props.loginReducer.isError && this.showError()}
                 <div className="row">
                   <div className="col-8">
                     <div className="icheck-primary">
@@ -101,7 +124,8 @@ class Login extends Component {
 const mapStateToProps = ({loginReducer}) => ({ loginReducer })
 
 const mapDispatchToProps = {
-  login
+  login ,
+  autoLogin
 }
 
 

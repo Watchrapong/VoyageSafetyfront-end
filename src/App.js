@@ -5,37 +5,77 @@ import Menu from "./components/menu/menu";
 import Footer from "./components/footer/footer";
 import Login from "./components/login/login";
 import Register from "./components/register/register";
-
+import Home from "./components/home/home";
+import { server, YES} from "./constants";
 import {
   BrowserRouter as Router,
   Route,
   Redirect,
   Switch,
 } from "react-router-dom";
-import Error from "./components/error/error";
+import error from "./components/error/error";
+import { setApp } from "./actions/app.action"
+import { connect } from "react-redux";
 
-export default class App extends Component {
+const isLoggedIn = () => {
+  return localStorage.getItem(server.LOGIN_PASSED) == YES;
+};
+
+// Protected Route
+const SecuredRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      isLoggedIn() === true ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to="/login" />
+      )
+    }
+  />
+);
+
+class App extends Component {
+
+  componentDidMount(){
+    this.props.setApp(this)
+  }
 
   redirectToLogin = () => {
     return <Redirect to="/login" />;
   };
 
+  redirectToError = () => {
+    return <Redirect to="/error" />;
+  };
 
   render() {
     return (
       <Router>
         <div>
-          <Header />
-          <Menu />
-
+          {isLoggedIn() && <Header />}
+          {isLoggedIn() && <Menu />}
+          {/* <switch> */}
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route exact={true} path="/" component={this.redirectToLogin} />
+          <SecuredRoute path="/home" component={Home} />
           <Route path="/*" component={this.redirectToLogin} />
-          {/* <Login /> */}
-          <Footer />
+          {/* <Route path="/error" component={error} /> */}
+          {/* </switch> */}
+          {isLoggedIn() && <Footer />}
         </div>
       </Router>
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  
+})
+
+const mapDispatchToProps = {
+  setApp
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(App)

@@ -1,7 +1,26 @@
 import React, { Component } from "react";
+import * as ai from "react-icons/ai";
+import * as actions from "../../actions/login.action";
+import { server } from "../../constants";
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 
 class Menu extends Component {
+
+
+
+  // constructor(props) {
+  //   super(props);
+
+  //   this.state = {
+  //     currentUser: actions.getLogin()
+  //   };
+  // }
+
   render() {
+
+    // const { currentUser } = this.state;
+
     return (<aside className="main-sidebar sidebar-dark-primary elevation-4">
   {/* Brand Logo */}
   <a href="index3.html" className="brand-link">
@@ -12,13 +31,38 @@ class Menu extends Component {
   <div className="sidebar">
     {/* Sidebar user panel (optional) */}
     <div className="user-panel mt-3 pb-3 mb-3 d-flex">
-      <div className="image">
-        <img src="dist/img/user2-160x160.jpg" className="img-circle elevation-2" alt="User Image" />
-      </div>
-      <div className="info">
-        <a href="#" className="d-block">Alexander Pierce</a>
-      </div>
-    </div>
+      
+      <nav className="mt-2">
+      <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+     <li className="nav-item">
+          <a href="#" className="nav-link">
+            <p>
+              <ai.AiOutlineUser style={{fontSize: 20,marginBottom: 5,marginRight: 3}}></ai.AiOutlineUser>
+            User Name 
+            {/* {currentUser} */}
+              <i className="fas fa-angle-left right" />
+            </p>
+          </a>
+          <ul className="nav nav-treeview">
+            <li className="nav-item">
+              <a href="pages/forms/general.html" className="nav-link">
+                <ai.AiFillEdit style={{fontSize: 20,marginBottom: 5,marginRight: 3}}></ai.AiFillEdit>
+                <p>Editors</p>
+              </a>
+            </li>
+            <li className="nav-item">
+              <a href="" onClick={()=>{this.props.history.push("/login"); 
+              localStorage.removeItem(server.LOGIN_PASSED)
+              this.props.appReducer.app.forceUpdate();}} className="nav-link">
+                <ai.AiOutlineLogout style={{fontSize: 20,marginBottom: 5,marginRight: 3}}></ai.AiOutlineLogout>
+                <p>Log Out</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        </ul>
+        </nav>
+        </div>
     {/* SidebarSearch Form */}
     <div className="form-inline">
       <div className="input-group" data-widget="sidebar-search">
@@ -676,4 +720,12 @@ class Menu extends Component {
   }
 }
 
-export default Menu;
+const mapStateToProps = ({appReducer}) => ({
+  appReducer
+})
+
+const mapDispatchToProps = {
+  ...actions
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Menu))
