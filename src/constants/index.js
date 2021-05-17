@@ -12,29 +12,29 @@ export const HTTP_REGISTER_FETCHING = "HTTP_REGISTER_FETCHING";
 export const HTTP_REGISTER_SUCCESS = "HTTP_REGISTER_SUCCESS";
 export const HTTP_REGISTER_FAILED = "HTTP_REGISTER_FAILED";
 
-// Stock Page
-export const HTTP_STOCK_FETCHING = "HTTP_STOCK_FETCHING";
-export const HTTP_STOCK_SUCCESS = "HTTP_STOCK_SUCCESS";
-export const HTTP_STOCK_FAILED = "HTTP_STOCK_FAILED";
+// ESTABLISH Page
+export const HTTP_ESTABLISH_FETCHING = "HTTP_ESTABLISH_FETCHING";
+export const HTTP_ESTABLISH_SUCCESS = "HTTP_ESTABLISH_SUCCESS";
+export const HTTP_ESTABLISH_FAILED = "HTTP_ESTABLISH_FAILED";
 
-// Stock Edit Page
-export const HTTP_STOCK_EDIT_FETCHING = "HTTP_STOCK_EDIT_FETCHING";
-export const HTTP_STOCK_EDIT_SUCCESS = "HTTP_STOCK_EDIT_SUCCESS";
-export const HTTP_STOCK_EDIT_FAILED = "HTTP_STOCK_EDIT_FAILED";
-export const HTTP_STOCK_EDIT_INITIALED = "HTTP_STOCK_EDIT_INITIALED";
+// ESTABLISH Edit Page
+export const HTTP_ESTABLISH_EDIT_FETCHING = "HTTP_ESTABLISH_EDIT_FETCHING";
+export const HTTP_ESTABLISH_EDIT_SUCCESS = "HTTP_ESTABLISH_EDIT_SUCCESS";
+export const HTTP_ESTABLISH_EDIT_FAILED = "HTTP_ESTABLISH_EDIT_FAILED";
+export const HTTP_ESTABLISH_EDIT_INITIALED = "HTTP_ESTABLISH_EDIT_INITIALED";
 
 // Transaction Edit Page
 export const HTTP_TRANSACTION_FETCHING = "HTTP_TRANSACTION_FETCHING";
 export const HTTP_TRANSACTION_SUCCESS = "HTTP_TRANSACTION_SUCCESS";
 export const HTTP_TRANSACTION_FAILED = "HTTP_TRANSACTION_FAILED";
 
-// Shop Page
-export const HTTP_SHOP_FETCHING = "HTTP_SHOP_FETCHING";
-export const HTTP_SHOP_SUCCESS = "HTTP_SHOP_SUCCESS";
-export const HTTP_SHOP_FAILED = "HTTP_SHOP_FAILED";
+// // Shop Page
+// export const HTTP_SHOP_FETCHING = "HTTP_SHOP_FETCHING";
+// export const HTTP_SHOP_SUCCESS = "HTTP_SHOP_SUCCESS";
+// export const HTTP_SHOP_FAILED = "HTTP_SHOP_FAILED";
 
-export const SHOP_UPDATE_ORDER = "SHOP_UPDATE_ORDER";
-export const SHOP_UPDATE_PAYMENT = "SHOP_UPDATE_PAYMENT";
+// export const SHOP_UPDATE_ORDER = "SHOP_UPDATE_ORDER";
+// export const SHOP_UPDATE_PAYMENT = "SHOP_UPDATE_PAYMENT";
 
 // Error Code
 export const E_PICKER_CANCELLED = 'E_PICKER_CANCELLED'
@@ -45,28 +45,28 @@ export const E_USER_CANCELLED = 'E_USER_CANCELLED'
 export const E_UNKNOWN = 'E_UNKNOWN'
 export const E_DEVELOPER_ERROR = 'E_DEVELOPER_ERROR'
 export const TIMEOUT_NETWORK = 'ECONNABORTED' // request service timeout
-export const NOT_CONNECT_NETWORK = 'NOT_CONNECT_NETWORK' 
+export const NOT_CONNECT_NETWORK = 'NOT_CONNECT_NETWORK'
 
 //////////////// Localization Begin ////////////////
-export const NETWORK_CONNECTION_MESSAGE = 'Cannot connect to server, Please try again.' 
-export const NETWORK_TIMEOUT_MESSAGE = 'A network timeout has occurred, Please try again.'  
-export const UPLOAD_PHOTO_FAIL_MESSAGE = 'An error has occurred. The photo was unable to upload.' 
+export const NETWORK_CONNECTION_MESSAGE = 'Cannot connect to server, Please try again.'
+export const NETWORK_TIMEOUT_MESSAGE = 'A network timeout has occurred, Please try again.'
+export const UPLOAD_PHOTO_FAIL_MESSAGE = 'An error has occurred. The photo was unable to upload.'
 
 
-export const apiUrl =  "http://localhost:8085/api/v2";
-export const imageUrl = "http://localhost:8085";
+export const apiUrl = "http://localhost:8085/api/v2";
+// export const imageUrl = "http://localhost:8085";
 
 export const YES = 'YES'
 export const NO = 'NO'
 export const OK = 'ok'
 export const NOK = 'nok'
 
-export const server = {    
-    LOGIN_URL : `authen/login`,    
-    REGISTER_URL : `authen/register`,  
-    PRODUCT_URL : `stock/product`,    
-    TRANSACTION_URL : `transaction`,    
-    REPORT_URL: `stock/report`,    
-    LOGIN_PASSED : `yes`,
+export const server = {
+    LOGIN_URL: `authen/login`,
+    REGISTER_URL: `authen/register`,
+    ESTABLISH_URL: `establishment`,
+    TRANSACTION_URL: `transaction`,
+    // REPORT_URL: `ESTABLISH/report`,
+    LOGIN_PASSED: `yes`,
 }
 

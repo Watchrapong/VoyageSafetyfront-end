@@ -1,38 +1,38 @@
 import React, { Component } from "react";
-import { login , autoLogin} from "./../../actions/login.action";
+import { login, autoLogin } from "./../../actions/login.action";
 import { connect } from "react-redux";
 
 class Login extends Component {
 
   constructor(props) {
     super(props)
-  
+
     this.state = {
-       Email:"",
-       Password:"",
+      Email: "",
+      Password: "",
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.props.autoLogin(this.props.history);
   }
-  
-  showError = ()=>{
-    return(
+
+  showError = () => {
+    return (
       <div className="alert alert-danger alert-dismissible">
-                  <button
-                    type="button"
-                    className="close"
-                    data-dismiss="alert"
-                    aria-hidden="true"
-                  >
-                    ×
+        <button
+          type="button"
+          className="close"
+          data-dismiss="alert"
+          aria-hidden="true"
+        >
+          ×
                   </button>
-                  <h5>
-                    <i className="icon fas fa-ban" /> Error!
+        <h5>
+          <i className="icon fas fa-ban" /> Error!
                   </h5>
                   Incorrect Email or Password
-                </div>
+      </div>
     )
   }
 
@@ -52,7 +52,7 @@ class Login extends Component {
               <form>
                 <div className="input-group mb-3">
                   <input
-                    onChange={e=>this.setState({Email:e.target.value})}
+                    onChange={e => this.setState({ Email: e.target.value })}
                     type="email"
                     className="form-control"
                     placeholder="Email"
@@ -66,7 +66,7 @@ class Login extends Component {
                 </div>
                 <div className="input-group mb-3">
                   <input
-                    onChange={e=>this.setState({Password:e.target.value})}
+                    onChange={e => this.setState({ Password: e.target.value })}
                     type="password"
                     className="form-control"
                     placeholder="Password"
@@ -88,10 +88,12 @@ class Login extends Component {
                   </div>
                   {/* /.col */}
                   <div className="col-4">
-                    <button 
-                    onClick={e=>{e.preventDefault();
-                    this.props.login(this.props.history,this.state)}}
-                    type="submit" className="btn btn-block btn-primary btn-sm">
+                    <button
+                      onClick={e => {
+                        e.preventDefault();
+                        this.props.login(this.props.history, this.state)
+                      }}
+                      type="submit" className="btn btn-block btn-primary btn-sm">
                       Sign In
                     </button>
                   </div>
@@ -121,10 +123,10 @@ class Login extends Component {
   }
 }
 
-const mapStateToProps = ({loginReducer}) => ({ loginReducer })
+const mapStateToProps = ({ loginReducer }) => ({ loginReducer })
 
 const mapDispatchToProps = {
-  login ,
+  login,
   autoLogin
 }
 

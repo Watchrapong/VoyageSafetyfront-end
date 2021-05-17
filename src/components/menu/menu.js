@@ -9,17 +9,17 @@ class Menu extends Component {
 
 
 
-  // constructor(props) {
-  //   super(props);
+  constructor(props) {
+    super(props);
 
-  //   this.state = {
-  //     currentUser: actions.getLogin()
-  //   };
-  // }
+    this.state = {
+      currentUser: actions.getLogin()
+    };
+  }
 
   render() {
 
-    // const { currentUser } = this.state;
+     const { currentUser } = this.state;
 
     return (<aside className="main-sidebar sidebar-dark-primary elevation-4">
   {/* Brand Logo */}
@@ -36,25 +36,26 @@ class Menu extends Component {
       <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
      <li className="nav-item">
           <a href="#" className="nav-link">
+          <ai.AiOutlineUser style={{fontSize: 30,marginBottom: 5,marginRight: 5}}/>
             <p>
-              <ai.AiOutlineUser style={{fontSize: 20,marginBottom: 5,marginRight: 3}}></ai.AiOutlineUser>
-            User Name 
-            {/* {currentUser} */}
-              <i className="fas fa-angle-left right" />
+              
+            {/* User Name  */}
+            {currentUser.FirstName}
+              <i style={{marginTop: 6}} className="fas fa-angle-left right" />
             </p>
           </a>
           <ul className="nav nav-treeview">
             <li className="nav-item">
               <a href="pages/forms/general.html" className="nav-link">
-                <ai.AiFillEdit style={{fontSize: 20,marginBottom: 5,marginRight: 3}}></ai.AiFillEdit>
+                <ai.AiFillEdit style={{fontSize: 20,marginBottom: 5,marginRight: 5}}/>
                 <p>Editors</p>
               </a>
             </li>
             <li className="nav-item">
               <a href="" onClick={()=>{this.props.history.push("/login"); 
-              localStorage.removeItem(server.LOGIN_PASSED)
+              localStorage.clear();
               this.props.appReducer.app.forceUpdate();}} className="nav-link">
-                <ai.AiOutlineLogout style={{fontSize: 20,marginBottom: 5,marginRight: 3}}></ai.AiOutlineLogout>
+                <ai.AiOutlineLogout style={{fontSize: 20,marginBottom: 5,marginRight: 5}}/>
                 <p>Log Out</p>
               </a>
             </li>
