@@ -28,10 +28,10 @@ export const HTTP_TRANSACTION_FETCHING = "HTTP_TRANSACTION_FETCHING";
 export const HTTP_TRANSACTION_SUCCESS = "HTTP_TRANSACTION_SUCCESS";
 export const HTTP_TRANSACTION_FAILED = "HTTP_TRANSACTION_FAILED";
 
-// // Shop Page
-// export const HTTP_SHOP_FETCHING = "HTTP_SHOP_FETCHING";
-// export const HTTP_SHOP_SUCCESS = "HTTP_SHOP_SUCCESS";
-// export const HTTP_SHOP_FAILED = "HTTP_SHOP_FAILED";
+// Detail Page
+export const HTTP_DETAIL_FETCHING = "HTTP_DETAIL_FETCHING";
+export const HTTP_DETAIL_SUCCESS = "HTTP_DETAIL_SUCCESS";
+export const HTTP_DETAIL_FAILED = "HTTP_DETAIL_FAILED";
 
 // export const SHOP_UPDATE_ORDER = "SHOP_UPDATE_ORDER";
 // export const SHOP_UPDATE_PAYMENT = "SHOP_UPDATE_PAYMENT";
@@ -65,6 +65,7 @@ export const server = {
     LOGIN_URL: `authen/login`,
     REGISTER_URL: `authen/register`,
     ESTABLISH_URL: `establishment`,
+    DETAIL_URL: `detail`,
     TRANSACTION_URL: `transaction`,
     // REPORT_URL: `ESTABLISH/report`,
     LOGIN_PASSED: `yes`,

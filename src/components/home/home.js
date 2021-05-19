@@ -23,7 +23,7 @@ class Home extends Component {
         !isFetching &&
         result != null &&
         result.map((item) => (
-          <a href="#">
+          <a href="" style={{textDecoration:"none"}} onClick={() =>this.props.history.push(`/detail/${item.EstId}`)}>
           <div
             key={item.EstId}
             className="w3-row-padding w3-padding-32"

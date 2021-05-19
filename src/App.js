@@ -53,7 +53,8 @@ class App extends Component {
       <Router>
         <div>
           <Header/>
-          <Home/>
+          <Route path="/home" component={Home} />
+          <Route path="/detail/:EstId" component={Detail} />
           {/* <Route path="/login" component={Login}/> */}
           {/* {isLoggedIn() && <Header />}
           {isLoggedIn() && <Menu />} */}
