@@ -52,7 +52,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Header/>
+          {/* <Header/> */}
           <Route path="/home" component={Home} />
           <Route path="/detail/:EstId" component={Detail} />
           {/* <Route path="/login" component={Login}/> */}
