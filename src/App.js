@@ -17,6 +17,7 @@ import {
 import error from "./components/error/error";
 import { setApp } from "./actions/app.action"
 import { connect } from "react-redux";
+import Establishdetail from "./components/establishdetail/establishdetail";
 
 // const isLoggedIn = () => {
 //   return localStorage.getItem(server.LOGIN_PASSED) == YES;
@@ -52,9 +53,10 @@ class App extends Component {
     return (
       <Router>
         <div>
-          {/* <Header/> */}
+          <Header/>
           <Route path="/home" component={Home} />
           <Route path="/detail/:EstId" component={Detail} />
+          <Route path="/establishdetail" component={Establishdetail} />
           {/* <Route path="/login" component={Login}/> */}
           {/* {isLoggedIn() && <Header />}
           {isLoggedIn() && <Menu />} */}
