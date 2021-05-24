@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import * as actions from "./../../actions/establishment.action";
 import Background from "../../assets/img/homebg.svg";
 import { connect } from "react-redux";
+import "./home.css";
+
 
 class Home extends Component {
   constructor(props) {
@@ -30,6 +32,7 @@ class Home extends Component {
             style={{ margin: "0 -16px" , backgroundColor:'#E3E3E3' }}
           >
             <img
+    
               src=""
               alt="New York"
               style={{ width: "100%" }}
@@ -56,8 +59,9 @@ class Home extends Component {
 
   render() {
     return (
+      
       <div>
-        <div>
+        <div className="font">
           <img src={Background}></img>
         </div>
 
@@ -67,30 +71,28 @@ class Home extends Component {
             style={{ maxWidth: 800 }}
           >
             <section className="">
-              <div className="">
-                <h2 className="">ค้นหาสถานที่</h2>
+              <div className="a">
+                <h2 className="c">ค้นหาสถานที่</h2>
                 <form>
                   <div className="">
                     <div className="">
                       <div className="">
-                        <div className="">
+                        <div className="g">
                           <div className="">
-                            <label>เลือกประเภทสถานที่</label>
-                            <select
-                              className=""
-                              multiple="multiple"
-                              data-placeholder="Any"
-                            >
+                            <label>เลือกประเภทสถานที่</label><br />
+
+                            <select className="e">
+                              <option selected>ร้านอาหาร</option>
                               <option>Text only</option>
                               <option>Images</option>
                               <option>Video</option>
                             </select>
                           </div>
                         </div>
-                        <div className="">
-                          <div className="">
-                            <label>เรียงตามตัวอักษร</label>
-                            <select className="">
+                        <div className="g">
+                          <div className="f">
+                            <label>เรียงตามตัวอักษร</label><br />
+                            <select className="e">
                               <option selected>ASC</option>
                               <option>DESC</option>
                             </select>
@@ -113,7 +115,14 @@ class Home extends Component {
                 </form>
               </div>
             </section>
-            <div className="w3-third w3-margin-bottom">{this.createRow()}</div>
+            <div className="card" >
+              <img src="..." className="card-img"></img>
+            <div className="card-body">{this.createRow()}
+            
+
+
+            </div>
+            </div>
           </div>
         </div>
       </div>
