@@ -31,10 +31,9 @@ class Home extends Component {
             className="w3-row-padding w3-padding-32"
             style={{ margin: "0 -16px" , backgroundColor:'#E3E3E3' }}
           >
-            <img
-    
-              src=""
-              alt="New York"
+            <img    
+              src={item.pathImg}
+              alt="mainImage"
               style={{ width: "100%" }}
               className="w3-hover-opacity"
             />
@@ -83,9 +82,9 @@ class Home extends Component {
 
                             <select className="e">
                               <option selected>ร้านอาหาร</option>
-                              <option>Text only</option>
-                              <option>Images</option>
-                              <option>Video</option>
+                              <option>category1</option>
+                              <option>category2</option>
+                              <option>category3</option>
                             </select>
                           </div>
                         </div>
@@ -116,7 +115,7 @@ class Home extends Component {
               </div>
             </section>
             <div className="card" >
-              <img src="..." className="card-img"></img>
+              
             <div className="card-body">{this.createRow()}
             
 
