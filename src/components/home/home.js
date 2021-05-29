@@ -2,19 +2,14 @@ import React, { Component } from "react";
 import * as actions from "./../../actions/establishment.action";
 import Background from "../../assets/img/homebg.svg";
 import { connect } from "react-redux";
+import _ from "lodash";
 import "./home.css";
 
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      Search: "",
-    };
-  }
 
   componentDidMount() {
+    this.debounceSearch = _.debounce(this.props.getEstablishmentsByKeyword,500)
     this.props.getEstablishments();
   }
 
@@ -32,7 +27,7 @@ class Home extends Component {
             style={{ margin: "0 -16px" , backgroundColor:'#E3E3E3' }}
           >
             <img    
-              src={item.pathImg}
+              src={item.pathImg||"https://via.placeholder.com/400x300"}
               alt="mainImage"
               style={{ width: "100%" }}
               className="w3-hover-opacity"
@@ -55,6 +50,11 @@ class Home extends Component {
       );
     } catch (e) {}
   };
+
+  onChange = e => {
+    e.persist();
+    this.debounceSearch(e);
+  }
 
   render() {
     return (
@@ -101,6 +101,7 @@ class Home extends Component {
                       <div className="">
                         <div className="">
                           <input
+                          onChange={this.onChange}
                             type="search"
                             className=""
                             placeholder=""
