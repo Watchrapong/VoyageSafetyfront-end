@@ -54,7 +54,7 @@ class Detail extends Component {
                   zoom={18}
                   iconUrl="https://img.icons8.com/dusk/64/000000/marker.png"
                 /> */}
-                  <img src={`https://maps.googleapis.com/maps/api/staticmap?center=${result.Lat},${result.Lng}&zoom=17&size=500x500&key=AIzaSyATAXCWMqd7hmu44d93FCJpPTGcHLKN6lg&marker="https://img.icons8.com/dusk/64/000000/marker.png"|${result.Lat},${result.Lng}`}
+                  <img src={`https://maps.googleapis.com/maps/api/staticmap?center=${result.Lat},${result.Lng}&zoom=18&size=500x500&key=AIzaSyATAXCWMqd7hmu44d93FCJpPTGcHLKN6lg&markers="https://img.icons8.com/dusk/64/000000/marker.png"|${result.Lat},${result.Lng}`}
                   className="map-img"/>
                 </div>
                 <div className="column2">
