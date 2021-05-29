@@ -4,6 +4,7 @@ import * as action from "../../actions/detail.action";
 import GoogleMapReact from "google-map-react";
 import { AiFillAndroid } from "react-icons/ai";
 import "./detail.css";
+import GoogleStaticMap from 'react-google-static';
 
 class Detail extends Component {
   
@@ -43,17 +44,29 @@ class Detail extends Component {
               <div className="vaccination-box">
               </div>
               <div className="map-box">
-                <div className="column">
-
+                <div className="column1">
+                {/* <GoogleStaticMap
+                  apiKey={"AIzaSyATAXCWMqd7hmu44d93FCJpPTGcHLKN6lg"}
+                  latitude={result.Lat}
+                  longitude={result.Lng}
+                  style={{width:280, height:190, objectFit:"contain"}}
+                  size={{ width: 500, height: 500 }}
+                  zoom={18}
+                  iconUrl="https://img.icons8.com/dusk/64/000000/marker.png"
+                /> */}
+                  <img src={`https://maps.googleapis.com/maps/api/staticmap?center=${result.Lat},${result.Lng}&zoom=17&size=500x500&key=AIzaSyATAXCWMqd7hmu44d93FCJpPTGcHLKN6lg&marker="https://img.icons8.com/dusk/64/000000/marker.png"|${result.Lat},${result.Lng}`}
+                  className="map-img"/>
                 </div>
-                <div className="column">
+                <div className="column2">
                 <div className="address-text">
                 <p>{result.Address} </p>
                 <p>{result.District}</p>
                 <p>{result.Province} {result.PostCode}</p>
                 </div>
                 <div>
-                  <button className="btn-map">ดูแผนที่</button>
+                  <button className="btn-map" onClick={()=>
+                  {window.open(`https://www.google.com/maps/search/?api=1&query=${result.Lat},${result.Lng}`)}}>
+                    ดูแผนที่</button>
                 </div>
                 </div>
               </div>

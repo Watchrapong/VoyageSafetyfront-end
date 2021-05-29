@@ -21,7 +21,7 @@ box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 .img {
     width:700px;
     height:350px;
-    object-fit: contain;
+   
 }
 
 .info-box{
@@ -70,7 +70,19 @@ box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 display: block; 
 }
 
-.column {
+.column1 {
+    float: left;
+    width: 50%;
+    height: 190px; 
+  }
+
+.map-img{
+    width: 280px;
+    height: 190px; 
+    object-fit: contain;
+}
+
+.column2 {
     float: left;
     width: 50%;
     padding: 10px;
@@ -108,3 +120,4 @@ position: absolute;
 right:1;
 bottom:1;
 }
+
