@@ -3,6 +3,10 @@ import { connect } from "react-redux";
 import "./establishdetail.css";
 
 class Establishdetail extends Component {
+  
+  
+  
+  
   render() {
     return (
     <div>Establishdetail  
