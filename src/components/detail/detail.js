@@ -27,25 +27,34 @@ class Detail extends Component {
               src={result.pathImg||"https://via.placeholder.com/700x350"}
               alt="mainImage"
               style={{ width: "100%" }}
-              className="w3-hover-opacity"
+              className="w3-hover-opacity img"
               />
               </div>
               <div className="est-subprofile-box">
               </div>
               <div className="info-box">
-                <p>
+                <p className="name">
                   <b>{result.Name}</b>
+                </p>
+                <p className="des">
+                  {result.Description}
                 </p>
               </div>
               <div className="vaccination-box">
               </div>
               <div className="map-box">
+                <div className="column">
+
+                </div>
+                <div className="column">
+                <div className="address-text">
+                <p>{result.Address} </p>
+                <p>{result.District}</p>
+                <p>{result.Province} {result.PostCode}</p>
+                </div>
                 <div>
-                {result.Address}
-                {result.District}
-                {result.Province}
-                {result.PostCode}
-                  <button className="map-button map-text">ดูแผนที่</button>
+                  <button className="btn-map">ดูแผนที่</button>
+                </div>
                 </div>
               </div>
             </div>
