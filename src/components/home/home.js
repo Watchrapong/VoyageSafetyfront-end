@@ -80,7 +80,7 @@ class Home extends Component {
                           <div className="">
                             <label>เลือกประเภทสถานที่</label><br />
 
-                            <select className="e">
+                            <select className="select">
                               <option selected>ร้านอาหาร</option>
                               <option>category1</option>
                               <option>category2</option>
@@ -91,7 +91,7 @@ class Home extends Component {
                         <div className="g">
                           <div className="f">
                             <label>เรียงตามตัวอักษร</label><br />
-                            <select className="e">
+                            <select className="select">
                               <option selected>ASC</option>
                               <option>DESC</option>
                             </select>
@@ -114,15 +114,26 @@ class Home extends Component {
                   </div>
                 </form>
               </div>
+              <br />
             </section>
-            <div className="card" >
+            {/*<div className ="inline">
+              <div className="left">
+                <div className="card" style={{ width: "75%" }} >
+                  <div className="card-body">{this.createRow()}
+                  </div>
+                </div>
+              </div>
+            </div>*/}
+            <div className ="inline">
               
-            <div className="card-body">{this.createRow()}
+                <div className="card" style={{ width: "75%" }} >
+                  <div className="card-body">{this.createRow()}
+                  </div>
+                </div>
+              
+            </div>
             
 
-
-            </div>
-            </div>
           </div>
         </div>
       </div>
