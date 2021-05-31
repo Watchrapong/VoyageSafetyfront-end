@@ -10,6 +10,7 @@ class Home extends Component {
 
   componentDidMount() {
     this.debounceSearch = _.debounce(this.props.getEstablishmentsByKeyword,500)
+    this.debounceSearch = _.debounce(this.props.getEstablishmentsByOrder,500)
     this.props.getEstablishments();
   }
 
@@ -40,10 +41,12 @@ class Home extends Component {
                 {item.Address}
                 {item.District}
                 {item.Province}
-                {item.PostCode}
+                {item.PostCode} 
               </p>
-              <p>{item.Description}</p>
+              <p>{item.Description}</p> <i style={{fontSize: 24}} className="fa fa-pie-chart"></i>
             </div>
+            
+
           </div>
           </a>
         ))
@@ -55,6 +58,7 @@ class Home extends Component {
     e.persist();
     this.debounceSearch(e);
   }
+  
 
   render() {
     return (
@@ -92,8 +96,8 @@ class Home extends Component {
                           <div className="f">
                             <label>เรียงตามตัวอักษร</label><br />
                             <select className="select">
-                              <option selected>ASC</option>
-                              <option>DESC</option>
+                              <option selected value="ASC">ASC</option>
+                              <option value="DESC">DESC</option>
                             </select>
                           </div>
                         </div>

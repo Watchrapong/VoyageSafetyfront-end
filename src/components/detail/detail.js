@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as action from "../../actions/detail.action";
-import GoogleMapReact from "google-map-react";
-import { AiFillAndroid } from "react-icons/ai";
 import "./detail.css";
-import GoogleStaticMap from 'react-google-static';
+
 
 class Detail extends Component {
   

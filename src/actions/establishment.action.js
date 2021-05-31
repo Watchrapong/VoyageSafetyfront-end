@@ -53,3 +53,20 @@ export const getEstablishmentsByKeyword = (event) => {
     }
   };
 };
+
+export const getEstablishmentsByOrder = (event) => {
+  return (dispatch) => {
+    var order = event.target.value;
+    dispatch(setEstablishmentStateToFetching());
+
+    if (order !== null && order != "") {
+      httpClient
+        .get(`${server.ESTABLISH_URL}/order/${order}`)
+        .then((result) => {
+          dispatch(setEstablishmentStateToSuccess(result.data));
+        });
+    } else {
+      doGetEstablishments(dispatch);
+    }
+  };
+};
