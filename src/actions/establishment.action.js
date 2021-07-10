@@ -54,14 +54,14 @@ export const getEstablishmentsByKeyword = (event) => {
   };
 };
 
-export const getEstablishmentsByOrder = (event) => {
+export const getEstablishmentsByCategory = (event) => {
   return (dispatch) => {
-    var order = event.target.value;
+    var category = event.target.value;
     dispatch(setEstablishmentStateToFetching());
 
-    if (order !== null && order != "") {
+    if (category !== null && category != "") {
       httpClient
-        .get(`${server.ESTABLISH_URL}/order/${order}`)
+        .get(`${server.ESTABLISH_URL}/category/${category}`)
         .then((result) => {
           dispatch(setEstablishmentStateToSuccess(result.data));
         });
