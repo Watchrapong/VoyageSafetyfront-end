@@ -70,5 +70,6 @@ export const server = {
     TRANSACTION_URL: `transaction`,
     // REPORT_URL: `ESTABLISH/report`,
     LOGIN_PASSED: `yes`,
+    LOGIN_USER: `authen/info`,
 }
 

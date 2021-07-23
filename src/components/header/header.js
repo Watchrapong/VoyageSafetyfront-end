@@ -1,12 +1,79 @@
 import React, { Component } from "react";
 import "./header.css";
 //import { ReactComponent as Logo } from "../../icons/logo.svg";
-import { ReactComponent as Login } from "../../assets/img/icons/loginbutton.svg";
 import * as ai from "react-icons/ai";
 import * as cg from "react-icons/cg";
 import logo from "../../assets/img/icons/logo.png";
+import * as action from "./../../actions/app.action";
+import { connect } from "react-redux";
+import { server, YES} from "../../constants";
+import {httpClient} from "../../utils/HttpClient";
+import { withRouter } from "react-router-dom";
 
 class Header extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      User: "",
+    }
+  }
+
+  
+  componentDidMount() {
+     
+     if(localStorage.getItem(server.LOGIN_PASSED)  == YES  ){
+      let token = localStorage.getItem('Token');
+      httpClient.get(server.LOGIN_USER, {headers: {'Authorization':  `Authorization ${token}`}})
+      .then((result)=>{
+       this.setState( {User: result.data.userData.result.FirstName});
+        console.log(this.state.User);
+      });
+      
+     // const user = result.data.userData;
+     
+     
+   
+    }
+  }
+  
+  // Authen  () {
+  //   if(localStorage.getItem(server.LOGIN_PASSED)  == YES  ){
+  //     return (<div className="w3-right w3-hide-small">
+  //     <a href="#about" className="w3-bar-item w3-button">
+  //       จำนวนผู้ติดเชื้อ
+  //     </a>
+  //     <a href="#team" className="w3-bar-item w3-button">
+  //       {" "}
+  //       สถานะการฉีดวัคซีน
+  //     </a>
+  //     <a href="#work" className="w3-bar-item w3-button">
+  //       {" "}
+  //       ลงทะเบียนสถานที่
+  //     </a>
+  //     <a href="#pricing" className="w3-bar-item w3-button">
+  //       {" "}
+  //       แนะนำสถานที่
+  //     </a>
+  //     <div
+  //       className="w3-bar-btn"
+  //     style={{padding:8}}>
+  //       <button style={{backgroundColor:"white"}} className="w3-btn w3-round">
+  //         <div style={{ fontColor: "659EBC"}}>
+  //         <cg.CgProfile style={{fontSize:20}}></cg.CgProfile><p style={{marginBottom: 5}}>name</p>
+  //         </div>
+  //         <span>#{this.state.isLoggedIn}</span>
+  //       </button>
+  //     </div>
+  //   </div>)
+  //   }else{
+  //     return (<button className="w3-right w3-button w3-white">ลงชื่อเข้าใช้</button>)
+  //   }
+    
+  // }
+
+
+
   render() {
     return (
       <div>
@@ -16,34 +83,71 @@ class Header extends Component {
             <a href="#home" className="w3-button w3-wide">
               <img src={logo} style={{ height: "50px"}}></img>
             </a>
-            {/* Right-sided navbar links */}
-            <div className="w3-right w3-hide-small">
-              <a href="#about" className="w3-bar-item w3-button">
-                จำนวนผู้ติดเชื้อ
-              </a>
-              <a href="#team" className="w3-bar-item w3-button">
-                {" "}
-                สถานะการฉีดวัคซีน
-              </a>
-              <a href="#work" className="w3-bar-item w3-button">
-                {" "}
-                ลงทะเบียนสถานที่
-              </a>
-              <a href="#pricing" className="w3-bar-item w3-button">
-                {" "}
-                แนะนำสถานที่
-              </a>
-              <div
-                className="w3-bar-btn"
-              style={{padding:8}}>
-                <button style={{backgroundColor:"white"}} className="w3-btn w3-round">
-                  <div style={{ fontColor: "659EBC"}}>
-                  <cg.CgProfile style={{fontSize:20}}></cg.CgProfile><p style={{marginBottom: 5}}>name</p>
-                  </div>
-                  
-                </button>
+            {/* <div className="w3-right w3-hide-small">
+          <a href="#about" className="w3-bar-item w3-button">
+            จำนวนผู้ติดเชื้อ
+          </a>
+          <a href="#team" className="w3-bar-item w3-button">
+            {" "}
+            สถานะการฉีดวัคซีน
+          </a>
+          <a href="#work" className="w3-bar-item w3-button">
+            {" "}
+            ลงทะเบียนสถานที่
+          </a>
+          <a href="#pricing" className="w3-bar-item w3-button">
+            {" "}
+            แนะนำสถานที่
+          </a>
+          <div
+            className="w3-bar-btn"
+          style={{padding:8}}>
+            <button style={{backgroundColor:"white"}} className="w3-btn w3-round">
+              <div style={{ fontColor: "659EBC"}}>
+              <cg.CgProfile style={{fontSize:20}}></cg.CgProfile><p style={{marginBottom: 5}}>name</p>
               </div>
-            </div>
+              
+            </button>
+          </div>
+        </div> */}
+
+            {/* no login */}
+            {/* <button className="w3-right w3-button w3-white">ลงชื่อเข้าใช้</button> */}
+            
+            <div className="w3-right w3-hide-small">
+      <a href="#about" className="w3-bar-item w3-button">
+        จำนวนผู้ติดเชื้อ
+      </a>
+      <a href="#team" className="w3-bar-item w3-button">
+        {" "}
+        สถานะการฉีดวัคซีน
+      </a>
+      <a href="#work" className="w3-bar-item w3-button">
+        {" "}
+        ลงทะเบียนสถานที่
+      </a>
+      <a href="#pricing" className="w3-bar-item w3-button">
+        {" "}
+        แนะนำสถานที่
+      </a>
+      <div
+        className="w3-bar-btn w3-dropdown-hover "
+      style={{padding:8}}>
+        <div className="w3-dropdown-content">
+          <a href="" class="w3-bar-newitem">Profile</a>
+          <a href="" onClick={()=>{this.props.history.push("/login"); 
+              localStorage.clear();
+              this.props.appReducer.app.forceUpdate();}} class="w3-bar-newitem ">Logout</a>
+          </div>
+        <button style={{backgroundColor:"white"}} className="w3-btn w3-round">
+          <div  style={{ fontColor: "659EBC"}}>
+          <cg.CgProfile style={{fontSize:20}}></cg.CgProfile><p style={{marginBottom: 5}}>{this.state.User}</p>
+          
+          </div>
+        </button>
+      </div>
+    </div>
+
             {/* Hide right-floated links on small screens and replace them with a menu icon */}
             <a
               href="#"
@@ -57,7 +161,7 @@ class Header extends Component {
           </div>
         </div>
         {/* Sidebar on small screens when clicking the menu icon */}
-        <nav
+        {/* <nav
           className="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large"
           style={{ display: "none" }}
         >
@@ -104,9 +208,17 @@ class Header extends Component {
             CONTACT
           </a>
         </nav>
+      */}
       </div>
     );
   }
 }
 
-export default Header;
+const mapStateToProps = ({ appReducer }) => ({ appReducer })
+
+const mapDispatchToProps = {
+  
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Header))

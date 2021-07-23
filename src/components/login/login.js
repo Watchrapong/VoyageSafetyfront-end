@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { login, autoLogin } from "./../../actions/login.action";
 import { connect } from "react-redux";
+import logo from "../../assets/img/icons/logo.png";
+import { unmountComponentAtNode } from "react-dom";
 
 class Login extends Component {
 
@@ -19,6 +21,7 @@ class Login extends Component {
 
   showError = () => {
     return (
+      
       <div className="alert alert-danger alert-dismissible">
         <button
           type="button"
@@ -36,8 +39,20 @@ class Login extends Component {
     )
   }
 
+
+
   render() {
     return (
+      <div className="w3-top">
+        <div className="w3-bar w3-white w3-card" id="myNavbar">
+          <a href="#home" className="w3-button w3-wide">
+            <img src={logo} style={{ height: "50px"}}></img>
+          </a>
+          
+          
+          <button className="w3-right w3-button w3-white">ลงชื่อเข้าใช้</button>
+        </div>
+      
       <div className="hold-transition login-page">
         <div className="login-box">
           {/* /.login-logo */}
@@ -118,6 +133,7 @@ class Login extends Component {
           </div>
           {/* /.card */}
         </div>
+      </div>
       </div>
     );
   }

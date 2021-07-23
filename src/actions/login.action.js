@@ -30,7 +30,7 @@ export const login = (history,credential)=>{
         let result = await httpClient.post(server.LOGIN_URL, credential);
         if (result.data.result == OK) {
             localStorage.setItem(server.LOGIN_PASSED, YES);
-            localStorage.setItem('User', result.data.message)
+            localStorage.setItem('Token', result.data.token);
             getState().appReducer.app.forceUpdate();
       
             history.push("/home");
@@ -42,5 +42,5 @@ export const login = (history,credential)=>{
 }
 
 export const getLogin = ()=>{
-  return JSON.parse(localStorage.getItem('User'));
+  return JSON.parse(localStorage.getItem('Token'));
 }

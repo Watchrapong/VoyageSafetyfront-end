@@ -7,6 +7,7 @@ import Login from "./components/login/login";
 import Register from "./components/register/register";
 import Home from "./components/home/home";
 import Detail from "./components/detail/detail";
+import headerUnauthen from "./components/header2/header2";
 import { server, YES} from "./constants";
 import {
   BrowserRouter as Router,
@@ -19,33 +20,33 @@ import { setApp } from "./actions/app.action"
 import { connect } from "react-redux";
 import Establishdetail from "./components/establishdetail/establishdetail";
 
-// const isLoggedIn = () => {
-//   return localStorage.getItem(server.LOGIN_PASSED) == YES;
-// };
+const isLoggedIn = () => {
+  return localStorage.getItem(server.LOGIN_PASSED) == YES;
+};
 
 // Protected Route
-// const SecuredRoute = ({ component: Component, ...rest }) => (
-//   <Route
-//     {...rest}
-//     render={props =>
-//       isLoggedIn() === true ? (
-//         <Component {...props} />
-//       ) : (
-//         <Redirect to="/login" />
-//       )
-//     }
-//   />
-// );
+const SecuredRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      isLoggedIn() === true ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to="/login" />
+      )
+    }
+  />
+);
 
 class App extends Component {
 
-  // componentDidMount(){
-  //   this.props.setApp(this)
-  // }
+  componentDidMount(){
+    this.props.setApp(this)
+  }
 
-  // redirectToLogin = () => {
-  //   return <Redirect to="/login" />;
-  // };
+  redirectToLogin = () => {
+    return <Redirect to="/login" />;
+  };
 
  
 
@@ -53,22 +54,25 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Header/>
-          <Route path="/home" component={Home} />
+          {isLoggedIn() && <Header />}
+          {!isLoggedIn() && <headerUnauthen />}
+          <Route path="/"  /> 
+          <Route path="/home" component={Home} /> 
           <Route path="/detail/:EstId/" component={Detail} />
-          <Route path="/establishdetail" component={Establishdetail} />
-          {/* <Route path="/login" component={Login}/> */}
+          <Route path="/establishdetail" component={Establishdetail} /> 
+          <Route path="/login" component={Login}/>
           {/* {isLoggedIn() && <Header />}
           {isLoggedIn() && <Menu />} */}
           {/* <switch> */}
+          
           {/* <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
-          <Route exact={true} path="/" component={this.redirectToLogin} />
-          <SecuredRoute path="/home" component={Home} />
-          <Route path="/detail" component={Detail} /> */}
-          {/* <Route path="/*" component={this.redirectToLogin} /> */}
-          {/* <Route path="/error" component={error} /> */}
-          {/* </switch> */}
+          <Route path="/register" component={Register} /> */}
+          {/* <Route exact={true} path="/" component={this.redirectToLogin} /> */}
+          {/* <SecuredRoute path="/home" component={Home} />
+          <Route path="/detail" component={Detail} />  */}
+          {/* <Route path="/*" component={this.redirectToLogin} />  */}
+           {/* <Route path="/error" component={error} />
+          </switch> 
           {/* {isLoggedIn() && <Footer />} */}
         </div>
       </Router>
