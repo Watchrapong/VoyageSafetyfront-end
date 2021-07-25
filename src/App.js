@@ -19,6 +19,7 @@ import error from "./components/error/error";
 import { setApp } from "./actions/app.action"
 import { connect } from "react-redux";
 import Establishdetail from "./components/establishdetail/establishdetail";
+import Welcome from "./components/welcome/welcome";
 
 const isLoggedIn = () => {
   return localStorage.getItem(server.LOGIN_PASSED) == YES;
@@ -56,23 +57,29 @@ class App extends Component {
         <div>
           {isLoggedIn() && <Header />}
           {!isLoggedIn() && <headerUnauthen />}
-          <Route path="/"  /> 
+
+          {/* <Route path="/"  component={Welcome}/> 
           <Route path="/home" component={Home} /> 
           <Route path="/detail/:EstId/" component={Detail} />
           <Route path="/establishdetail" component={Establishdetail} /> 
-          <Route path="/login" component={Login}/>
+          <Route path="/login" component={Login}/> */}
+          
           {/* {isLoggedIn() && <Header />}
           {isLoggedIn() && <Menu />} */}
-          {/* <switch> */}
-          
-          {/* <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} /> */}
-          {/* <Route exact={true} path="/" component={this.redirectToLogin} /> */}
-          {/* <SecuredRoute path="/home" component={Home} />
-          <Route path="/detail" component={Detail} />  */}
-          {/* <Route path="/*" component={this.redirectToLogin} />  */}
-           {/* <Route path="/error" component={error} />
-          </switch> 
+          <switch>
+          <Route exact path="/">
+    <Redirect to="/index" />
+</Route>
+          <Route path="/index"  component={Welcome}/> 
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} /> 
+           {/* <Route exact={true} path="/" component={this.redirectToLogin} />  */}
+          <SecuredRoute path="/home" component={Home} />
+          <SecuredRoute path="/detail/:EstId/" component={Detail} />
+          <Route path="/establishdetail" component={Establishdetail} />  
+        {/* <Route path="/*" component={this.redirectToLogin} />   */}
+            {/* <Route path="/error" component={error} /> */}
+          </switch>  
           {/* {isLoggedIn() && <Footer />} */}
         </div>
       </Router>
