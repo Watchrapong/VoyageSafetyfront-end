@@ -66,13 +66,8 @@ class App extends Component {
           <Route path="/home" component={Home} /> 
           <Route path="/detail/:EstId/" component={Detail} />
           <Route path="/establishdetail" component={Establishdetail} /> 
-<<<<<<< Updated upstream
           <Route path="/login" component={Login}/> */}
           
-=======
-          <Route path="/login" component={Login}/>
-          <Route path="/profile" component={Profile}/>
->>>>>>> Stashed changes
           {/* {isLoggedIn() && <Header />}
           {isLoggedIn() && <Menu />} */}
           <switch>
