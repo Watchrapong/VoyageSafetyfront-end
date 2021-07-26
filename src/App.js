@@ -19,11 +19,7 @@ import error from "./components/error/error";
 import { setApp } from "./actions/app.action"
 import { connect } from "react-redux";
 import Establishdetail from "./components/establishdetail/establishdetail";
-<<<<<<< Updated upstream
 import Welcome from "./components/welcome/welcome";
-=======
-import Profile from "./components/profile/profile";
->>>>>>> Stashed changes
 
 const isLoggedIn = () => {
   return localStorage.getItem(server.LOGIN_PASSED) == YES;
@@ -59,9 +55,10 @@ class App extends Component {
     return (
       <Router>
         <div>
+          <Switch>
           {isLoggedIn() && <Header />}
           {!isLoggedIn() && <headerUnauthen />}
-
+          </Switch>
           {/* <Route path="/"  component={Welcome}/> 
           <Route path="/home" component={Home} /> 
           <Route path="/detail/:EstId/" component={Detail} />
@@ -70,7 +67,7 @@ class App extends Component {
           
           {/* {isLoggedIn() && <Header />}
           {isLoggedIn() && <Menu />} */}
-          <switch>
+          <Switch>
           <Route exact path="/">
     <Redirect to="/index" />
 </Route>
@@ -83,7 +80,7 @@ class App extends Component {
           <Route path="/establishdetail" component={Establishdetail} />  
         {/* <Route path="/*" component={this.redirectToLogin} />   */}
             {/* <Route path="/error" component={error} /> */}
-          </switch>  
+          </Switch>  
           {/* {isLoggedIn() && <Footer />} */}
         </div>
       </Router>
