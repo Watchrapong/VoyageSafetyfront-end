@@ -21,7 +21,7 @@ class Header extends Component {
 
   
   componentDidMount() {
-     
+     try{
      if(localStorage.getItem(server.LOGIN_PASSED)  == YES  ){
       let token = localStorage.getItem('Token');
       httpClient.get(server.LOGIN_USER, {headers: {'Authorization':  `Authorization ${token}`}})
@@ -34,7 +34,12 @@ class Header extends Component {
      
      
    
+    }else {
+      this.setState( {User: ""});
     }
+  }catch{
+    this.setState( {User: ""});
+  }
   }
   
   // Authen  () {
