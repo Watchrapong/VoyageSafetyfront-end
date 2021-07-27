@@ -19,7 +19,7 @@ export const register = (history, credential)=>{
         dispatch(setRegisterStateToFetching());
         try{
         let result = await httpClient.post(server.REGISTER_URL, credential);
-        if (result.data.result == OK){
+        if (result.data.result === OK){
             //success
             dispatch(setRegisterStateToSuccess(result.data.result));
             history.goBack();

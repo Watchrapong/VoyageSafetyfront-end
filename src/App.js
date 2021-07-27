@@ -7,7 +7,7 @@ import Login from "./components/login/login";
 import Register from "./components/register/register";
 import Home from "./components/home/home";
 import Detail from "./components/detail/detail";
-import headerUnauthen from "./components/header2/header2";
+import Header2 from "./components/header2/header2";
 import { server, YES} from "./constants";
 import {
   BrowserRouter as Router,
@@ -22,7 +22,7 @@ import Establishdetail from "./components/establishdetail/establishdetail";
 import Welcome from "./components/welcome/welcome";
 
 const isLoggedIn = () => {
-  return localStorage.getItem(server.LOGIN_PASSED) == YES;
+  return localStorage.getItem(server.LOGIN_PASSED) === YES;
 };
 
 // Protected Route
@@ -54,11 +54,8 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-          <Switch>
-          {isLoggedIn() && <Header />}
-          {!isLoggedIn() && <headerUnauthen />}
-          </Switch>
+        <div>      
+          {(isLoggedIn() && <Header />)||<Header2 />}    
           {/* <Route path="/"  component={Welcome}/> 
           <Route path="/home" component={Home} /> 
           <Route path="/detail/:EstId/" component={Detail} />

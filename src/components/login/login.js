@@ -43,8 +43,8 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="w3-top">
-        <div className="w3-bar w3-white w3-card" id="myNavbar">
+      <div >
+        {/* <div className="w3-bar w3-white w3-card" id="myNavbar">
           <a href="#home" className="w3-button w3-wide">
             <img src={logo} style={{ height: "50px"}}></img>
           </a>
@@ -52,7 +52,7 @@ class Login extends Component {
           
           <button className="w3-right w3-button w3-white">ลงชื่อเข้าใช้</button>
         </div>
-      
+       */}
       <div className="hold-transition login-page">
         <div className="login-box">
           {/* /.login-logo */}

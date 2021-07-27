@@ -16,7 +16,7 @@ export const setLoginStateToFail = () => ({
 
 export const autoLogin = (history) => {
     return () => {    
-      if (localStorage.getItem(server.LOGIN_PASSED)  == YES){      
+      if (localStorage.getItem(server.LOGIN_PASSED)  === YES){      
         //setTimeout(()=>
         history.push("/home")
         //, 100)         
@@ -28,7 +28,7 @@ export const login = (history,credential)=>{
     return async (dispatch , getState)=>{
         dispatch(setLoginStateToFetching())
         let result = await httpClient.post(server.LOGIN_URL, credential);
-        if (result.data.result == OK) {
+        if (result.data.result === OK) {
             localStorage.setItem(server.LOGIN_PASSED, YES);
             localStorage.setItem('Token', result.data.token);
             getState().appReducer.app.forceUpdate();

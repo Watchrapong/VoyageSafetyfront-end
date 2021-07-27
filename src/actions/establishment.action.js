@@ -42,7 +42,7 @@ export const getEstablishmentsByKeyword = (event) => {
     var keyword = event.target.value;
     dispatch(setEstablishmentStateToFetching());
 
-    if (keyword !== null && keyword != "") {
+    if (keyword !== null && keyword !== "") {
       httpClient
         .get(`${server.ESTABLISH_URL}/keyword/${keyword}`)
         .then((result) => {
@@ -59,7 +59,7 @@ export const getEstablishmentsByCategory = (event) => {
     var category = event.target.value;
     dispatch(setEstablishmentStateToFetching());
 
-    if (category !== null && category != "") {
+    if (category !== null && category !== "") {
       httpClient
         .get(`${server.ESTABLISH_URL}/category/${category}`)
         .then((result) => {

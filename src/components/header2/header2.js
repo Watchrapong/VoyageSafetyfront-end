@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import logo from "../../assets/img/icons/logo.png";
+import { withRouter } from 'react-router-dom';
 
 class Header2 extends Component {
   render() {
@@ -8,7 +9,7 @@ class Header2 extends Component {
         
         <div className="w3-top">
           <div className="w3-bar w3-white w3-card" id="myNavbar">
-            <a href="#home" className="w3-button w3-wide">
+            <a href="" onClick={() => this.props.history.push("/")} className="w3-button w3-wide">
               <img src={logo} style={{ height: "50px"}}></img>
             </a>
             
@@ -22,4 +23,4 @@ class Header2 extends Component {
   }
 }
 
-export default Header2;
+export default withRouter (Header2);
