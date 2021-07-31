@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { login, autoLogin } from "./../../actions/login.action";
 import { connect } from "react-redux";
-import logo from "../../assets/img/icons/logo.png";
-import { unmountComponentAtNode } from "react-dom";
+import {Container, Row, Col, Form, Button} from "react-bootstrap"
+import Image from "react-bootstrap/Image"
+import bglogin from "./../../assets/img/bglogin.png"
+
 
 class Login extends Component {
 
@@ -44,18 +46,35 @@ class Login extends Component {
   render() {
     return (
       <div >
-        {/* <div className="w3-bar w3-white w3-card" id="myNavbar">
-          <a href="#home" className="w3-button w3-wide">
-            <img src={logo} style={{ height: "50px"}}></img>
-          </a>
-          
-          
-          <button className="w3-right w3-button w3-white">ลงชื่อเข้าใช้</button>
-        </div>
-       */}
-      <div className="hold-transition login-page">
+        <Container>
+  <Row>
+    <Col><Image src={bglogin} fluid/></Col>
+    <Col><Form>
+  <Form.Group className="mb-3" controlId="formBasicEmail">
+    <Form.Label>Email address</Form.Label>
+    <Form.Control type="email" placeholder="Enter email" />
+    <Form.Text className="text-muted">
+      We'll never share your email with anyone else.
+    </Form.Text>
+  </Form.Group>
+
+  <Form.Group className="mb-3" controlId="formBasicPassword">
+    <Form.Label>Password</Form.Label>
+    <Form.Control type="password" placeholder="Password" />
+  </Form.Group>
+  <Form.Group className="mb-3" controlId="formBasicCheckbox">
+    <Form.Check type="checkbox" label="Check me out" />
+  </Form.Group>
+  <Button variant="primary" type="submit">
+    Submit
+  </Button>
+</Form></Col>
+  </Row>
+  
+</Container>
+      {/* <div className="hold-transition login-page">
         <div className="login-box">
-          {/* /.login-logo */}
+         
           <div className="card card-outline card-primary">
             <div className="card-header text-center">
               <a href="../../index2.html" className="h1">
@@ -101,7 +120,7 @@ class Login extends Component {
                       <label htmlFor="remember">Remember Me</label>
                     </div>
                   </div>
-                  {/* /.col */}
+                  
                   <div className="col-4">
                     <button
                       onClick={e => {
@@ -112,7 +131,7 @@ class Login extends Component {
                       Sign In
                     </button>
                   </div>
-                  {/* /.col */}
+                  
                 </div>
               </form>
               <p className="mb-1">
@@ -120,8 +139,8 @@ class Login extends Component {
                   I forgot my password
                 </button>
               </p>
-              <p className="mb-0">
-                <button
+              <p className="mb-0"> */}
+                {/* <button
                   onClick={() => this.props.history.push("/register")}
                   className="btn btn-block btn-outline-primary btn-sm"
                 >
@@ -129,12 +148,12 @@ class Login extends Component {
                 </button>
               </p>
             </div>
-            {/* /.card-body */}
+            
           </div>
-          {/* /.card */}
+         
         </div>
-      </div>
-      </div>
+      </div> */}
+      </div> 
     );
   }
 }
