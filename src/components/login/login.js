@@ -1,20 +1,18 @@
 import React, { Component } from "react";
 import { login, autoLogin } from "./../../actions/login.action";
 import { connect } from "react-redux";
-import {Container, Row, Col, Form, Button} from "react-bootstrap"
-import Image from "react-bootstrap/Image"
-import bglogin from "./../../assets/img/bglogin.png"
-
+import { Container, Row, Col, Form, Button, Badge } from "react-bootstrap";
+import Image from "react-bootstrap/Image";
+import bglogin from "./../../assets/img/bglogin.png";
 
 class Login extends Component {
-
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       Email: "",
       Password: "",
-    }
+    };
   }
 
   componentDidMount() {
@@ -23,7 +21,6 @@ class Login extends Component {
 
   showError = () => {
     return (
-      
       <div className="alert alert-danger alert-dismissible">
         <button
           type="button"
@@ -32,47 +29,57 @@ class Login extends Component {
           aria-hidden="true"
         >
           ×
-                  </button>
+        </button>
         <h5>
           <i className="icon fas fa-ban" /> Error!
-                  </h5>
-                  Incorrect Email or Password
+        </h5>
+        Incorrect Email or Password
       </div>
-    )
-  }
-
-
+    );
+  };
 
   render() {
     return (
-      <div >
+      <div>
         <Container>
-  <Row>
-    <Col><Image src={bglogin} fluid/></Col>
-    <Col><Form>
-  <Form.Group className="mb-3" controlId="formBasicEmail">
-    <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" placeholder="Enter email" />
-    <Form.Text className="text-muted">
-      We'll never share your email with anyone else.
-    </Form.Text>
-  </Form.Group>
+          <Row>
+            <Col>
+              <Image src={bglogin} fluid />
+            </Col>
+            <Col>
+              <Form>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label>Email address</Form.Label>
+                  <Form.Control type="email" placeholder="Enter email" onChange={e => this.setState({ Email: e.target.value })}/>
+                  <Form.Text className="text-muted">
+                    We'll never share your email with anyone else.
+                  </Form.Text>
+                </Form.Group>
 
-  <Form.Group className="mb-3" controlId="formBasicPassword">
-    <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" />
-  </Form.Group>
-  <Form.Group className="mb-3" controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="Check me out" />
-  </Form.Group>
-  <Button variant="primary" type="submit">
-    Submit
-  </Button>
-</Form></Col>
-  </Row>
-  
-</Container>
-      {/* <div className="hold-transition login-page">
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control type="password" placeholder="Password" onChange={e => this.setState({ Password: e.target.value })}/>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                  <Form.Check type="checkbox" label="Check me out" />
+                </Form.Group>
+                {this.props.loginReducer.isError && this.showError()}
+                <Button variant="primary" type="submit" onClick={e => {
+                        e.preventDefault();
+                        this.props.login(this.props.history, this.state)
+                      }}>
+                  ลงชื่อเข้าใช้
+                </Button>
+              </Form>
+              <a href="" onClick={() => this.props.history.push("/register")}>
+              <Badge pill bg="light" text="dark"
+                  >
+                    ยังไม่ได้สมัครสมาชิกสำหรับเข้าใช้งานเว็บไซต์ ?
+                </Badge></a>
+            </Col>
+          </Row>
+        </Container>
+        {/* <div className="hold-transition login-page">
         <div className="login-box">
          
           <div className="card card-outline card-primary">
@@ -140,7 +147,7 @@ class Login extends Component {
                 </button>
               </p>
               <p className="mb-0"> */}
-                {/* <button
+        {/* <button
                   onClick={() => this.props.history.push("/register")}
                   className="btn btn-block btn-outline-primary btn-sm"
                 >
@@ -153,17 +160,16 @@ class Login extends Component {
          
         </div>
       </div> */}
-      </div> 
+      </div>
     );
   }
 }
 
-const mapStateToProps = ({ loginReducer }) => ({ loginReducer })
+const mapStateToProps = ({ loginReducer }) => ({ loginReducer });
 
 const mapDispatchToProps = {
   login,
-  autoLogin
-}
+  autoLogin,
+};
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
