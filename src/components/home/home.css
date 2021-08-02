@@ -55,13 +55,13 @@ top: 710px;
     display: inline-block; 
 }
 
-body{
+/* body{
     font-family: "Roboto-Regular";
 }
 
 .font{
     font-family: "Roboto-Regular" , Arial, sans-serif;
-}
+} */
 
 div.gallery {
     margin: 5px;

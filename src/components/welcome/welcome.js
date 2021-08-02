@@ -21,27 +21,25 @@ class Welcome extends Component {
     };
   }
 
-  componentDidMount() {
+   componentDidMount() {
     try {
-      var config = {
-        method: "get",
-        url: apiCovidUrl,
-        headers: {},
-      };
-      httpClient(config)
-        .then((response) => {
+      
+      httpClient.get(apiCovidUrl)
+        .then((result) => {
+          console.log(JSON.stringify(result))
           this.setState({
-            Confirmed: response.data.Confirmed.toLocaleString("en"),
-            Recovered: response.data.Recovered.toLocaleString("en"),
-            Hospitalized: response.data.Hospitalized.toLocaleString("en"),
-            Deaths: response.data.Deaths.toLocaleString("en"),
-            NewConfirmed: response.data.NewConfirmed.toLocaleString("en"),
-            NewRecovered: response.data.NewRecovered.toLocaleString("en"),
-            NewHospitalized: response.data.NewHospitalized.toLocaleString("en"),
-            NewDeaths: response.data.NewDeaths.toLocaleString("en"),
+            Confirmed: result.data.Confirmed.toLocaleString("en"),
+            Recovered: result.data.Recovered.toLocaleString("en"),
+            Hospitalized: result.data.Hospitalized.toLocaleString("en"),
+            Deaths: result.data.Deaths.toLocaleString("en"),
+            NewConfirmed: result.data.NewConfirmed.toLocaleString("en"),
+            NewRecovered: result.data.NewRecovered.toLocaleString("en"),
+            NewHospitalized: result.data.NewHospitalized.toLocaleString("en"),
+            NewDeaths: result.data.NewDeaths.toLocaleString("en"),
           });
         })
         .catch((error) => {
+          console.error(JSON.stringify(error))
           this.setState({
             Confirmed: "000000",
             Recovered: "000000",
@@ -72,7 +70,7 @@ class Welcome extends Component {
             </p>
           </div>
         </div>
-        <section className="u-clearfix u-grey-60 u-section-1" id="sec-7a63">
+        <section className="u-clearfix u-grey-60 section-dashboard" id="sec-7a63">
   <div className="u-align-left u-clearfix u-sheet u-sheet-1">
     <h3 className="u-text u-text-default u-text-1">ตัวเลขผู้ติดเชื้อ</h3>
     <h1 className="u-text u-text-custom-color-5 u-text-default u-text-2">Covid-19</h1>

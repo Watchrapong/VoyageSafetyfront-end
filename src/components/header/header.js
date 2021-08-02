@@ -59,7 +59,7 @@ class Header extends Component {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#features">จำนวนผู้ติดเชื้อ</Nav.Link>
+              <Nav.Link href="#featurs" onClick={() => this.props.history.push("/dashboard")}>จำนวนผู้ติดเชื้อ</Nav.Link>
               <Nav.Link href="#pricing">สถานะการฉีดวัคซีน</Nav.Link>
               <Nav.Link href="#pricing">ลงทะเบียนสถานที่</Nav.Link>
             </Nav>
