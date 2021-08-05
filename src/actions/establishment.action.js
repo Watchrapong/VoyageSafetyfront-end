@@ -37,14 +37,13 @@ export const getEstablishments = () => {
   };
 };
 
-export const getEstablishmentsByKeyword = (event) => {
+export const getEstablishmentsByKeyword = (credential) => {
   return (dispatch) => {
-    var keyword = event.target.value;
     dispatch(setEstablishmentStateToFetching());
 
-    if (keyword !== null && keyword !== "") {
+    if (credential !== null && credential !== "") {
       httpClient
-        .get(`${server.ESTABLISH_URL}/keyword/${keyword}`)
+        .get(`${server.ESTABLISH_URL}/keyword/${credential}`)
         .then((result) => {
           dispatch(setEstablishmentStateToSuccess(result.data));
         });

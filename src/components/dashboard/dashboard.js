@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import Rooftop from "../../assets/img/rooftop.png";
-import Image from "react-bootstrap/Image";
-import { httpClient } from "../../utils/HttpClient";
 import { apiCovidUrl } from "../../constants";
-import "./welcome.css";
+import { httpClient } from "../../utils/HttpClient";
 
-class Welcome extends Component {
+class Dashboard extends Component {
+
   constructor(props) {
     super(props);
 
@@ -18,7 +16,6 @@ class Welcome extends Component {
       NewRecovered: "",
       NewHospitalized: "",
       NewDeaths: "",
-      date: "",
     };
   }
 
@@ -58,22 +55,9 @@ class Welcome extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <Image src={Rooftop} fluid />
-        <div className="px-4 py-5 my-5 text-center">
-          <h2 className="display-5 fw-bold">VOYAGE SAFETY</h2>
-          <div className="col-lg-7 mx-auto">
-            <p className="lead mb-4">
-              <b>Voyage Safety</b>{" "}
-              ถูกพัฒนาขึ้นเพื่อช่วยให้ผู้ใช้สามารถลงทะเบียนบันทึกการฉีดวัคซีนของบุคลากรภายในร้านของท่าน
-              <br />
-              รวมถึงค้นหาและตรวจสอบสถานะการฉีดวัคซีนของบุคลากรภายในร้านค้า
-              เพื่อหลีกเลี่ยงความเสี่ยงในการเดินทางไปยังสถานที่ต่าง ๆ
-            </p>
-          </div>
-        </div>
-        <section className="u-clearfix u-grey-60 section-dashboard" id="sec-7a63">
+    return <div>
+      
+      <section className="u-clearfix u-grey-60 section-dashboard" id="sec-7a63">
   <div className="u-align-left u-clearfix u-sheet u-sheet-1">
     <h3 className="u-text u-text-default u-text-1">ตัวเลขผู้ติดเชื้อ</h3>
     <h1 className="u-text u-text-custom-color-5 u-text-default u-text-2">Covid-19</h1>
@@ -144,9 +128,8 @@ class Welcome extends Component {
   </div>
 </section>
 
-        </div>
-    );
+    </div>;
   }
 }
 
-export default Welcome;
+export default Dashboard;

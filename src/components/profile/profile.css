@@ -1,0 +1,335 @@
+.profile-section {
+    background-image: url("../../assets/img/bgprofile.png");
+  }
+  
+  .profile-section .u-sheet-1 {
+    min-height: 922px;
+  }
+  
+  .profile-section .u-group-1 {
+    width: 843px;
+    min-height: 607px;
+    box-shadow: 0 2px 8px 0 rgba(128,128,128,1);
+    height: auto;
+    margin: 141px auto 60px;
+  }
+  
+  .profile-section .u-container-layout-1 {
+    padding: 18px 0;
+  }
+  
+  .profile-section .u-text-1 {
+    margin: 23px auto 0;
+  }
+  
+  .profile-section .u-image-1 {
+    height: 220px;
+    width: 220px;
+    margin: 66px auto 0 61px;
+  }
+  
+  .profile-section .u-text-2 {
+    margin: -220px auto 0 395px;
+  }
+  
+  .profile-section .u-text-3 {
+    margin: 35px 393px 0 auto;
+  }
+  
+  .profile-section .u-text-4 {
+    margin: 35px auto 0;
+  }
+  
+  .profile-section .u-text-5 {
+    margin: 35px auto 0 384px;
+  }
+  
+  .profile-section .u-shape-1 {
+    width: 310px;
+    height: 34px;
+    background-image: none;
+    margin: -210px 61px 0 auto;
+  }
+  
+  .profile-section .u-shape-2 {
+    width: 310px;
+    height: 34px;
+    background-image: none;
+    margin: 26px 61px 0 auto;
+  }
+  
+  .profile-section .u-shape-3 {
+    width: 310px;
+    height: 34px;
+    background-image: none;
+    margin: 26px 61px 0 auto;
+  }
+  
+  .profile-section .u-shape-4 {
+    width: 310px;
+    height: 34px;
+    background-image: none;
+    margin: 26px 61px 0 auto;
+  }
+  
+  .profile-section .u-text-6 {
+    margin: 28px auto 0 325px;
+  }
+  
+  .profile-section .u-shape-5 {
+    width: 310px;
+    height: 34px;
+    background-image: none;
+    margin: -30px 61px 0 auto;
+  }
+  
+  .profile-section .u-text-7 {
+    margin: 30px auto 0 346px;
+  }
+  
+  .profile-section .u-shape-6 {
+    width: 310px;
+    height: 34px;
+    background-image: none;
+    margin: -30px 61px 0 auto;
+  }
+  
+  .profile-section .u-btn-1 {
+    margin: 43px auto 0;
+  }
+  
+  @media (max-width: 1199px) {
+    .profile-section {
+      background-position: 50% 50%;
+    }
+  
+    .profile-section .u-sheet-1 {
+      min-height: 760px;
+    }
+  
+    .profile-section .u-group-1 {
+      height: auto;
+    }
+  }
+  
+  @media (max-width: 991px) {
+    .profile-section .u-sheet-1 {
+      min-height: 885px;
+    }
+  
+    .profile-section .u-group-1 {
+      margin-top: 139px;
+      margin-right: initial;
+      margin-left: initial;
+      width: auto;
+    }
+  
+    .profile-section .u-text-2 {
+      width: auto;
+      margin-top: -250px;
+      margin-right: 317px;
+      margin-left: auto;
+    }
+  
+    .profile-section .u-text-3 {
+      width: auto;
+      margin-right: 331px;
+    }
+  
+    .profile-section .u-text-4 {
+      width: auto;
+      margin-top: 39px;
+      margin-right: 343px;
+    }
+  
+    .profile-section .u-text-5 {
+      width: auto;
+      margin-top: 31px;
+      margin-right: 306px;
+      margin-left: auto;
+    }
+  
+    .profile-section .u-shape-1 {
+      margin-top: -180px;
+    }
+  
+    .profile-section .u-text-6 {
+      width: auto;
+      margin-top: -3px;
+      margin-right: 246px;
+      margin-left: auto;
+    }
+  
+    .profile-section .u-shape-5 {
+      margin-top: 1px;
+    }
+  
+    .profile-section .u-text-7 {
+      width: auto;
+      margin-top: 1px;
+      margin-right: 267px;
+      margin-left: auto;
+    }
+  
+    .profile-section .u-shape-6 {
+      margin-top: -1px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .profile-section .u-sheet-1 {
+      min-height: 1046px;
+    }
+  
+    .profile-section .u-group-1 {
+      margin-top: 138px;
+      min-height: 847px;
+      width: auto;
+      margin-right: initial;
+      margin-left: initial;
+    }
+  
+    .profile-section .u-image-1 {
+      margin-top: 55px;
+      margin-left: auto;
+    }
+  
+    .profile-section .u-text-2 {
+      margin-top: 60px;
+      margin-right: auto;
+      margin-left: 61px;
+    }
+  
+    .profile-section .u-text-3 {
+      margin-right: auto;
+      margin-left: 61px;
+    }
+  
+    .profile-section .u-text-4 {
+      margin-top: 35px;
+      margin-right: auto;
+      margin-left: 61px;
+    }
+  
+    .profile-section .u-text-5 {
+      margin-top: 35px;
+      margin-right: auto;
+      margin-left: 61px;
+    }
+  
+    .profile-section .u-shape-1 {
+      width: 291px;
+      margin-top: -210px;
+    }
+  
+    .profile-section .u-shape-2 {
+      width: 291px;
+    }
+  
+    .profile-section .u-shape-3 {
+      width: 291px;
+    }
+  
+    .profile-section .u-shape-4 {
+      width: 291px;
+    }
+  
+    .profile-section .u-text-6 {
+      margin-top: 28px;
+      margin-right: auto;
+      margin-left: 61px;
+    }
+  
+    .profile-section .u-shape-5 {
+      width: 291px;
+      margin-top: -30px;
+    }
+  
+    .profile-section .u-text-7 {
+      margin-top: 30px;
+      margin-right: auto;
+      margin-left: 61px;
+    }
+  
+    .profile-section .u-shape-6 {
+      width: 291px;
+      margin-top: -30px;
+    }
+  }
+  
+  @media (max-width: 575px) {
+    .profile-section .u-sheet-1 {
+      min-height: 1045px;
+    }
+  
+    .profile-section .u-group-1 {
+      margin-top: 137px;
+      width: auto;
+      margin-right: initial;
+      margin-left: initial;
+    }
+  
+    .profile-section .u-text-2 {
+      margin-top: 26px;
+      margin-left: 25px;
+    }
+  
+    .profile-section .u-text-3 {
+      margin-top: 40px;
+      margin-left: 25px;
+    }
+  
+    .profile-section .u-text-4 {
+      margin-top: 37px;
+      margin-left: 25px;
+    }
+  
+    .profile-section .u-text-5 {
+      margin-top: 38px;
+      margin-left: 25px;
+    }
+  
+    .profile-section .u-shape-1 {
+      margin-top: -190px;
+      margin-right: auto;
+    }
+  
+    .profile-section .u-shape-2 {
+      margin-top: 31px;
+      margin-right: auto;
+    }
+  
+    .profile-section .u-shape-3 {
+      margin-top: 27px;
+      margin-right: auto;
+    }
+  
+    .profile-section .u-shape-4 {
+      margin-top: 29px;
+      margin-right: auto;
+    }
+  
+    .profile-section .u-text-6 {
+      margin-top: 4px;
+      margin-left: 25px;
+    }
+  
+    .profile-section .u-shape-5 {
+      margin-top: 0;
+      margin-right: auto;
+    }
+  
+    .profile-section .u-text-7 {
+      margin-top: 4px;
+      margin-left: 25px;
+    }
+  
+    .profile-section .u-shape-6 {
+      margin-top: 0;
+      margin-right: auto;
+    }
+  
+    .profile-section .u-btn-1 {
+      margin-top: 29px;
+    }
+  }

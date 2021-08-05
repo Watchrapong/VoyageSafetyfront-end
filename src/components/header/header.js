@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import "./header.css";
-//import { ReactComponent as Logo } from "../../icons/logo.svg";
-import * as ai from "react-icons/ai";
 import * as cg from "react-icons/cg";
 import logo from "../../assets/img/icons/logo.png";
-import * as action from "./../../actions/app.action";
 import { connect } from "react-redux";
 import { server, YES } from "../../constants";
 import { httpClient } from "../../utils/HttpClient";
@@ -70,7 +67,7 @@ class Header extends Component {
                   {this.state.User} <cg.CgProfile />
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                  <Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
+                  <Dropdown.Item href="#/action-1" onClick={() => {this.props.history.push("/profile")}}>Profile</Dropdown.Item>
                   <Dropdown.Item href="#/action-2">
                     Another action
                   </Dropdown.Item>

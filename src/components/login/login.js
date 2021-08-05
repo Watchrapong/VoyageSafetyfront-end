@@ -60,17 +60,21 @@ class Login extends Component {
                 <h1 className="u-text u-text-default u-text-1">กรุณาลงชื่อเข้าใช้ </h1>
                 <div className="u-border-3 u-border-grey-dark-1 u-expanded-width u-line u-line-horizontal u-line-1" />
                 <div className="u-form u-form-1">
-                  <form action="#" method="POST" className="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style={{padding: 10}}>
+                  <form className="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style={{padding: 10}}>
                     <div className="u-form-group u-form-group-1">
-                      <label htmlFor="text-42dd" className="u-label">อีเมลล์</label>
-                      <input type="text" placeholder="Enter you Email" id="text-42dd" name="text" className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-white" />
+                      <label htmlFor="text-42dd" className="u-label">อีเมล์</label>
+                      <input type="text" placeholder="Enter you Email" id="text-42dd" name="Email" className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-white" onChange={e => this.setState({ Email: e.target.value })}/>
                     </div>
                     <div className="u-form-group u-form-group-2">
                       <label htmlFor="text-364e" className="u-label">รหัสผ่าน</label>
-                      <input type="text" placeholder="Enter your password" id="text-364e" name="password" className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-white" required="required" />
+                      <input type="password" placeholder="Enter your password" id="text-364e" name="password" className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-white" required="required" onChange={e => this.setState({ Password: e.target.value })}/>
                     </div>
+                    {this.props.loginReducer.isError && this.showError()}
                     <div className="u-align-center u-form-group u-form-submit u-form-group-3">
-                      <a href="#" className="u-btn u-btn-submit u-button-style">Submit</a>
+                      <a href="#" className="u-btn u-btn-submit u-button-style" onClick={e => {
+                        e.preventDefault();
+                        this.props.login(this.props.history, this.state)
+                      }}>Submit</a>
                       <input type="submit" defaultValue="submit" className="u-form-control-hidden" />
                     </div>
                     <div className="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
@@ -79,7 +83,7 @@ class Login extends Component {
                   </form>
                 </div>
                 <p className="u-text u-text-default u-text-2">ลืมรหัสผ่าน</p>
-                <p className="u-text u-text-default u-text-3">ยังไม่ได้สมัครสมาชิคสำหรับเข้าใช้งานเว็บไซต์?</p>
+                <a className="u-text u-text-default u-text-3" href="" onClick={() => this.props.history.push("/register")}>ยังไม่ได้สมัครสมาชิคสำหรับเข้าใช้งานเว็บไซต์?</a>
               </div>
             </div>
           </div>

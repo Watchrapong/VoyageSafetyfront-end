@@ -20,6 +20,8 @@ import { setApp } from "./actions/app.action"
 import { connect } from "react-redux";
 import Establishdetail from "./components/establishdetail/establishdetail";
 import Welcome from "./components/welcome/welcome";
+import Dashboard from "./components/dashboard/dashboard";
+import Profile from "./components/profile/profile";
 
 const isLoggedIn = () => {
   return localStorage.getItem(server.LOGIN_PASSED) === YES;
@@ -75,6 +77,8 @@ class App extends Component {
           <SecuredRoute path="/home" component={Home} />
           <SecuredRoute path="/detail/:EstId/" component={Detail} />
           <Route path="/establishdetail" component={Establishdetail} />  
+          <Route path="/dashboard" component={Dashboard}/>
+          <Route path="/profile" component={Profile}/>
         {/* <Route path="/*" component={this.redirectToLogin} />   */}
             {/* <Route path="/error" component={error} /> */}
           </Switch>  
