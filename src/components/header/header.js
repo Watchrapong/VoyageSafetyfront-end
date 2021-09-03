@@ -25,9 +25,11 @@ class Header extends Component {
             headers: { Authorization: `Authorization ${token}` },
           })
           .then((result) => {
-            this.setState({ User: result.data.userData.result.FirstName });
-            console.log(this.state.User);
-          });
+            this.setState({ User: result.data.result.FirstName });
+          })
+          .catch((err) => {
+            localStorage.clear();
+          })
 
         // const user = result.data.userData;
       } else {
