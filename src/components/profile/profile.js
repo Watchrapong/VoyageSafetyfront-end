@@ -4,7 +4,12 @@ import blankprofile from "../../assets/img/blankprofile.png";
 import { server, YES } from "../../constants";
 import { httpClient } from "../../utils/HttpClient";
 import { Button } from "react-bootstrap";
+<<<<<<< Updated upstream
 import Modal from "react-bootstrap/modal";
+=======
+import Modal from "react-bootstrap/Modal";
+import Alert from "react-bootstrap/Alert";
+>>>>>>> Stashed changes
 import FormData from "form-data";
 
 class Profile extends Component {
@@ -186,6 +191,20 @@ class Profile extends Component {
                       width={220}
                       height={220}
                     />
+<<<<<<< Updated upstream
+=======
+
+                    <div className="input-group mb-3">
+                      <input type="file" className="form-control" />
+                      <label
+                        className="input-group-text"
+                        for="inputGroupFile02"
+                      >
+                        Upload
+                      </label>
+                    </div>
+
+>>>>>>> Stashed changes
                     <div className="row g-5">
                       <div className="col-md-12 col-lg-12">
                         <h4 className="mb-3">ประวัติส่วนตัว</h4>
