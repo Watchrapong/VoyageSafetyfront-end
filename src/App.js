@@ -5,6 +5,8 @@ import Menu from "./components/menu/menu";
 import Footer from "./components/footer/footer";
 import Login from "./components/login/login";
 import Register from "./components/register/register";
+import Register2 from "./components/register/register2";
+import Register3 from "./components/register/register3";
 import Home from "./components/home/home";
 import Detail from "./components/detail/detail";
 import Header2 from "./components/header2/header2";
@@ -22,6 +24,7 @@ import Establishdetail from "./components/establishdetail/establishdetail";
 import Welcome from "./components/welcome/welcome";
 import Dashboard from "./components/dashboard/dashboard";
 import Profile from "./components/profile/profile";
+// import Addstore from "./components/addstore";
 
 const isLoggedIn = () => {
   return localStorage.getItem(server.LOGIN_PASSED) === YES;
@@ -73,12 +76,15 @@ class App extends Component {
           <Route path="/index"  component={Welcome}/> 
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} /> 
+          
            {/* <Route exact={true} path="/" component={this.redirectToLogin} />  */}
           <SecuredRoute path="/home" component={Home} />
           <SecuredRoute path="/detail/:EstId/" component={Detail} />
           <Route path="/establishdetail" component={Establishdetail} />  
           <Route path="/dashboard" component={Dashboard}/>
           <Route path="/profile" component={Profile}/>
+          <Route path="/register2" component={Register2}/>
+          {/* <Route path="/addstore" component={Addstore} /> */}
         {/* <Route path="/*" component={this.redirectToLogin} />   */}
             {/* <Route path="/error" component={error} /> */}
           </Switch>  

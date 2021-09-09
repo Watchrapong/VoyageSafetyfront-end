@@ -1,0 +1,232 @@
+.u-section-1 {
+    background-image: url("../../assets/img/bgregis.png");
+    background-position: 50% 50%;
+  }
+  
+  .u-section-1 .u-sheet-1 {
+    min-height: 591px;
+  }
+  
+  .u-section-1 .u-layout-wrap-1 {
+    margin-top: 23px;
+    margin-bottom: 23px;
+  }
+  
+  .u-section-1 .u-layout-cell-1 {
+    min-height: 545px;
+    margin-top: 0;
+  }
+  
+  .u-section-1 .u-container-layout-1 {
+    padding: 11px 30px;
+  }
+  
+  .u-section-1 .u-text-1 {
+    font-size: 2.25rem;
+    margin: 36px auto 0 164px;
+  }
+  
+  .u-section-1 .u-line-1 {
+    width: 414px;
+    height: 3px;
+    transform-origin: left center 0px;
+    margin: 11px auto 0 50px;
+  }
+  
+  .u-section-1 .u-icon-1 {
+    width: 40px;
+    height: 40px;
+    margin: 15px auto 0 142px;
+  }
+  
+  .u-section-1 .u-icon-2 {
+    width: 40px;
+    height: 40px;
+    margin: -40px auto 0 238px;
+  }
+  
+  .u-section-1 .u-icon-3 {
+    width: 41px;
+    height: 41px;
+    margin: -40px auto 0 332px;
+  }
+  
+  .u-section-1 .u-form-1 {
+    height: 107px;
+    margin: 218px 612px 0 47px;
+  }
+  
+  .u-section-1 .u-form-group-1 {
+    margin-left: 0;
+  }
+  
+  .u-block-facc-24 {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    position: relative;
+  }
+  
+  @media (max-width: 1199px) {
+    .u-section-1 .u-sheet-1 {
+      min-height: 391px;
+    }
+  
+    .u-section-1 .u-layout-wrap-1 {
+      position: relative;
+    }
+  
+    .u-section-1 .u-layout-cell-1 {
+      min-height: 490px;
+    }
+  
+    .u-section-1 .u-text-1 {
+      width: auto;
+      margin-top: 35px;
+      margin-left: 137px;
+    }
+  
+    .u-section-1 .u-line-1 {
+      width: 361px;
+      margin-top: 10px;
+      margin-left: 35px;
+    }
+  
+    .u-section-1 .u-icon-1 {
+      margin-left: 115px;
+    }
+  
+    .u-section-1 .u-icon-2 {
+      margin-left: 210px;
+    }
+  
+    .u-section-1 .u-icon-3 {
+      width: 40px;
+      height: 40px;
+      margin-left: 305px;
+    }
+  
+    .u-section-1 .u-form-1 {
+      margin-top: 209px;
+      margin-right: 445px;
+      margin-left: 25px;
+    }
+  }
+  
+  @media (max-width: 991px) {
+    .u-section-1 .u-sheet-1 {
+      min-height: 278px;
+    }
+  
+    .u-section-1 .u-layout-cell-1 {
+      min-height: 610px;
+    }
+  
+    .u-section-1 .u-text-1 {
+      margin-top: 25px;
+      margin-left: auto;
+    }
+  
+    .u-section-1 .u-line-1 {
+      transform-origin: right center 0px;
+      width: 427px;
+      margin-top: 20px;
+      margin-left: auto;
+    }
+  
+    .u-section-1 .u-icon-1 {
+      margin-top: 20px;
+      margin-left: 180px;
+    }
+  
+    .u-section-1 .u-icon-2 {
+      margin-left: 310px;
+    }
+  
+    .u-section-1 .u-icon-3 {
+      margin-left: 440px;
+    }
+  
+    .u-section-1 .u-form-1 {
+      width: 300px;
+      margin-top: 304px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .u-section-1 .u-sheet-1 {
+      min-height: 546px;
+    }
+  
+    .u-section-1 .u-layout-cell-1 {
+      min-height: 482px;
+    }
+  
+    .u-section-1 .u-container-layout-1 {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  
+    .u-section-1 .u-text-1 {
+      margin-top: 26px;
+    }
+  
+    .u-section-1 .u-line-1 {
+      width: 388px;
+      margin-top: 13px;
+    }
+  
+    .u-section-1 .u-icon-1 {
+      margin-left: 136px;
+    }
+  
+    .u-section-1 .u-icon-2 {
+      margin-left: auto;
+    }
+  
+    .u-section-1 .u-icon-3 {
+      margin-right: 136px;
+      margin-left: auto;
+    }
+  
+    .u-section-1 .u-form-1 {
+      margin-top: 217px;
+    }
+  }
+  
+  @media (max-width: 575px) {
+    .u-section-1 .u-sheet-1 {
+      min-height: 359px;
+    }
+  
+    .u-section-1 .u-layout-cell-1 {
+      min-height: 534px;
+    }
+  
+    .u-section-1 .u-container-layout-1 {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  
+    .u-section-1 .u-text-1 {
+      margin-top: 19px;
+    }
+  
+    .u-section-1 .u-line-1 {
+      width: 320px;
+      margin-top: 6px;
+    }
+  
+    .u-section-1 .u-icon-1 {
+      margin-left: 65px;
+    }
+  
+    .u-section-1 .u-icon-3 {
+      margin-right: 65px;
+    }
+  
+    .u-section-1 .u-form-1 {
+      margin-top: 278px;
+    }
+  }

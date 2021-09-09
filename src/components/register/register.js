@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { register } from "./../../actions/register.action";
+import "../register/register.css"
 
 class Register extends Component {
   constructor(props) {
@@ -39,184 +40,38 @@ class Register extends Component {
 
   render() {
     return (
-      <div className="hold-transition register-page">
-        <div className="register-box">
-          <div className="card card-outline card-primary">
-            <div className="card-header text-center">
-              <a href="../../index2.html" className="h1">
-                <b>Voyage</b>Safety
-              </a>
+      <section className="u-clearfix u-image u-section-1" id="sec-8600" data-image-width={1919} data-image-height={970}>
+      <div className="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div className="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div className="u-layout">
+            <div className="u-layout-row">
+              <div className="u-container-style u-layout-cell u-size-60 u-layout-cell-1">
+                <div className="u-container-layout u-container-layout-1">
+                  <h1 className="u-text u-text-body-alt-color u-text-default u-text-1">สมัครสมาชิค</h1>
+                  <div className="u-border-3 u-border-white u-line u-line-horizontal u-line-1" /><span className="u-file-icon u-icon u-icon-circle u-text-palette-1-base u-icon-1"><img src="../../assets/img/icons/1.png" alt /></span><span className="u-file-icon u-icon u-icon-circle u-text-palette-1-base u-icon-2"><img src="../../assets/img/icons/2g.png" alt /></span><span className="u-file-icon u-icon u-icon-circle u-text-palette-1-base u-icon-3"><img src="../../assets/img/icons/3g.png" alt /></span>
+                    <div className="u-form u-form-1">
+                       <form action="#" method="POST" className="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style={{padding: 10}}>
+                          <div className="u-form-checkbox u-form-group u-form-group-1">
+                           <input type="checkbox" id="checkbox-d00b" name="checkbox" defaultValue="On" />
+                            <label htmlFor="checkbox-d00b" className="u-label u-text-white">ยอมรับเงื่อนไขการใช้งาน(จำเป็น)</label>
+                          </div>
+                          <div className="u-align-center u-form-group u-form-submit">
+                            <a href="#" className="u-btn u-btn-round u-btn-submit u-button-style u-radius-10">ถัดไป</a>
+                           <input type="submit" defaultValue="submit" className="u-form-control-hidden" />
+                          </div>
+                          <div className="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
+                          <div className="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
+                          <input type="hidden" defaultValue name="recaptchaResponse" />
+                        </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="card-body">
-              <p className="login-box-msg">Register a new membership</p>
-              <form>
-                <div className="input-group mb-3">
-                  <input
-                    onChange={(e) =>
-                      this.setState({ FirstName: e.target.value })
-                    }
-                    type="text"
-                    className="form-control"
-                    placeholder="Firstname"
-                    name="FirstName"
-                  />
-                  <div className="input-group-append">
-                    <div className="input-group-text">
-                      <span className="fas fa-user" />
-                    </div>
-                  </div>
-                </div>
-                <div className="input-group mb-3">
-                  <input
-                    onChange={(e) =>
-                      this.setState({ LastName: e.target.value })
-                    }
-                    type="text"
-                    className="form-control"
-                    placeholder="Lastname"
-                    name="LastName"
-                  />
-                  <div className="input-group-append">
-                    <div className="input-group-text">
-                      <span className="fas fa-user" />
-                    </div>
-                  </div>
-                </div>
-                <div className="input-group mb-3">
-                  <input
-                    onChange={(e) => this.setState({ Email: e.target.value })}
-                    type="email"
-                    className="form-control"
-                    placeholder="Email"
-                    name="Email"
-                  />
-                  <div className="input-group-append">
-                    <div className="input-group-text">
-                      <span className="fas fa-envelope" />
-                    </div>
-                  </div>
-                </div>
-                <div className="input-group mb-3">
-                  <input
-                    onChange={(e) =>
-                      this.setState({ CitizenId: e.target.value })
-                    }
-                    type="text"
-                    className="form-control"
-                    placeholder="CitizenId"
-                    name="CitizenId"
-                  />
-
-                  <div className="input-group-append">
-                    <div className="input-group-text">
-                      <span className="fas fa-check" />
-                    </div>
-                  </div>
-                </div>
-                <div className="input-group mb-3">
-                  <input
-                    onChange={(e) => this.setState({ Telno: e.target.value })}
-                    type="text"
-                    className="form-control"
-                    placeholder="Phone"
-                    name="Telno"
-                  />
-                  <div className="input-group-append">
-                    <div className="input-group-text">
-                      <span className="fas fa-phone" />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="input-group mb-3">
-                  <select
-                    onChange={(e) => this.setState({ Gender: e.target.value })}
-                    className="form-control select2bs4"
-                    style={{ width: "100%" }}
-                    name="Gender"
-                  >
-                    <option value="1">Male</option>
-                    <option value="2">Female</option>
-                  </select>
-                </div>
-
-                <div className="input-group mb-3">
-                  <input
-                    onChange={(e) =>
-                      this.setState({ Password: e.target.value })
-                    }
-                    type="password"
-                    className="form-control"
-                    placeholder="Password"
-                    name="Password"
-                  />
-                  <div className="input-group-append">
-                    <div className="input-group-text">
-                      <span className="fas fa-lock" />
-                    </div>
-                  </div>
-                </div>
-                <div className="input-group mb-3">
-                  <input
-                    onChange={(e) =>
-                      this.setState({ confirm_password: e.target.value })
-                    }
-                    type="password"
-                    className="form-control"
-                    placeholder="Retype password"
-                    name="confirm_password"
-                  />
-                  <div className="input-group-append">
-                    <div className="input-group-text">
-                      <span className="fas fa-lock" />
-                    </div>
-                  </div>
-                </div>
-                {this.props.registerReducer.isError && this.showError()}
-                <div className="row">
-                  <div className="col-8">
-                    <div className="icheck-primary">
-                      <input
-                        type="checkbox"
-                        id="agreeTerms"
-                        name="terms"
-                        defaultValue="agree"
-                      />
-                      <label htmlFor="agreeTerms">
-                        I agree to the <a href="#">terms</a>
-                      </label>
-                    </div>
-                  </div>
-                  {/* /.col */}
-                  <div className="col-4">
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        this.props.register(this.props.history, this.state);
-                      }}
-                      type="submit"
-                      className="btn btn-primary btn-block"
-                    >
-                      Register
-                    </button>
-                  </div>
-                  {/* /.col */}
-                </div>
-              </form>
-              <button
-                onClick={() => this.props.history.goBack()}
-                className="btn btn-block btn-outline-primary btn-sm"
-                style={{ margin: 8 }}
-              >
-                I already have a membership
-              </button>
-            </div>
-            {/* /.form-box */}
-          </div>
-          {/* /.card */}
+         </div>
         </div>
-      </div>
-    );
+      </section>
+       );
   }
 }
 
