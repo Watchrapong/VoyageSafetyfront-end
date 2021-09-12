@@ -16,13 +16,15 @@ export const setRegisterStateToFailed = () => ({
 
 export const register = (history, credential)=>{
     return async dispatch=>{
+        console.log(credential.Password +" "+credential.Confirmation_Password)
+        if(credential.Password===credential.Confirmation_Password)
+        {
         dispatch(setRegisterStateToFetching());
         try{
         let result = await httpClient.post(server.REGISTER_URL, credential);
         if (result.data.result === OK){
             //success
             dispatch(setRegisterStateToSuccess(result.data.result));
-            history.goBack();
         }else{
             //failed
             dispatch(setRegisterStateToFailed());
@@ -31,5 +33,8 @@ export const register = (history, credential)=>{
         //failed
         dispatch(setRegisterStateToFailed());
     }
+    }else{
+        dispatch(setRegisterStateToFailed());
     }
+}
 }
