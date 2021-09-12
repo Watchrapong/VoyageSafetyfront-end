@@ -117,14 +117,12 @@ class Login extends Component {
                                     this.state
                                   );
                                 }}
-                              >
-                                Submit
-                              </a>
+                              >Submit                              
                               <input
                                 type="submit"
                                 defaultValue="submit"
-                                className="u-form-control-hidden"
-                              />
+                                className="u-form-control-hidden"                
+                              /></a>
                             </div>
                           </form>
                         </div>
@@ -136,7 +134,7 @@ class Login extends Component {
                           href=""
                           onClick={() => this.props.history.push("/register")}
                         >
-                          ยังไม่ได้สมัครสมาชิคสำหรับเข้าใช้งานเว็บไซต์?
+                          ยังไม่ได้สมัครสมาชิกสำหรับเข้าใช้งานเว็บไซต์?
                         </a>
                       </div>
                     </div>
