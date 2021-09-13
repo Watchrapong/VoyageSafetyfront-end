@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { register } from "./../../actions/register.action";
+import {validEmail, validPassword, validateForm} from "../../utils/regex.js"
 import "../register/register.css";
 import img1 from "../../assets/img/icons/1.png";
 import img2 from "../../assets/img/icons/2g.png";
@@ -26,6 +27,16 @@ class Register extends Component {
       Confirmation_Password: null,
       view: "",
       checkbox: false,
+      Error: "",
+      errors: {
+        FirstName: "",
+        LastName: "",
+        Email: "",
+        CitizenId: "",
+        Telno: "",
+        Password: "",
+        Confirmation_Password: "",
+      },
     };
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
   }
@@ -38,21 +49,92 @@ class Register extends Component {
     this.setState({ checkbox: !this.state.checkbox });
   };
 
+  handleChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    let errors = this.state.errors;
+      switch (name) {
+      case 'FirstName': 
+        errors.FirstName = 
+          value.length < 5
+            ? 'First Name must be 5 characters long!'
+            : '';
+        break;
+        case 'LastName': 
+        errors.LastName = 
+          value.length < 5
+            ? 'Last Name must be 5 characters long!'
+            : '';
+        break;
+      case 'Email': 
+        errors.Email = 
+        validEmail.test(value)
+            ? ''
+            : 'Email is not valid!';
+        break;
+        case 'CitizenId': 
+        errors.CitizenId = 
+          value.length < 13
+            ? 'Citizen id must be 13 characters long!'
+            : '';
+        break;
+        case 'Telno': 
+        errors.Telno = 
+          value.length < 10
+            ? 'Phone id must be 10 characters long!'
+            : '';
+        break;
+      case 'Password': 
+        errors.Password = 
+          value.length < 8 || validPassword.test(value)
+            ? 'Password must be 8 characters long!'
+            : '';
+        break;
+        case 'Confirm_Password': 
+        errors.Confirmation_Password = 
+          value.length < 8 || validPassword.test(value)
+            ? 'Confirmation Password must be 8 characters long!'
+            : '';
+        break;
+      default:
+        break;
+    }
+
+    this.setState({errors, [name]: value});
+  }
+  
+
   handleSubmit = async (e) => {
     e.preventDefault();
-    await this.props.register(this.props.history, this.state);
-    if (this.props.registerReducer.isError) {
-      this.onClickView2();
-    } else {
+    
+    if (
+      //this.props.registerReducer.isError
+      validateForm(this.state.errors)) {
+      console.info('Valid Form');
+      await this.props.register(this.props.history, this.state);
+      if(this.props.registerReducer.isError){
+        this.setState({Error: "ข้อมูลผิดพลาด"})
+        this.onClickView2();
+      }else{
       this.onClickView3();
+      }}
+      
+     else {
+      console.error('Invalid Form')
+      console.log(this.state.errors);
+      this.onClickView2();
     }
   };
 
   showError = () => {
     return (
-      <div className="alert alert-primary" role="alert" style={{ marginLeft: 60 }}>
-      Incorrect Information
-    </div>
+      <div
+        className="alert alert-primary"
+        role="alert"
+        style={{ marginLeft: 60 }}
+      >
+        Incorrect Information
+      </div>
     );
   };
 
@@ -141,6 +223,7 @@ class Register extends Component {
   };
 
   onClickView2 = () => {
+    const {errors,Error} = this.state;
     this.setState({
       view: (
         <section
@@ -183,13 +266,13 @@ class Register extends Component {
                             </label>
                             <input
                               type="email"
-                              name="email"
+                              name="Email"
                               className="u-border-1 u-border-grey-30 u-custom-font u-font-roboto u-input u-input-rectangle u-radius-10 u-white u-input-1"
                               required
-                              onChange={(e) =>
-                                this.setState({ Email: e.target.value })
+                              onChange={this.handleChange
                               }
-                            />
+                            />{errors.Email.length > 0 && 
+                              <span className='error'>{errors.Email}</span>}
                           </div>
                           <div className="u-form-email u-form-group">
                             <label className="u-custom-font u-font-roboto u-label u-text-white u-label-2">
@@ -197,13 +280,14 @@ class Register extends Component {
                             </label>
                             <input
                               type="password"
-                              name="pasword"
+                              name="Password"
                               className="u-border-1 u-border-grey-30 u-custom-font u-font-roboto u-input u-input-rectangle u-radius-10 u-white u-input-2"
                               required
-                              onChange={(e) =>
-                                this.setState({ Password: e.target.value })
+                              onChange={this.handleChange
                               }
                             />
+                            {errors.Password.length > 0 && 
+                              <span className='error'>{errors.Password}</span>}
                           </div>
                           <div className="u-form-group u-form-group-3">
                             <label className="u-custom-font u-font-roboto u-label u-text-white u-label-3">
@@ -211,15 +295,14 @@ class Register extends Component {
                             </label>
                             <input
                               type="password"
-                              name="confirmation_password"
+                              name="Confirmation_Password"
                               className="u-border-1 u-border-grey-30 u-custom-font u-font-roboto u-input u-input-rectangle u-radius-10 u-white u-input-3"
                               required
-                              onChange={(e) =>
-                                this.setState({
-                                  Confirmation_Password: e.target.value,
-                                })
+                              onChange={this.handleChange                                
                               }
                             />
+                            {errors.Confirmation_Password.length > 0 && 
+                              <span className='error'>{errors.Confirmation_Password}</span>}
                           </div>
                           <div className="u-form-group u-form-select u-form-group-4">
                             <label className="u-custom-font u-font-roboto u-label u-text-white u-label-4">
@@ -227,7 +310,7 @@ class Register extends Component {
                             </label>
                             <div className="u-form-select-wrapper">
                               <select
-                                name="gender"
+                                name="Gender"
                                 className="u-border-1 u-border-grey-30 u-custom-font u-font-roboto u-input u-input-rectangle u-radius-10 u-white u-input-4"
                                 required
                                 onChange={(e) =>
@@ -254,13 +337,13 @@ class Register extends Component {
                             </label>
                             <input
                               type="text"
-                              name="firstname"
+                              name="FirstName"
                               className="u-border-1 u-border-grey-30 u-custom-font u-font-roboto u-input u-input-rectangle u-radius-10 u-white u-input-5"
                               required
-                              onChange={(e) =>
-                                this.setState({ FirstName: e.target.value })
+                              onChange={this.handleChange
                               }
-                            />
+                            />{errors.FirstName.length > 0 && 
+                              <span className='error'>{errors.FirstName}</span>}
                           </div>
                           <div className="u-form-group u-form-group-6">
                             <label className="u-custom-font u-font-roboto u-label u-text-white u-label-6">
@@ -268,13 +351,13 @@ class Register extends Component {
                             </label>
                             <input
                               type="text"
-                              name="lastname"
+                              name="LastName"
                               className="u-border-1 u-border-grey-30 u-custom-font u-font-roboto u-input u-input-rectangle u-radius-10 u-white u-input-6"
                               required
-                              onChange={(e) =>
-                                this.setState({ LastName: e.target.value })
+                              onChange={this.handleChange
                               }
-                            />
+                            />{errors.LastName.length > 0 && 
+                              <span className='error'>{errors.LastName}</span>}
                           </div>
                           <div className="u-form-group u-form-name u-form-group-7">
                             <label className="u-custom-font u-font-roboto u-label u-text-white u-label-7">
@@ -282,13 +365,15 @@ class Register extends Component {
                             </label>
                             <input
                               type="text"
-                              name="citizenId"
+                              name="CitizenId"
                               className="u-border-1 u-border-grey-30 u-custom-font u-font-roboto u-input u-input-rectangle u-radius-10 u-white u-input-7"
                               required
-                              onChange={(e) =>
-                                this.setState({ CitizenId: e.target.value })
+                              minLength="13"
+                              maxLength="13"
+                              onChange={this.handleChange
                               }
-                            />
+                            />{errors.CitizenId.length > 0 && 
+                              <span className='error'>{errors.CitizenId}</span>}
                           </div>
                           <div className="u-form-group u-form-phone u-form-group-8">
                             <label
@@ -299,19 +384,21 @@ class Register extends Component {
                             </label>
                             <input
                               type="tel"
-                              pattern="\+?\d{0,3}[\s\(\-]?([0-9]{2,3})[\s\)\-]?([\s\-]?)([0-9]{3})[\s\-]?([0-9]{2})[\s\-]?([0-9]{2})"
-                              id="phone-3f10"
-                              name="phone"
+                              name="Telno"
                               className="u-border-1 u-border-grey-30 u-custom-font u-font-roboto u-input u-input-rectangle u-radius-10 u-white u-input-8"
                               required
                               placeholder="0XX-XXX-XXXX"
-                              onChange={(e) =>
-                                this.setState({ Telno: e.target.value })
+                              minLength="10"
+                              maxLength="10"
+                              onChange={this.handleChange
                               }
-                            />
+                            />{errors.Telno.length > 0 && 
+                              <span className='error'>{errors.Telno}</span>}
+                              {Error.length > 0 && 
+                              <span className='error'>{Error}</span>}
                           </div>
-                          {this.props.registerReducer.isError &&
-                            this.showError()}
+                          {/* {this.props.registerReducer.isError &&
+                            this.showError()} */}
                           <div className="u-align-right u-form-group u-form-submit">
                             <a
                               href=""
@@ -320,12 +407,12 @@ class Register extends Component {
                             >
                               ถัดไป
                               <br />
-                            
-                            <input
-                              type="submit"
-                              defaultValue="submit"
-                              className="u-form-control-hidden"
-                            /></a>
+                              <input
+                                type="submit"
+                                defaultValue="submit"
+                                className="u-form-control-hidden"
+                              />
+                            </a>
                           </div>
                         </form>
                       </div>

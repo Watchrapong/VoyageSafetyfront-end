@@ -5,8 +5,8 @@ import { server, YES } from "../../constants";
 import { httpClient } from "../../utils/HttpClient";
 import { Button } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
-import Alert from "react-bootstrap/Alert";
 import FormData from "form-data";
+import { validEmail, validPassword, validateForm } from "../../utils/regex.js";
 
 class Profile extends Component {
   constructor(props) {
@@ -18,9 +18,19 @@ class Profile extends Component {
       FirstName: "",
       LastName: "",
       CitizenId: "",
-      Phone: "",
-      password: "",
-      confirmation_password: "",
+      Telno: "",
+      PathImg: "",
+      Password: "",
+      Confirmation_Password: "",
+      File: null,
+      fileError: "",
+      Error: "",
+      errors: {
+        Email: "",
+        Telno: "",
+        Password: "",
+        Confirmation_Password: "",
+      },
       showProfile: false,
       showResetPass: false,
     };
@@ -34,8 +44,9 @@ class Profile extends Component {
     this.setState({ showProfile: true });
   };
 
-  hideProfileModal = () => {
+  hideProfileModal = (e) => {
     this.setState({ showProfile: false });
+    window.location.reload();
   };
 
   showResetPassModal = () => {
@@ -66,7 +77,8 @@ class Profile extends Component {
               FirstName: data.result.FirstName,
               LastName: data.result.LastName,
               CitizenId: data.result.CitizenId,
-              Phone: data.result.Telno,
+              Telno: data.result.Telno,
+              PathImg: data.result.pathImg,
             });
           });
       } else {
@@ -74,39 +86,120 @@ class Profile extends Component {
     } catch (e) {}
   }
 
-  handleProfileSubmit = () => {
-    var data = new FormData();
-    data.append("UserId", this.state.UserId);
-    data.append("Email", this.state.Email);
-    data.append("Telno", this.state.Phone);
-    httpClient
-      .put(server.EDIT_USER, data)
-      .then(function (response) {
-        console.log(JSON.stringify(response.data));
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-    this.hideProfileModal();
+  handleChangePassword = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    let errors = this.state.errors;
+    switch (name) {
+      case "Password":
+        errors.Password =
+          value.length < 8 || validPassword.test(value)
+            ? "Password must be 8 characters long!"
+            : "";
+        break;
+      case "Confirm_Password":
+        errors.Confirmation_Password =
+          value.length < 8 || validPassword.test(value)
+            ? "Confirmation Password must be 8 characters long!"
+            : "";
+        break;
+      default:
+        break;
+    }
+
+    this.setState({ errors, [name]: value });
+  };
+
+  handleChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    let errors = this.state.errors;
+    switch (name) {
+      case "Email":
+        errors.Email = validEmail.test(value) ? "" : "Email is not valid!";
+        break;
+      case "Telno":
+        errors.Telno =
+          value.length < 10 ? "Phone id must be 10 characters long!" : "";
+        break;
+      default:
+        break;
+    }
+
+    this.setState({ errors, [name]: value });
+  };
+
+  onFileChange = (e) => {
+    const file = e.target.files[0];
+    this.setState({ File: file });
+  };
+
+  onFileUpload = () => {
+    const file = this.state.File;
+    if(!file||!file.name.match(/\.(jpg|jpeg|png|gif)$/)||file.size > 5 * 1024 * 1024){
+      this.setState({fileError: 'โปรดเลือกไฟล์รูปใหม่'})
+    }else {
+    var formData = new FormData();
+    formData.append("image", this.state.File);
+    formData.append("name", this.state.UserId);
+    console.log(this.state.File);
+    httpClient.put(server.UPLOAD, formData);
+    setTimeout(() => window.location.reload(), 4000);
+    }
+  };
+
+  handleProfileSubmit = (e) => {
+    e.preventDefault();
+    if (validateForm(this.state.errors)) {
+      console.info("Valid Form");
+      console.log(this.state.errors);
+      var data = new FormData();
+      data.append("UserId", this.state.UserId);
+      data.append("Email", this.state.Email);
+      data.append("Telno", this.state.Telno);
+      httpClient
+        .put(server.EDIT_USER, data)
+        .then(function (response) {
+          console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+      this.hideProfileModal();
+      window.location.reload();
+    } else {
+      console.log(this.state.errors);
+      console.info("Invalid Form");
+    }
   };
 
   handleResetPassSubmit = () => {
-    var data = new FormData();
-    data.append("Password", this.state.password);
-    data.append("ConfirmPassword", this.state.confirmation_password);
-    httpClient
-      .put(server.RESET_PASSWORD, data)
-      .then(function (response) {
-        console.log(JSON.stringify(response.data));
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-    this.hideResetPassModal();
+    if (this.state.Confirmation_Password === this.state.Password) {
+      if (validateForm(this.state.errors)) {
+        console.info("Valid Form");
+        var data = new FormData();
+        data.append("UserId", this.state.UserId);
+        data.append("Password", this.state.Password);
+        httpClient
+          .put(server.RESET_PASSWORD, data)
+          .then(function (response) {
+            console.log(JSON.stringify(response.data));
+          })
+          .catch(function (error) {
+            console.error(error);
+          });
+        this.hideResetPassModal();
+      } else {
+        console.info("Invalid Form");
+      }
+    } else {
+      console.info("Invalid Form Pass");
+      this.setState({ Error: "รหัสผ่านไม่ตรง" });
+    }
   };
-  
 
   render() {
+    const { errors, Error, fileError } = this.state;
     return (
       <section
         className="skrollable u-clearfix u-image u-parallax profile-section skrollable-between"
@@ -128,7 +221,7 @@ class Profile extends Component {
             >
               <h3 className="u-text u-text-default u-text-1">ประวัติส่วนตัว</h3>
               <img
-                src={blankprofile}
+                src={this.state.PathImg || blankprofile}
                 className="u-blog-control u-image u-image-default u-image-1"
               />
               <p className="u-text u-text-default u-text-2">Email :&nbsp;</p>
@@ -157,7 +250,7 @@ class Profile extends Component {
                 เบอร์โทรศัพท์ :&nbsp;
               </p>
               <div className="u-border-1 u-border-grey-75 u-radius-10 u-shape u-shape-round u-shape-6">
-                <span style={{ marginLeft: 5 }}>{this.state.Phone}</span>
+                <span style={{ marginLeft: 5 }}>{this.state.Telno}</span>
               </div>
               <button
                 className="u-btn u-btn-round u-button-style u-radius-10 u-btn-1"
@@ -183,21 +276,25 @@ class Profile extends Component {
                   <div>
                     <img
                       className="d-block mx-auto mb-4"
-                      src={blankprofile}
-                      width={220}
-                      height={220}
+                      src={this.state.PathImg || blankprofile}
+                      style={{width: '220', height: '220'}}
                     />
 
                     <div className="input-group mb-3">
-                      <input type="file" className="form-control" />
-                      <label
+                      <input
+                        type="file"
+                        className="form-control"
+                        onChange={this.onFileChange}
+                      />
+                      <button
+                        onClick={this.onFileUpload}
                         className="input-group-text"
-                        for="inputGroupFile02"
                       >
                         Upload
-                      </label>
+                      </button>
                     </div>
-
+                    {fileError.length > 0 && (
+                    <span className="error">{fileError}</span>)}
                     <div className="row g-5">
                       <div className="col-md-12 col-lg-12">
                         <h4 className="mb-3">ประวัติส่วนตัว</h4>
@@ -246,10 +343,11 @@ class Profile extends Component {
                                 className="form-control"
                                 name="Email"
                                 value={this.state.Email}
-                                onChange={(e) =>
-                                  this.setState({ Email: e.target.value })
-                                }
+                                onChange={this.handleChange}
                               />
+                              {errors.Email.length > 0 && (
+                                <span className="error">{errors.Email}</span>
+                              )}
                             </div>
                             <div className="col-12">
                               <label htmlFor="address" className="form-label">
@@ -259,11 +357,14 @@ class Profile extends Component {
                                 type="text"
                                 className="form-control"
                                 name="Telno"
-                                value={this.state.Phone}
-                                onChange={(e) =>
-                                  this.setState({ Phone: e.target.value })
-                                }
+                                minLength="10"
+                                maxLength="10"
+                                value={this.state.Telno}
+                                onChange={this.handleChange}
                               />
+                              {errors.Telno.length > 0 && (
+                                <span className="error">{errors.Telno}</span>
+                              )}
                             </div>
                           </div>
                           <hr className="my-4" />
@@ -309,7 +410,11 @@ class Profile extends Component {
                           type="password"
                           className="form-control"
                           name="Password"
+                          onChange={this.handleChangePassword}
                         />
+                        {errors.Password.length > 0 && (
+                          <span className="error">{errors.Password}</span>
+                        )}
                       </div>
                       <div className="col-12">
                         <label htmlFor="address" className="form-label">
@@ -318,8 +423,17 @@ class Profile extends Component {
                         <input
                           type="password"
                           className="form-control"
-                          name="confirmation_password"
+                          name="Confirmation_Password"
+                          onChange={this.handleChangePassword}
                         />
+                        {errors.Confirmation_Password.length > 0 && (
+                          <span className="error">
+                            {errors.Confirmation_Password}
+                          </span>
+                        )}
+                        {Error.length > 0 && (
+                          <span className="error">{Error}</span>
+                        )}
                       </div>
                     </div>
                     <hr className="my-4" />
@@ -329,7 +443,10 @@ class Profile extends Component {
                   <Button variant="secondary" onClick={this.hideResetPassModal}>
                     Close
                   </Button>
-                  <Button variant="primary" onClick={this.handleResetPassSubmit}>
+                  <Button
+                    variant="primary"
+                    onClick={this.handleResetPassSubmit}
+                  >
                     Save Changes
                   </Button>
                 </Modal.Footer>

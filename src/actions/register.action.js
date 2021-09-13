@@ -16,7 +16,6 @@ export const setRegisterStateToFailed = () => ({
 
 export const register = (history, credential)=>{
     return async dispatch=>{
-        console.log(credential.Password +" "+credential.Confirmation_Password)
         if(credential.Password===credential.Confirmation_Password)
         {
         dispatch(setRegisterStateToFetching());

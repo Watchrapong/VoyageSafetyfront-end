@@ -74,5 +74,6 @@ export const server = {
     LOGIN_USER: `authen/info`,
     EDIT_USER: `authen/update`,
     RESET_PASSWORD: `authen/resetPassword`,
+    UPLOAD: `authen/upload`,
 }
 
