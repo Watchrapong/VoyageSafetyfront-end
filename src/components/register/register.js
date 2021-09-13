@@ -27,7 +27,6 @@ class Register extends Component {
       Confirmation_Password: null,
       view: "",
       checkbox: false,
-<<<<<<< HEAD
       Error: "",
       errors: {
         FirstName: "",
@@ -38,8 +37,6 @@ class Register extends Component {
         Password: "",
         Confirmation_Password: "",
       },
-=======
->>>>>>> c82b9a5024db0e75e583d63d527a81062f713abd
     };
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
   }
