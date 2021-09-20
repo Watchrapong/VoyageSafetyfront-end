@@ -63,7 +63,7 @@ class Header extends Component {
               <Nav.Link href="#registation" onClick={() => this.props.history.push("/addstore")}>ลงทะเบียนสถานที่</Nav.Link>
             </Nav>
             <Navbar.Collapse className="justify-content-end">
-              <Navbar.Text> Signed in as :</Navbar.Text>
+              <Navbar.Text> Signed in as : </Navbar.Text>
               <Dropdown>
                 <Dropdown.Toggle variant="light">
                   {this.state.User} <cg.CgProfile />
