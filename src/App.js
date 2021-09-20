@@ -8,7 +8,7 @@ import Register from "./components/register/register";
 import Home from "./components/home/home";
 import Detail from "./components/detail/detail";
 import Header2 from "./components/header2/header2";
-import AddStore from "./components/addstore/addstore";
+import Addstore from "./components/addstore/addstore";
 import Verify from "./components/verify/verify"
 import { server, YES} from "./constants";
 import {
@@ -88,7 +88,7 @@ class App extends Component {
           <Route path="/establishdetail" component={Establishdetail} />  
           <Route path="/dashboard" component={Dashboard}/>
           <Route path="/profile" component={Profile}/>
-          <Route path="/addstore" component={AddStore}/>
+          <Route path="/addstore" component={Addstore}/>
           <Route path="/verify/:key" component={Verify}/> 
           {/* <Route path="/addstore" component={Addstore} /> */}
         {/* <Route path="/*" component={this.redirectToLogin} />   */}
