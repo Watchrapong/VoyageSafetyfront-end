@@ -59,8 +59,8 @@ class Header extends Component {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="#featurs" onClick={() => this.props.history.push("/dashboard")}>จำนวนผู้ติดเชื้อ</Nav.Link>
-              <Nav.Link href="#pricing">สถานะการฉีดวัคซีน</Nav.Link>
-              <Nav.Link href="#pricing">ลงทะเบียนสถานที่</Nav.Link>
+              <Nav.Link href="#status" onClick={() => this.props.history.push("/dashboard")}>สถานะการฉีดวัคซีน</Nav.Link>
+              <Nav.Link href="#registation" onClick={() => this.props.history.push("/addstore")}>ลงทะเบียนสถานที่</Nav.Link>
             </Nav>
             <Navbar.Collapse className="justify-content-end">
               <Navbar.Text> Signed in as :</Navbar.Text>
@@ -69,7 +69,7 @@ class Header extends Component {
                   {this.state.User} <cg.CgProfile />
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                  <Dropdown.Item href="#/action-1" onClick={() => {this.props.history.push("/profile")}}>Profile</Dropdown.Item>
+                  <Dropdown.Item href="#/profile" onClick={() => {this.props.history.push("/profile")}}>Profile</Dropdown.Item>
                   <Dropdown.Item href="#/action-2">
                     Another action
                   </Dropdown.Item>

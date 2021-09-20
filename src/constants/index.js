@@ -53,10 +53,11 @@ export const NETWORK_TIMEOUT_MESSAGE = 'A network timeout has occurred, Please t
 export const UPLOAD_PHOTO_FAIL_MESSAGE = 'An error has occurred. The photo was unable to upload.'
 
 
-export const apiUrl = "http://localhost:8085/api/v2";
-//export const apiUrl = "https://voyagesafetyapi.herokuapp.com/api/v2";
-// export const imageUrl = "http://localhost:8085";
+//export const apiUrl = "http://localhost:8085/api/v2";
+export const apiUrl = "http://54.151.131.18:8085/api/v2";
 export const apiCovidUrl = "https://covid19.ddc.moph.go.th/api/Cases/today-cases-all";
+
+export const keycryptr = "voyageSafetySecretKey";
 
 export const YES = 'YES'
 export const NO = 'NO'
@@ -75,5 +76,6 @@ export const server = {
     EDIT_USER: `authen/update`,
     RESET_PASSWORD: `authen/resetPassword`,
     UPLOAD: `authen/upload`,
+    SUBCATEGORY: `subcategory/keyword/`
 }
 

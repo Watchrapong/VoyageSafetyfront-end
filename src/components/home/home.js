@@ -12,7 +12,6 @@ class Home extends Component {
 
     this.state = {
       search: "",
-      dropdown: [],
     };
   }
 
@@ -27,6 +26,7 @@ class Home extends Component {
   createRow = () => {
     try {
       const { result, isFetching } = this.props.establishmentReducer;
+      console.log(result);
       return (
         !isFetching &&
         result != null &&

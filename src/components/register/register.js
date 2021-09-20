@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { register } from "./../../actions/register.action";
-import {validEmail, validPassword, validateForm} from "../../utils/regex.js"
+import {validEmail, validPassword, validateForm} from "../../utils/regex.js";
+import { Button, Modal } from "react-bootstrap"
 import "../register/register.css";
 import img1 from "../../assets/img/icons/1.png";
 import img2 from "../../assets/img/icons/2g.png";
@@ -11,6 +12,8 @@ import img3g from "../../assets/img/icons/3g.png";
 import img3c from "../../assets/img/icons/3c.png";
 import img2c from "../../assets/img/icons/2c.png";
 import img2cc from "../../assets/img/icons/2cc.png";
+import imgEmail from "../../assets/img/icons/topcoat_email.png";
+import Web3 from 'web3';
 
 class Register extends Component {
   constructor(props) {
@@ -37,6 +40,7 @@ class Register extends Component {
         Password: "",
         Confirmation_Password: "",
       },
+      host: window.location.host,
     };
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
   }
@@ -106,7 +110,6 @@ class Register extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    
     if (
       //this.props.registerReducer.isError
       validateForm(this.state.errors)) {
@@ -400,8 +403,6 @@ class Register extends Component {
                               {Error.length > 0 && 
                               <span className='error'>{Error}</span>}
                           </div>
-                          {/* {this.props.registerReducer.isError &&
-                            this.showError()} */}
                           <div className="u-align-right u-form-group u-form-submit">
                             <a
                               href=""
@@ -491,7 +492,7 @@ class Register extends Component {
                         โปรดยินยันอีเมลล์ของคุณเพื่อเข้าใช้งาน{" "}
                       </p>
                       <span className="u-file-icon u-icon u-icon-circle u-text-palette-1-base u-icon-4">
-                        <img src="images/topcoat_email.png" />
+                        <img src={imgEmail} />
                       </span>
                       <p className="u-text u-text-body-alt-color u-text-default u-text-3">
                         อีเมลล์ของคุณคือ

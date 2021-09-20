@@ -277,7 +277,7 @@ class Profile extends Component {
                     <img
                       className="d-block mx-auto mb-4"
                       src={this.state.PathImg || blankprofile}
-                      style={{width: '220', height: '220'}}
+                      style={{width: '220px', height: '100%'}}
                     />
 
                     <div className="input-group mb-3">

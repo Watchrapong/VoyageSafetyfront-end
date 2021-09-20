@@ -1,11 +1,10 @@
 import React from "react";
 import { shallow } from "enzyme";
-import Header from "./addstore";
-import addStore from ".";
+import Addstore from "./addstore";
 
 describe("Addstore", () => {
   test("matches snapshot", () => {
-    const wrapper = shallow(<addStore />);
+    const wrapper = shallow(<Addstore />);
     expect(wrapper).toMatchSnapshot();
   });
 });

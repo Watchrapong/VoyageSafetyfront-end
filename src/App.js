@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import "./App.css";
 import Header from "./components/header/header";
-import Menu from "./components/menu/menu";
+
 import Footer from "./components/footer/footer";
 import Login from "./components/login/login";
 import Register from "./components/register/register";
 import Home from "./components/home/home";
 import Detail from "./components/detail/detail";
 import Header2 from "./components/header2/header2";
+import AddStore from "./components/addstore/addstore";
+import Verify from "./components/verify/verify"
 import { server, YES} from "./constants";
 import {
   BrowserRouter as Router,
@@ -44,7 +46,12 @@ const SecuredRoute = ({ component: Component, ...rest }) => (
 
 class App extends Component {
 
-  componentDidMount(){
+  // constructor(props) {
+  //   super(props)
+  //   this.state = { account: '' }
+  // }
+
+ componentDidMount(){
     this.props.setApp(this)
   }
 
@@ -81,6 +88,8 @@ class App extends Component {
           <Route path="/establishdetail" component={Establishdetail} />  
           <Route path="/dashboard" component={Dashboard}/>
           <Route path="/profile" component={Profile}/>
+          <Route path="/addstore" component={AddStore}/>
+          <Route path="/verify/:key" component={Verify}/> 
           {/* <Route path="/addstore" component={Addstore} /> */}
         {/* <Route path="/*" component={this.redirectToLogin} />   */}
             {/* <Route path="/error" component={error} /> */}
