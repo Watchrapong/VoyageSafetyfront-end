@@ -87,7 +87,7 @@ Addstore = () => {
                   </div>
                   <div className="u-form-group u-form-group-4">
                     <label htmlFor="text-c6f5" className="u-label u-label-4">ที่อยู่</label>
-                    <input type="text" placeholder id="text-c6f5" name="text" className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-input-4" />
+                    <input type="text" id="text-c6f5" name="text" className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-input-4" />
                   </div>
                   <div className="u-align-left u-form-group u-form-submit">
                     <a href="#" className="u-btn u-btn-submit u-button-style">Submit</a>
@@ -156,7 +156,7 @@ Addstore = () => {
                   </div>
                   <div className="u-form-group u-form-group-4">
                     <label htmlFor="text-c6f5" className="u-label u-label-4">ที่อยู่</label>
-                    <input type="text" placeholder id="text-c6f5" name="text" className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-input-4" />
+                    <input type="text" id="text-c6f5" name="text" className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-input-4" />
                   </div>
                   <div className="u-align-left u-form-group u-form-submit">
                     <a href="#" className="u-btn u-btn-submit u-button-style">Submit</a>
