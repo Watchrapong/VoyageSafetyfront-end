@@ -283,6 +283,7 @@ class Profile extends Component {
                     <div className="input-group mb-3">
                       <input
                         type="file"
+                        accept=".jpg,.jpe,.png,.gif"
                         className="form-control"
                         onChange={this.onFileChange}
                       />

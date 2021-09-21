@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { server } from "../../constants";
 import { httpClient } from "../../utils/HttpClient";
+import Form from 'react-bootstrap/Form'
 import "./addstore.css";
 
 class Addstore extends Component {
@@ -170,7 +171,9 @@ Addstore = () => {
             <div className="u-container-layout u-valign-bottom-sm u-valign-bottom-xs u-container-layout-3">
               <h6 className="u-text u-text-custom-color-2 u-text-default u-text-4">*กรุณาใส่รูปภาพ</h6>
               <div className="u-expanded-width-md u-shape u-shape-rectangle u-white u-shape-1" >
-                <input type="file"></input>
+              <Form.Group controlId="formFile" className="mb-3">
+    <Form.Control type="file" name="file" multiple="multiple"/>
+  </Form.Group>
               </div>
               <div className="u-expanded-width-md u-shape u-shape-rectangle u-white u-shape-2" />
             </div>
