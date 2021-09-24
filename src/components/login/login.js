@@ -126,9 +126,13 @@ class Login extends Component {
                             </div>
                           </form>
                         </div>
-                        <p className="u-text u-text-default u-text-2">
+                        <a
+                          className="u-text u-text-default u-text-2"
+                          href=""
+                          onClick={() => this.props.history.push("/forgetpassword")}
+                        >
                           ลืมรหัสผ่าน
-                        </p>
+                        </a>
                         <a
                           className="u-text u-text-default u-text-3"
                           href=""

@@ -25,8 +25,8 @@ import Welcome from "./components/welcome/welcome";
 import Dashboard from "./components/dashboard/dashboard";
 import Profile from "./components/profile/profile";
 import Vaccinationstatus from "./components/vaccinationstatus/vaccinationstatus";
-import Forgetpass from "./components/forgetpass/forgetpass";
-import Resetpass from "./components/resetpass/resetpass";
+import Forgetpassword from "./components/forgetpassword/forgetpassword";
+import Resetpassword from "./components/resetpassword/resetpassword";
 // import Addstore from "./components/addstore";
 
 const isLoggedIn = () => {
@@ -84,8 +84,6 @@ class App extends Component {
           <Route path="/index"  component={Welcome}/> 
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} /> 
-          <Route path="/resetpass" component={Resetpass} />
-          <Route path="/forgetpass" component={Forgetpass} />
            {/* <Route exact={true} path="/" component={this.redirectToLogin} />  */}
           <SecuredRoute path="/home" component={Home} />
           <SecuredRoute path="/detail/:EstId/" component={Detail} />
@@ -95,8 +93,8 @@ class App extends Component {
           <Route path="/addstore" component={Addstore}/>
           <Route path="/verify/:key" component={Verify}/> 
           <Route path="/vaccinationstatus" component={Vaccinationstatus}/>
-          <Route path="/forgetpassword" component={Forgetpass}/>
-          <Route path = "/resetpassword" component={Resetpass}/>
+          <Route path="/forgetpassword" component={Forgetpassword} />
+          <Route path="/resetpassword" component={Resetpassword} />
           {/* <Route path="/addstore" component={Addstore} /> */}
         {/* <Route path="/*" component={this.redirectToLogin} />   */}
             {/* <Route path="/error" component={error} /> */}
