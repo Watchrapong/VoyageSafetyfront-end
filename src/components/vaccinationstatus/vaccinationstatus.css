@@ -1,0 +1,669 @@
+.section-vaccination .u-sheet-1 {
+    min-height: 689px;
+  }
+  
+  .section-vaccination .u-group-1 {
+    margin-top: 39px;
+    margin-bottom: 39px;
+    min-height: 611px;
+  }
+  
+  .section-vaccination .u-container-layout-1 {
+    padding: 0 23px;
+    background-color: #f6f6f6 !important ;
+  }
+  
+  .section-vaccination .u-text-1 {
+    font-size: 2.25rem;
+    margin: 5px auto 0;
+    color:#000000 !important;
+  }
+  
+  .section-vaccination .u-list-1 {
+    width: 1059px;
+    grid-template-rows: auto;
+    margin: 0 0 0 auto;
+  }
+  
+  .section-vaccination .u-repeater-1 {
+    grid-template-columns: 50% 50%;
+    min-height: 474px;
+    grid-gap: 0px 0px;
+  }
+  
+  .section-vaccination .u-container-layout-2 {
+    padding: 0;
+  }
+  
+  .section-vaccination .u-group-2 {
+    width: 499px;
+    height: auto;
+    min-height: 468px;
+    margin: 6px auto 0 0;
+  }
+  
+  .section-vaccination .u-container-layout-3 {
+    padding: 22px 30px;
+    background-color: #ffffff !important;
+  }
+  
+  .section-vaccination .u-image-1 {
+    height: 226px;
+    width: 133px;
+    margin: 88px auto 0;
+  }
+  
+  .section-vaccination .u-text-2 {
+    font-weight: 700;
+    margin: 15px auto 0 3px;
+    color:#000000 !important;
+  }
+  
+  .section-vaccination .u-text-3 {
+    margin: 4px 286px 0 3px;
+    color:#000000 !important;
+  }
+  
+  .section-vaccination .u-text-4 {
+    margin: 6px 0 0 3px;
+    color:#000000 !important;
+  }
+  
+  .section-vaccination .u-group-3 {
+    width: 499px;
+    min-height: 103px;
+    height: auto;
+    margin: -474px auto 0 0;
+  }
+  
+  .section-vaccination .u-container-layout-4 {
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: #fbeec1 !important;
+  }
+  
+  .section-vaccination .u-text-5 {
+    font-size: 2.25rem;
+    margin: 0 auto;
+    color:#000000 !important;
+  }
+  
+  .section-vaccination .u-container-layout-5 {
+    padding: 0;
+  }
+  
+  .section-vaccination .u-group-4 {
+    width: 499px;
+    height: auto;
+    min-height: 468px;
+    margin: 6px auto 0 0;
+  }
+  
+  .section-vaccination .u-container-layout-6 {
+    padding: 22px 30px;
+    background-color: #ffffff !important;
+  }
+  
+  .section-vaccination .u-image-2 {
+    height: 226px;
+    width: 133px;
+    margin: 88px auto 0;
+  }
+  
+  .section-vaccination .u-text-6 {
+    font-weight: 700;
+    margin: 15px auto 0 3px;
+    color:#000000 !important;
+  }
+  
+  .section-vaccination .u-text-7 {
+    margin: 4px 286px 0 3px;
+    color:#000000 !important;
+  }
+  
+  .section-vaccination .u-text-8 {
+    margin: 6px 0 0 3px;
+    color:#000000 !important;
+  }
+  
+  .section-vaccination .u-group-5 {
+    width: 499px;
+    min-height: 103px;
+    height: auto;
+    margin: -474px auto 0 0;
+  }
+  
+  .section-vaccination .u-container-layout-7 {
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: #fbeec1 !important;
+  }
+  
+  .section-vaccination .u-text-9 {
+    font-size: 2.25rem;
+    margin: 0 auto;
+    color:#000000 !important;
+  }
+  
+  .section-vaccination .u-btn-1 {
+    border-style: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 1px;
+    margin: 14px auto 0;
+  }
+  
+  @media (max-width: 1199px) {
+    .section-vaccination .u-container-layout-1 {
+      padding-left: 0;
+      padding-right: 0;
+      background-color: #f6f6f6 !important ;
+    }
+  
+    .section-vaccination .u-list-1 {
+      width: 940px;
+      margin-right: 23px;
+    }
+  
+    .section-vaccination .u-repeater-1 {
+      grid-template-columns: repeat(2, 50%);
+      min-height: 183px;
+    }
+  
+    .section-vaccination .u-group-2 {
+      width: 450px;
+      min-height: 460px;
+      margin-top: 13px;
+      height: auto;
+    }
+  
+    .section-vaccination .u-container-layout-3 {
+      padding-top: 6px;
+      padding-bottom: 6px;
+      background-color: #ffffff !important;
+    }
+  
+    .section-vaccination .u-image-1 {
+      margin-top: 103px;
+      margin-left: 126px;
+    }
+  
+    .section-vaccination .u-text-2 {
+      width: auto;
+      margin-top: 11px;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-text-3 {
+      width: auto;
+      margin-top: 7px;
+      margin-right: 131px;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-text-4 {
+      width: auto;
+      margin-top: 7px;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-group-3 {
+      width: 450px;
+      min-height: 118px;
+      margin-top: -475px;
+      height: auto;
+    }
+  
+    .section-vaccination .u-container-layout-4 {
+      padding-top: 30px;
+      padding-bottom: 16px;
+      background-color: #fbeec1 !important;
+    }
+  
+    .section-vaccination .u-text-5 {
+      width: auto;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-group-4 {
+      width: 450px;
+      min-height: 460px;
+      margin-top: 13px;
+      height: auto;
+    }
+  
+    .section-vaccination .u-container-layout-6 {
+      padding-top: 6px;
+      padding-bottom: 6px;
+      background-color: #ffffff !important;
+    }
+  
+    .section-vaccination .u-image-2 {
+      margin-top: 103px;
+      margin-left: 126px;
+    }
+  
+    .section-vaccination .u-text-6 {
+      width: auto;
+      margin-top: 11px;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-text-7 {
+      width: auto;
+      margin-top: 7px;
+      margin-right: 131px;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-text-8 {
+      width: auto;
+      margin-top: 7px;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-group-5 {
+      width: 450px;
+      min-height: 118px;
+      margin-top: -475px;
+      height: auto;
+    }
+  
+    .section-vaccination .u-container-layout-7 {
+      padding-top: 30px;
+      padding-bottom: 30px;
+      background-color: #fbeec1 !important;
+    }
+  
+    .section-vaccination .u-text-9 {
+      width: auto;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-btn-1 {
+      margin-top: 304px;
+    }
+  }
+  
+  @media (max-width: 991px) {
+    .section-vaccination .u-sheet-1 {
+      min-height: 1268px;
+    }
+  
+    .section-vaccination .u-group-1 {
+      margin-top: 55px;
+      margin-bottom: 33px;
+      min-height: 1180px;
+    }
+  
+    .section-vaccination .u-container-layout-1 {
+      padding-bottom: 30px;
+      background-color: #f6f6f6 !important ;
+    }
+  
+    .section-vaccination .u-text-1 {
+      width: auto;
+      margin-top: 14px;
+      margin-left: 210px;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-list-1 {
+      margin-top: -9px;
+      margin-right: initial;
+      margin-left: initial;
+      width: auto;
+    }
+  
+    .section-vaccination .u-repeater-1 {
+      grid-template-columns: 100%;
+      min-height: 1032px;
+    }
+  
+    .section-vaccination .u-group-2 {
+      width: 651px;
+      min-height: 475px;
+      margin-top: 21px;
+      margin-right: 33px;
+      margin-left: 36px;
+    }
+  
+    .section-vaccination .u-image-1 {
+      margin-top: 119px;
+      margin-left: auto;
+    }
+  
+    .section-vaccination .u-text-2 {
+      margin-top: -4px;
+      margin-left: 0;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-text-3 {
+      margin-top: 10px;
+      margin-right: 3px;
+      margin-left: 0;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-text-4 {
+      margin-right: 3px;
+      margin-left: 0;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-group-3 {
+      width: 651px;
+      min-height: 114px;
+      margin-right: 33px;
+      margin-left: auto;
+    }
+  
+    .section-vaccination .u-group-4 {
+      width: 651px;
+      min-height: 475px;
+      margin-top: 21px;
+      margin-right: 33px;
+      margin-left: 36px;
+    }
+  
+    .section-vaccination .u-image-2 {
+      margin-top: 119px;
+      margin-left: auto;
+    }
+  
+    .section-vaccination .u-text-6 {
+      margin-top: -4px;
+      margin-left: 0;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-text-7 {
+      margin-top: 10px;
+      margin-right: 3px;
+      margin-left: 0;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-text-8 {
+      margin-right: 3px;
+      margin-left: 0;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-group-5 {
+      width: 651px;
+      min-height: 114px;
+      margin-right: 33px;
+      margin-left: auto;
+    }
+  
+    .section-vaccination .u-btn-1 {
+      margin-top: 7px;
+      margin-left: 238px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .section-vaccination .u-sheet-1 {
+      min-height: 1259px;
+    }
+  
+    .section-vaccination .u-group-1 {
+      min-height: 1210px;
+      width: 571px;
+      margin: 19px -16px 30px;
+    }
+  
+    .section-vaccination .u-container-layout-1 {
+      padding-bottom: 29px;
+      background-color: #f6f6f6 !important ;
+    }
+  
+    .section-vaccination .u-text-1 {
+      margin-top: 7px;
+      margin-right: 119px;
+      margin-left: auto;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-list-1 {
+      margin-top: -14px;
+      width: auto;
+      margin-right: initial;
+      margin-left: initial;
+    }
+  
+    .section-vaccination .u-group-2 {
+      min-height: 501px;
+      width: 535px;
+      margin-top: 49px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    .section-vaccination .u-container-layout-3 {
+      padding-left: 10px;
+      padding-right: 10px;
+      background-color: #ffffff !important;
+    }
+  
+    .section-vaccination .u-image-1 {
+      margin-top: 132px;
+    }
+  
+    .section-vaccination .u-text-2 {
+      margin-top: 15px;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-text-3 {
+      margin-top: 12px;
+      margin-right: 0;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-text-4 {
+      margin-right: 0;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-group-3 {
+      min-height: 93px;
+      width: 534px;
+      margin-top: -499px;
+      margin-right: auto;
+    }
+  
+    .section-vaccination .u-container-layout-4 {
+      padding-left: 10px;
+      padding-right: 10px;
+      background-color: #fbeec1 !important;
+    }
+  
+    .section-vaccination .u-text-5 {
+      margin-top: 18px;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-group-4 {
+      min-height: 501px;
+      width: 535px;
+      margin-top: 49px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    .section-vaccination .u-container-layout-6 {
+      padding-left: 10px;
+      padding-right: 10px;
+      background-color: #ffffff !important;
+    }
+  
+    .section-vaccination .u-image-2 {
+      margin-top: 132px;
+    }
+  
+    .section-vaccination .u-text-6 {
+      margin-top: 15px;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-text-7 {
+      margin-top: 12px;
+      margin-right: 0;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-text-8 {
+      margin-right: 0;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-group-5 {
+      min-height: 93px;
+      width: 534px;
+      margin-top: -499px;
+      margin-right: auto;
+    }
+  
+    .section-vaccination .u-container-layout-7 {
+      padding-left: 10px;
+      padding-right: 10px;
+      background-color: #fbeec1 !important;
+    }
+  
+    .section-vaccination .u-text-9 {
+      margin-top: 17px;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-btn-1 {
+      margin-top: 50px;
+      margin-left: auto;
+    }
+  }
+  
+  @media (max-width: 575px) {
+    .section-vaccination .u-sheet-1 {
+      min-height: 1228px;
+    }
+  
+    .section-vaccination .u-group-1 {
+      min-height: 1168px;
+      margin-bottom: 41px;
+      margin-right: initial;
+      margin-left: initial;
+      width: auto;
+    }
+  
+    .section-vaccination .u-container-layout-1 {
+      padding-top: 14px;
+      padding-bottom: 14px;
+      background-color: #f6f6f6 !important ;
+    }
+  
+    .section-vaccination .u-text-1 {
+      margin-left: 22px;
+      margin-right: 22px;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-list-1 {
+      margin-top: 14px;
+      width: auto;
+      margin-right: initial;
+      margin-left: initial;
+    }
+  
+    .section-vaccination .u-repeater-1 {
+      min-height: 1018px;
+    }
+  
+    .section-vaccination .u-group-2 {
+      margin-top: 0;
+      min-height: 472px;
+      margin-right: initial;
+      margin-left: initial;
+      width: auto;
+    }
+  
+    .section-vaccination .u-container-layout-3 {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      background-color: #ffffff !important;
+    }
+  
+    .section-vaccination .u-image-1 {
+      margin-top: 94px;
+    }
+  
+    .section-vaccination .u-text-2 {
+      margin-top: 14px;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-text-3 {
+      margin-top: 14px;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-group-3 {
+      margin-top: -472px;
+      min-height: 105px;
+      margin-right: initial;
+      margin-left: initial;
+      width: auto;
+    }
+  
+    .section-vaccination .u-text-5 {
+      margin-top: 0;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-group-4 {
+      margin-top: 0;
+      min-height: 472px;
+      margin-right: initial;
+      margin-left: initial;
+      width: auto;
+    }
+  
+    .section-vaccination .u-container-layout-6 {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      background-color: #ffffff !important;
+    }
+  
+    .section-vaccination .u-image-2 {
+      margin-top: 94px;
+    }
+  
+    .section-vaccination .u-text-6 {
+      margin-top: 14px;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-text-7 {
+      margin-top: 14px;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-group-5 {
+      margin-top: -472px;
+      min-height: 105px;
+      margin-right: initial;
+      margin-left: initial;
+      width: auto;
+    }
+  
+    .section-vaccination .u-text-9 {
+      margin-top: 0;
+      color:#000000 !important;
+    }
+  
+    .section-vaccination .u-btn-1 {
+      margin-top: -12px;
+    }
+  }

@@ -59,7 +59,7 @@ class Header extends Component {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="#featurs" onClick={() => this.props.history.push("/dashboard")}>จำนวนผู้ติดเชื้อ</Nav.Link>
-              <Nav.Link href="#status" onClick={() => this.props.history.push("/dashboard")}>สถานะการฉีดวัคซีน</Nav.Link>
+              <Nav.Link href="#vaccinestatus" onClick={() => this.props.history.push("/vaccinationstatus")}>สถานะการฉีดวัคซีน</Nav.Link>
               <Nav.Link href="#registation" onClick={() => this.props.history.push("/addstore")}>ลงทะเบียนสถานที่</Nav.Link>
             </Nav>
             <Navbar.Collapse className="justify-content-end">
