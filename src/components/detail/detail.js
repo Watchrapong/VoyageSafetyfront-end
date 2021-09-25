@@ -1,8 +1,11 @@
+// import { Carousel } from "bootstrap";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as action from "../../actions/detail.action";
 import "./detail.css";
 import "./detail2.css";
+import Carousel from 'react-bootstrap/Carousel';
+
 
 class Detail extends Component {
   componentDidMount() {
@@ -25,8 +28,35 @@ class Detail extends Component {
                   <div className="u-layout">
                     <div className="u-layout-row">
                       <div className="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+
                         <div className="u-container-layout u-container-layout-1">
-                          <div
+                      
+                          <Carousel>
+                            <Carousel.Item interval={1500}>
+                            <img
+                                    src={
+                                      result.pathImg ||
+                                      "https://via.placeholder.com/700x350"
+                                    }
+                                    alt="mainImage"
+                                    style={{ width: "100%" }}
+                                    className="w3-hover-opacity img"
+                                  />
+                            </Carousel.Item>
+                            <Carousel.Item interval={1500}>
+                            <img
+                                    src={
+                                      result.pathImg ||
+                                      "https://via.placeholder.com/700x350"
+                                    }
+                                    alt="mainImage"
+                                    style={{ width: "100%" }}
+                                    className="w3-hover-opacity img"
+                                  />
+                              </Carousel.Item>
+                          </Carousel>
+
+                          {/* <div
                             className="u-carousel u-expanded-width u-gallery u-layout-thumbnails u-lightbox u-show-text-always u-gallery-1"
                             id="carousel-e131"
                             data-interval={5000}
@@ -193,7 +223,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
                             />
                               </li>
                             </ol>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                       <div className="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
