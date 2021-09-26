@@ -78,6 +78,6 @@ export const server = {
     EDIT_USER: `authen/update`,
     RESET_PASSWORD: `authen/resetPassword`,
     UPLOAD: `authen/upload`,
-    VACCINATION: `vaccine`,
+    VACCINATION: `vaccination/vaccine`,
 }
 

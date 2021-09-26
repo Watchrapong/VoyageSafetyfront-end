@@ -229,7 +229,7 @@ class Profile extends Component {
                 src={this.state.PathImg || blankprofile}
                 className="u-blog-control u-image u-image-default u-image-1"
               />
-              <p className="u-text u-text-default u-text-2">Email :&nbsp;</p>
+              <p className="u-text u-text-default u-text-2">อีเมลล์ :&nbsp;</p>
               <p className="u-text u-text-default u-text-3">เพศ :&nbsp;</p>
               <p className="u-text u-text-default u-text-4">ชื่อ :</p>
               <p className="u-text u-text-default u-text-5">นามสกุล:&nbsp;</p>
@@ -363,7 +363,7 @@ class Profile extends Component {
                             </div>
                             <div className="col-12">
                               <label htmlFor="email" className="form-label">
-                                Email{" "}
+                                อีเมลล์{" "}
                               </label>
                               <input
                                 type="email"
