@@ -60,7 +60,7 @@
   }
   
   .section-vaccination .u-text-3 {
-    margin: 4px 286px 0 3px;
+    margin: 4px 0 3px;
     color:#000000 !important;
   }
   
@@ -117,7 +117,7 @@
   }
   
   .section-vaccination .u-text-7 {
-    margin: 4px 286px 0 3px;
+    margin: 4px 0 3px;
     color:#000000 !important;
   }
   
@@ -610,7 +610,6 @@
     }
   
     .section-vaccination .u-group-3 {
-      margin-top: -472px;
       min-height: 105px;
       margin-right: initial;
       margin-left: initial;
@@ -651,7 +650,6 @@
     }
   
     .section-vaccination .u-group-5 {
-      margin-top: -472px;
       min-height: 105px;
       margin-right: initial;
       margin-left: initial;

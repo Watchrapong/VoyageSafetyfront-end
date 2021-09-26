@@ -53,8 +53,25 @@ class App extends Component {
   //   super(props)
   //   this.state = { account: '' }
   // }
+  getMyLocation = () => {
+    const location = window.navigator.geolocation;
+    if(location){
+      location.getCurrentPosition(
+        (position) => {
+          console.log(position.coords.latitude);
+          console.log(position.coords.longitude);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+    }else{
+      console.log("GPS unacess")
+    }
+  }
 
  componentDidMount(){
+   this.getMyLocation();
     this.props.setApp(this)
   }
 
@@ -87,12 +104,12 @@ class App extends Component {
            {/* <Route exact={true} path="/" component={this.redirectToLogin} />  */}
           <SecuredRoute path="/home" component={Home} />
           <SecuredRoute path="/detail/:EstId/" component={Detail} />
-          <Route path="/establishdetail" component={Establishdetail} />  
-          <Route path="/dashboard" component={Dashboard}/>
-          <Route path="/profile" component={Profile}/>
-          <Route path="/addstore" component={Addstore}/>
-          <Route path="/verify/:key" component={Verify}/> 
-          <Route path="/vaccinationstatus" component={Vaccinationstatus}/>
+          <SecuredRoute path="/establishdetail" component={Establishdetail} />  
+          <SecuredRoute path="/dashboard" component={Dashboard}/>
+          <SecuredRoute path="/profile" component={Profile}/>
+          <SecuredRoute path="/addstore" component={Addstore}/>
+          <Route path="/verify/:email/:key" component={Verify}/> 
+          <SecuredRoute path="/vaccinationstatus" component={Vaccinationstatus}/>
           <Route path="/forgetpassword" component={Forgetpassword} />
           <Route path="/resetpassword" component={Resetpassword} />
           {/* <Route path="/addstore" component={Addstore} /> */}

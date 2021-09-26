@@ -1,14 +1,99 @@
 import React, { Component } from "react";
-import "../vaccinationstatus/vaccinationstatus.css";
+import { apiBlockChain, server } from "../../constants";
+import { httpClient } from "../../utils/HttpClient";
+import { YES } from "../../constants";
+import "./vaccinationstatus.css";
+import axios from "axios";
+import havevaccineimg from "./../../assets/img/vaccine/havevaccine.png";
+import donthavevaccineimg from "./../../assets/img/vaccine/donthavevaccine.png";
 
 class Vaccinationstatus extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      CitizenId: "",
+      haveVaccine: "",
+      countVaccine: "",
+      vaccineName1: "ยังไม่ได้รับวัคซีน",
+      dateGetVaccine1: "",
+      hospitalName1: "",
+      img1 : donthavevaccineimg,
+      vaccineName2: "ยังไม่ได้รับวัคซีน",
+      dateGetVaccine2: "",
+      hospitalName2: "",
+      img2: donthavevaccineimg,
+    };
+  }
+
+  componentDidMount() {
+    this.getVaccination();
+  }
+
+  async getVaccination() {
+    try {
+      if (localStorage.getItem(server.LOGIN_PASSED) == YES) {
+        let token = localStorage.getItem("Token");
+        await httpClient
+          .get(server.LOGIN_USER, {
+            headers: { Authorization: `Authorization ${token}` },
+          })
+          .then((result) => {
+            this.setState({ CitizenId: result.data.result.CitizenId });
+            axios
+              .post(
+                `${apiBlockChain}/${server.VACCINATION}/${this.state.CitizenId}`
+              )
+              .then((result) => {
+                let data = result.data.result;
+                console.log(data);
+                if (data.countVaccine === "1") {
+                  this.setState({
+                    vaccineName1: data.vaccineName1,
+                    dateGetVaccine1: data.dateGetVaccine1,
+                    hospitalName1: data.hospitalName1,
+                    img1: havevaccineimg
+                  });
+                } else {
+                  this.setState({
+                    vaccineName1: data.vaccineName1,
+                    dateGetVaccine1: data.dateGetVaccine1,
+                    hospitalName1: data.hospitalName1,
+                    img1: havevaccineimg,
+                    vaccineName2: data.vaccineName2,
+                    dateGetVaccine2: data.dateGetVaccine2,
+                    hospitalName2: data.hospitalName2,
+                    img2: havevaccineimg
+                  });
+                }
+              })
+              .catch((error) => {
+               console.error(error);
+              });
+          });
+      } else {
+      }
+    } catch (e) {}
+  }
+  
   render() {
+    const {
+      haveVaccine,
+      countVaccine,
+      vaccineName1,
+      dateGetVaccine1,
+      hospitalName1,
+      img1,
+      vaccineName2,
+      dateGetVaccine2,
+      hospitalName2,
+      img2,
+    } = this.state;
     return (
-      <section className="u-clearfix section-vaccination" id="sec-4f2b">
+      <section className="u-clearfix section-vaccination" >
         <div className="u-clearfix u-sheet u-sheet-1">
           <div className="u-container-style u-custom-color-3 u-expanded-width-lg u-expanded-width-md u-expanded-width-xl u-expanded-width-xs u-group u-radius-15 u-shape-round u-group-1">
             <div className="u-container-layout u-container-layout-1">
-              <p className="u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-1" >
+              <p className="u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-1">
                 <b>สถานะการฉีดวัคซีน </b>
               </p>
               <div className="u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-list u-list-1">
@@ -18,20 +103,19 @@ class Vaccinationstatus extends Component {
                       <div className="u-container-style u-custom-color-4 u-expanded-width-xs u-group u-radius-15 u-shape-round u-group-2">
                         <div className="u-container-layout u-container-layout-3">
                           <img
-                            alt
                             className="u-image u-image-default u-image-1"
                             data-image-width={500}
                             data-image-height={500}
-                            src="images/pf-s77-ted-1175-eye-chat-06a-mockup-removebg-preview.png"
+                            src={img1}
                           />
                           <h3 className="u-text u-text-default u-text-2">
-                            โมเดอร์น่า
+                            {vaccineName1}
                           </h3>
                           <p className="u-text u-text-3">
-                            วันที่ได้รับวัคซีน :&nbsp;
+                            วันที่ได้รับวัคซีน:&nbsp;{dateGetVaccine1}
                           </p>
                           <p className="u-text u-text-4">
-                            โรงพยาบาลที่ฉีดวัคซีน :&nbsp;
+                            โรงพยาบาลที่ฉีดวัคซีน:&nbsp;{hospitalName1}
                           </p>
                         </div>
                       </div>
@@ -49,20 +133,19 @@ class Vaccinationstatus extends Component {
                       <div className="u-container-style u-custom-color-4 u-expanded-width-xs u-group u-radius-15 u-shape-round u-group-4">
                         <div className="u-container-layout u-container-layout-6">
                           <img
-                            alt
                             className="u-image u-image-default u-image-2"
                             data-image-width={2000}
                             data-image-height={1333}
-                            src="images/2.svg"
+                            src={img2}
                           />
                           <h3 className="u-text u-text-default u-text-6">
-                            ยังไม่ได้รับวัคซีน
+                            {vaccineName2}
                           </h3>
                           <p className="u-text u-text-7">
-                            วันที่ได้รับวัคซีน :&nbsp;
+                            วันที่ได้รับวัคซีน:&nbsp;{dateGetVaccine2}
                           </p>
                           <p className="u-text u-text-8">
-                            โรงพยาบาลที่ฉีดวัคซีน :&nbsp;
+                            โรงพยาบาลที่ฉีดวัคซีน:&nbsp;{hospitalName2}
                           </p>
                         </div>
                       </div>

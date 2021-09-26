@@ -23,7 +23,7 @@ class Welcome extends Component {
    componentDidMount() {
     try {
       
-      httpClient.get(apiCovidUrl)
+      httpClient.get(apiCovidUrl,{header: {rejectUnauthorized: false}})
         .then((result) => {
           this.setState({
             total_case: result.data[0].total_case.toLocaleString("en"),

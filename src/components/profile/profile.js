@@ -23,6 +23,7 @@ class Profile extends Component {
       Password: "",
       Confirmation_Password: "",
       File: null,
+      FileName: null,
       fileError: "",
       Error: "",
       errors: {
@@ -131,20 +132,24 @@ class Profile extends Component {
 
   onFileChange = (e) => {
     const file = e.target.files[0];
-    this.setState({ File: file });
+    this.setState({ File: file, FileName: file.name });
   };
 
   onFileUpload = () => {
     const file = this.state.File;
-    if(!file||!file.name.match(/\.(jpg|jpeg|png|gif)$/)||file.size > 5 * 1024 * 1024){
-      this.setState({fileError: 'โปรดเลือกไฟล์รูปใหม่'})
-    }else {
-    var formData = new FormData();
-    formData.append("image", this.state.File);
-    formData.append("name", this.state.UserId);
-    console.log(this.state.File);
-    httpClient.put(server.UPLOAD, formData);
-    setTimeout(() => window.location.reload(), 4000);
+    if (
+      !file ||
+      !file.name.match(/\.(jpg|jpeg|png|gif)$/) ||
+      file.size > 5 * 1024 * 1024
+    ) {
+      this.setState({ fileError: "โปรดเลือกไฟล์รูปใหม่" });
+    } else {
+      var formData = new FormData();
+      formData.append("image", this.state.File);
+      formData.append("name", this.state.UserId);
+      console.log(this.state.File);
+      httpClient.put(server.UPLOAD, formData);
+      setTimeout(() => window.location.reload(), 4000);
     }
   };
 
@@ -277,10 +282,10 @@ class Profile extends Component {
                     <img
                       className="d-block mx-auto mb-4"
                       src={this.state.PathImg || blankprofile}
-                      style={{width: '220px', height: '100%'}}
+                      style={{ width: "220px", height: "100%" }}
                     />
 
-                    <div className="input-group mb-3">
+                    {/* <div className="input-group mb-3">
                       <input
                         type="file"
                         accept=".jpg,.jpe,.png,.gif"
@@ -293,9 +298,30 @@ class Profile extends Component {
                       >
                         Upload
                       </button>
+                    </div> */}
+                    <div className="input-group mb-3">
+                      <div className="custom-file">
+                        <input
+                          type="file"
+                          className="custom-file-input"
+                          accept=".jpg,.jpe,.png,.gif"
+                          onChange={this.onFileChange}
+                        />
+                        <label className="custom-file-label">Choose file</label>
+                      </div>
+                      <div className="input-group-append">
+                        <button
+                          className="btn btn-outline-secondary"
+                          onClick={this.onFileUpload}
+                        >
+                          Upload
+                        </button>
+                      </div>
                     </div>
+
                     {fileError.length > 0 && (
-                    <span className="error">{fileError}</span>)}
+                      <span className="error">{fileError}</span>
+                    )}
                     <div className="row g-5">
                       <div className="col-md-12 col-lg-12">
                         <h4 className="mb-3">ประวัติส่วนตัว</h4>

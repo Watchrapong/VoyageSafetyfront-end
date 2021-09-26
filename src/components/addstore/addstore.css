@@ -243,10 +243,9 @@
   
   .restaurant-section .u-shape-2 {
     height: 185px;
-    margin-top: 10px;
-    margin-bottom: 0;
     box-shadow: 5px 5px 20px 0 rgba(0,0,0,0.4);
     width: 396px;
+    margin: 14px auto 0;
   }
   
   @media (max-width: 1199px) {
@@ -685,7 +684,7 @@
     }
   
     .hotel-section .u-shape-2 {
-      height: 186px;
+      height: 200;
       margin-top: 11px;
       width: 288px;
     }
