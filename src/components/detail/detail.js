@@ -4,8 +4,7 @@ import { connect } from "react-redux";
 import * as action from "../../actions/detail.action";
 import "./detail.css";
 import "./detail2.css";
-import Carousel from 'react-bootstrap/Carousel';
-
+import Carousel from "react-bootstrap/Carousel";
 
 class Detail extends Component {
   componentDidMount() {
@@ -28,202 +27,150 @@ class Detail extends Component {
                   <div className="u-layout">
                     <div className="u-layout-row">
                       <div className="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
-
                         <div className="u-container-layout u-container-layout-1">
-                      
                           <Carousel>
                             <Carousel.Item interval={1500}>
-                            <img
-                                    src={
-                                      result.pathImg ||
-                                      "https://via.placeholder.com/700x350"
-                                    }
-                                    alt="mainImage"
-                                    style={{ width: "100%" }}
-                                    className="w3-hover-opacity img"
-                                  />
+                              <img
+                                src={
+                                  result.pathImg ||
+                                  "https://via.placeholder.com/700x350"
+                                }
+                                alt="mainImage"
+                                style={{ width: "100%" }}
+                                className="w3-hover-opacity img"
+                              />
                             </Carousel.Item>
                             <Carousel.Item interval={1500}>
-                            <img
-                                    src={
-                                      result.pathImg ||
-                                      "https://via.placeholder.com/700x350"
-                                    }
-                                    alt="mainImage"
-                                    style={{ width: "100%" }}
-                                    className="w3-hover-opacity img"
-                                  />
-                              </Carousel.Item>
+                              <img
+                                src={
+                                  result.pathImg ||
+                                  "https://via.placeholder.com/700x350"
+                                }
+                                alt="mainImage"
+                                style={{ width: "100%" }}
+                                className="w3-hover-opacity img"
+                              />
+                            </Carousel.Item>
                           </Carousel>
 
-                          {/* <div
-                            className="u-carousel u-expanded-width u-gallery u-layout-thumbnails u-lightbox u-show-text-always u-gallery-1"
-                            id="carousel-e131"
-                            data-interval={5000}
-                            data-u-ride="carousel"
-                            data-pswp-uid={1}
+                          <section
+                            className="u-clearfix sectiondetail2"
+                            id="sec-c6a2"
                           >
-                            <div
-                              className="u-carousel-inner u-gallery-inner"
-                              role="listbox"
-                            >
-                              <div
-                                className="u-carousel-item u-gallery-item u-carousel-item-1"
-                                data-pswp-item-id={0}
-                              >
-                                <div className="u-back-slide">
-                                  <img
-                                    className="u-back-image u-expanded"
-                                    src="images/1.svg"
-                                  />
-                                </div>
-                                <div className="u-over-slide u-over-slide-1">
-                                  <h3 className="u-gallery-heading">
-                                    Sample Title
-                                  </h3>
-                                  <p className="u-gallery-text">Sample Text</p>
-                                </div>
-                              </div>
-                              <div
-                                className="u-carousel-item u-gallery-item u-carousel-item-2 u-active u-carousel-item-left"
-                                data-pswp-item-id={1}
-                              >
-                                <div className="u-back-slide">
-                                  <img
-                                    className="u-back-image u-expanded"
-                                    src="images/1.svg"
-                                  />
-                                </div>
-                                <div className="u-over-slide u-over-slide-2">
-                                  <h3 className="u-gallery-heading">
-                                    Sample Title
-                                  </h3>
-                                  <p className="u-gallery-text">Sample Text</p>
-                                </div>
-                              </div>
-                              <div
-                                className="u-carousel-item u-gallery-item u-carousel-item-3 u-carousel-item-next u-carousel-item-left"
-                                data-image-width={2836}
-                                data-image-height={1875}
-                                data-pswp-item-id={2}
-                              >
-                                <div className="u-back-slide">
-                                  <img
-                                    src={
-                                      result.pathImg ||
-                                      "https://via.placeholder.com/700x350"
-                                    }
-                                    alt="mainImage"
-                                    style={{ width: "100%" }}
-                                    className="w3-hover-opacity img"
-                                  />
-                                </div>
-                                <div className="u-over-slide u-over-slide-3">
-                                  <h3 className="u-gallery-heading">
-                                    Sample Title
-                                  </h3>
-                                  <p className="u-gallery-text">Sample Text</p>
+                            <div className="u-container-style u-expanded-width-sm u-expanded-width-xs u-grey-10 u-group u-radius-10 u-shape-round u-group-1">
+                              <div className="u-expanded-width u-grey-10 u-radius-10 u-shape u-shape-round u-shape-2">
+                                <h5 className="u-text u-text-default u-text-1">
+                                  การจองคิว
+                                  <br />
+                                </h5>
+                                <div className="u-expanded-width-sm u-expanded-width-xs u-form u-form-1">
+                                  <form
+                                    action="#"
+                                    method="POST"
+                                    className="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form"
+                                    style={{ padding: 15 }}
+                                    source="custom"
+                                  >
+                                    <div class="row">
+                                      <div class="col-sm">
+                                        {/* <div className="u-form-date u-form-group u-form-group-1"> */}
+
+                                        {/* <label
+                                          htmlFor="date-824c"
+                                          className="u-label"
+                                        >
+                                          วัน/เดือน/ปี
+                                        </label> */}
+
+                                        <input
+                                          type="date"
+                                          id="date-824c"
+                                          name="date"
+                                          className="textInput"
+                                          required
+                                        />
+                                        {/* </div> */}
+                                      </div>
+                                      <div class="col-sm">
+                                        {/* <div className="formsubmit"> */}
+                                          {/* <label
+                                            htmlFor="text-c942"
+                                            className="u-label"
+                                          >
+                                            เวลา
+                                          </label> */}
+                                        
+                                          <input
+                                            type="text"
+                                            id="text-c942"
+                                            name="text"
+                                            className="textInput"
+                                            placeholder="เวลา"
+                                          />
+                                       
+                                       </div>
+                                      <div class="col-sm">
+                                          
+                                        <a
+                                          href="#"
+                                          className="u-btn u-btn-submit u-button-style"
+                                        >
+                                          จองคิว
+                                          <br />
+                                        </a>
+                                        <input
+                                          type="submit"
+                                          defaultValue="submit"
+                                          className="u-form-control-hidden"
+                                        />
+                                      {/* </div> */}
+                                       {/* </div> */}
+                                      {/* </div> */}
+                                      </div>
+                                      <div className="u-form-send-message u-form-send-success">
+                                        Thank you! Your message has been sent.
+                                      </div>
+                                      <div className="u-form-send-error u-form-send-message">
+                                        Unable to send your message. Please fix
+                                        errors then try again.
+                                      </div>
+                                      <input
+                                        type="hidden"
+                                        defaultValue
+                                        name="recaptchaResponse"
+                                      />
+                                    </div>
+                                  </form>
                                 </div>
                               </div>
                             </div>
-                            <a
-                              className="u-absolute-vcenter u-carousel-control u-carousel-control-prev u-grey-70 u-icon-circle u-opacity u-opacity-70 u-spacing-10 u-text-white u-carousel-control-1"
-                              href="#carousel-e131"
-                              role="button"
-                              data-u-slide="prev"
-                            >
-                              <span aria-hidden="true">
-                                <svg viewBox="0 0 451.847 451.847">
-                                  <path
-                                    d="M97.141,225.92c0-8.095,3.091-16.192,9.259-22.366L300.689,9.27c12.359-12.359,32.397-12.359,44.751,0
-c12.354,12.354,12.354,32.388,0,44.748L173.525,225.92l171.903,171.909c12.354,12.354,12.354,32.391,0,44.744
-c-12.354,12.365-32.386,12.365-44.745,0l-194.29-194.281C100.226,242.115,97.141,234.018,97.141,225.92z"
-                                  />
-                                </svg>
-                              </span>
-                              <span className="sr-only">
-                                <svg viewBox="0 0 451.847 451.847">
-                                  <path
-                                    d="M97.141,225.92c0-8.095,3.091-16.192,9.259-22.366L300.689,9.27c12.359-12.359,32.397-12.359,44.751,0
-c12.354,12.354,12.354,32.388,0,44.748L173.525,225.92l171.903,171.909c12.354,12.354,12.354,32.391,0,44.744
-c-12.354,12.365-32.386,12.365-44.745,0l-194.29-194.281C100.226,242.115,97.141,234.018,97.141,225.92z"
-                                  />
-                                </svg>
-                              </span>
-                            </a>
-                            <a
-                              className="u-absolute-vcenter u-carousel-control u-carousel-control-next u-grey-70 u-icon-circle u-opacity u-opacity-70 u-spacing-10 u-text-white u-carousel-control-2"
-                              href="#carousel-e131"
-                              role="button"
-                              data-u-slide="next"
-                            >
-                              <span aria-hidden="true">
-                                <svg viewBox="0 0 451.846 451.847">
-                                  <path
-                                    d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
-L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
-c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"
-                                  />
-                                </svg>
-                              </span>
-                              <span className="sr-only">
-                                <svg viewBox="0 0 451.846 451.847">
-                                  <path
-                                    d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
-L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
-c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"
-                                  />
-                                </svg>
-                              </span>
-                            </a>
-                            <ol className="u-carousel-thumbnails u-spacing-10 u-carousel-thumbnails-1">
-                              <li
-                                className="u-carousel-thumbnail u-carousel-thumbnail-1"
-                                data-u-target="#carousel-e131"
-                                data-u-slide-to={0}
-                              >
-                               <img
-                              src={
-                                result.pathImg ||
-                                "https://via.placeholder.com/700x350"
-                              }
-                              alt="mainImage"
-                              style={{ width: "100%" }}
-                              className="u-carousel-thumbnail  imgsmall"
-                            />
-                              </li>
-                              <li
-                                className="u-carousel-thumbnail u-carousel-thumbnail-2"
-                                data-u-target="#carousel-e131"
-                                data-u-slide-to={1}
-                              >
-                                <img
-                              src={
-                                result.pathImg ||
-                                "https://via.placeholder.com/700x350"
-                              }
-                              alt="mainImage"
-                              style={{ width: "100%" }}
-                              className="u-carousel-thumbnail  imgsmall"
-                            />
-                              </li>
-                              <li
-                                className="u-carousel-thumbnail u-carousel-thumbnail-3 u-active"
-                                data-u-target="#carousel-e131"
-                                data-u-slide-to={2}
-                              >
-                                <img
-                              src={
-                                result.pathImg ||
-                                "https://via.placeholder.com/700x350"
-                              }
-                              alt="mainImage"
-                              style={{ width: "100%" }}
-                              className="u-carousel-thumbnail  imgsmall"
-                            />
-                              </li>
-                            </ol>
-                          </div> */}
+                          </section>
+
+                          {/* <div className="u-expanded-width u-grey-10 u-radius-10 u-shape u-shape-round u-shape-2">
+                          <div className="u-container-layout u-container-layout-4">
+            <h5 className="u-text u-text-default u-text-1 names">การจองคิว<br />
+            </h5>
+            </div>
+              <div className="u-form u-form-1">
+             <form action="#" method="POST" className="u-clearfix u-form-spacing-15 u-form-vertical u-inner-form" style={{padding: 15}} source="custom" name="form">
+        <div className="u-form-date u-form-group u-form-group-1">
+          <label htmlFor="date-67dd" className="u-label">วัน/เดือน/ปี</label>
+          <input type="date" placeholder="MM/DD/YYYY" id="date-67dd" name="date" className="u-border-1 u-border-grey-30 u-input u-input-rectangle" required />
+        </div>
+        <div className="u-form-group u-form-group-2">
+          <label htmlFor="text-997d" className="u-label">เวลา</label>
+          <input type="text" placeholder id="text-997d" name="text" className="u-border-1 u-border-grey-30 u-input u-input-rectangle" />
+        </div>
+        <div className="u-align-right u-form-group u-form-submit">
+          <a href="#" className="u-btn u-btn-submit u-button-style">Submit</a>
+          <input type="submit" defaultValue="submit" className="u-form-control-hidden" />
+        </div>
+        <div className="u-form-send-message u-form-send-success">Thank you! Your message has been sent.</div>
+        <div className="u-form-send-error u-form-send-message">Unable to send your message. Please fix errors then try again.</div>
+        <input type="hidden" defaultValue name="recaptchaResponse" />
+      </form>
+    </div>
+  </div> */}
                         </div>
                       </div>
                       <div className="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
