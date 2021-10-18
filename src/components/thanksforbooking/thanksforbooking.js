@@ -35,7 +35,7 @@ class Thanksforbooking extends Component {
                 ของคุณที่ใช้สมัคร voyagesafety
                 </p>
                 <a
-                  href="https://nicepage.com"
+                  href="/home"
                   className="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-radius-6 u-btn-1"
                   style={{background:"#0F4A69",color:"#ffffff"}}
                   >

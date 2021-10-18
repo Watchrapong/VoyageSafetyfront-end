@@ -51,7 +51,7 @@ class Confirmbooking extends Component {
               </div>
             </div>
             <a
-              href="https://nicepage.com"
+              href="/thanksforbooking"
               className="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-radius-6 u-btn-1"
               style={{background:"#0F4A69",color:"#ffffff"}}
             >
