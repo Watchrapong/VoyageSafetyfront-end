@@ -38,14 +38,14 @@ class Confirmbooking extends Component {
                   <b>วันที่ </b>
                 </p>
                 <p className="u-text u-text-4">
-                  <b>เวลา</b>
+                  <b>ชื่อ</b>
                 </p>
                 <p className="u-text u-text-5">
                   <span style={{ fontWeight: 400 }}> 18 ตุลาคม 2564</span>
                   <br />
                 </p>
                 <p className="u-text u-text-6">
-                  <span style={{ fontWeight: 400 }}>16:00 น</span>
+                  <span style={{ fontWeight: 400 }}>ศุภากร</span>
                   <br />
                 </p>
               </div>

@@ -1,0 +1,113 @@
+.thanksforbookingsection {
+  background-image: url("../../assets/img/booking\ bg.jpeg");
+}
+
+.thanksforbookingsection .u-sheet-1 {
+  min-height: 710px;
+}
+
+.thanksforbookingsection .u-group-1 {
+  width: 650px;
+  min-height: 450px;
+  height: auto;
+  margin: 99px auto 60px;
+}
+
+.thanksforbookingsection .u-container-layout-1 {
+  padding: 8px 30px;
+  background-color: #ffffff !important;
+}
+
+.thanksforbookingsection .u-image-1 {
+  width: 184px;
+  height: 184px;
+  margin: 0 auto;
+}
+
+.thanksforbookingsection .u-text-1 {
+  font-size: 1.5rem;
+  margin: 0 auto;
+  color: #000000 !important;
+}
+
+.thanksforbookingsection .u-text-2 {
+  font-size: 1.125rem;
+  width: 412px;
+  margin: 17px auto 0;
+  color: #000000 !important;
+}
+
+.thanksforbookingsection .u-btn-1 {
+    border-style: none;
+    font-weight: 700;
+    font-size: 1.125rem;
+    margin: 30px auto 0;
+    padding: 8px 33px;
+  }
+
+@media (max-width: 1199px) {
+  .thanksforbookingsection {
+    min-height: 460px;
+  }
+
+  .thanksforbookingsection .u-sheet-1 {
+    min-height: 585px;
+  }
+
+  .thanksforbookingsection .u-group-1 {
+    height: auto;
+  }
+}
+
+@media (max-width: 991px) {
+  .thanksforbookingsection {
+    min-height: 323px;
+  }
+
+  .thanksforbookingsection .u-sheet-1 {
+    min-height: 448px;
+  }
+
+  .thanksforbookingsection .u-group-1 {
+    width: 720px;
+  }
+}
+
+@media (max-width: 767px) {
+  .thanksforbookingsection {
+    min-height: 211px;
+  }
+
+  .thanksforbookingsection .u-sheet-1 {
+    min-height: 336px;
+  }
+
+  .thanksforbookingsection .u-group-1 {
+    width: 540px;
+  }
+
+  .thanksforbookingsection .u-container-layout-1 {
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #ffffff !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .thanksforbookingsection {
+    min-height: 87px;
+  }
+
+  .thanksforbookingsection .u-sheet-1 {
+    min-height: 212px;
+  }
+
+  .thanksforbookingsection .u-group-1 {
+    width: 340px;
+  }
+
+  .thanksforbookingsection .u-text-2 {
+    width: 320px;
+    color: #000000 !important;
+  }
+}
