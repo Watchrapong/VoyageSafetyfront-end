@@ -1,9 +1,42 @@
 import React, { Component } from "react";
 import "./confirmbooking.css"
 import  booking from "../../assets/img/womanbooking.jpeg" ;
+import { server, YES } from "../../constants";
+import { httpClient } from "../../utils/HttpClient";
 
 class Confirmbooking extends Component {
+  
+  constructor(props){
+    super(props);
+    this.state = {
+      Date: "" ,
+      FirstName: "",
+    };
+  }
+
+  componentDidMount(){
+    try {
+      if (localStorage.getItem(server.LOGIN_PASSED) == YES) {
+        let token = localStorage.getItem("Token");
+        httpClient
+          .get(server.LOGIN_USER, {
+            headers: { Authorization: `Authorization ${token}` },
+          })
+          .then((result) => {
+            const data = result.data;
+            this.setState({
+              FirstName: data.result.FirstName,
+            });
+          });
+      } else {
+      }
+    } catch (e) {}
+    // this.setState({Date: date});
+    // console.log(this.state.Date)
+  }
+
   render() {
+    let date = this.props.match.params.date;
   return(
   <div>
     <section
@@ -41,11 +74,11 @@ class Confirmbooking extends Component {
                   <b>ชื่อ</b>
                 </p>
                 <p className="u-text u-text-5">
-                  <span style={{ fontWeight: 400 }}> 18 ตุลาคม 2564</span>
+                  <span style={{ fontWeight: 400 }}> {date}</span>
                   <br />
                 </p>
                 <p className="u-text u-text-6">
-                  <span style={{ fontWeight: 400 }}>ศุภากร</span>
+                  <span style={{ fontWeight: 400 }}>{this.state.FirstName}</span>
                   <br />
                 </p>
               </div>

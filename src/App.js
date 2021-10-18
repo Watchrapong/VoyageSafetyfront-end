@@ -114,7 +114,7 @@ class App extends Component {
           <SecuredRoute path="/vaccinationstatus" component={Vaccinationstatus}/>
           <Route path="/forgetpassword" component={Forgetpassword} />
           <Route path="/resetpassword" component={Resetpassword} />
-          <SecuredRoute path="/confirmbooking" component={Confirmbooking} />
+          <SecuredRoute path="/confirmbooking/:date" component={Confirmbooking} />
           <SecuredRoute path="/thanksforbooking" component={Thanksforbooking} />
           {/* <Route path="/addstore" component={Addstore} /> */}
         {/* <Route path="/*" component={this.redirectToLogin} />   */}

@@ -12,6 +12,19 @@ class Detail extends Component {
     this.props.getDetail(EstId);
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      Date: "",
+    };
+  }
+
+  handleSubmit =  (e) => {
+    
+    console.log(this.state.Date)
+    this.props.history.push(`/confirmbooking/${this.state.Date}`);
+  };
+
   showInfo = () => {
     try {
       const { result, isFetching } = this.props.detailReducer;
@@ -72,20 +85,21 @@ class Detail extends Component {
                                     source="custom"
                                   >
                                     <div class="row">
-                                      <div class="col-sm-10">
+                                      <div class="col-lg-10">
                                         <input
                                           type="date"
                                           id="date"
                                           name="date"
                                           className="textInput"
-                                          required
+                                          onChange={e=>{this.setState({Date: e.target.value})}}
                                         />
                                       </div>
-                                      <div class="col-sm-2">
+                                      <div class="col-lg-2">
                                         <a
                                           href="#"
                                           className="u-btn u-btn-round u-btn-submit u-hover-palette-1-light-1 u-radius-6 u-button-style u-btn-1"
                                           style={{background:"#0F4A69",color:"#ffffff"}}
+                                          onClick={this.handleSubmit}
                                         >
                                           จองคิว
                                           <br />
