@@ -27,6 +27,7 @@ import Profile from "./components/profile/profile";
 import Vaccinationstatus from "./components/vaccinationstatus/vaccinationstatus";
 import Forgetpassword from "./components/forgetpassword/forgetpassword";
 import Resetpassword from "./components/resetpassword/resetpassword";
+import Confirmbooking from "./components/confirmbooking/confirmbooking";
 // import Addstore from "./components/addstore";
 
 const isLoggedIn = () => {
@@ -112,6 +113,7 @@ class App extends Component {
           <SecuredRoute path="/vaccinationstatus" component={Vaccinationstatus}/>
           <Route path="/forgetpassword" component={Forgetpassword} />
           <Route path="/resetpassword" component={Resetpassword} />
+          <Route path="/confirmbooking" component={Confirmbooking} />
           {/* <Route path="/addstore" component={Addstore} /> */}
         {/* <Route path="/*" component={this.redirectToLogin} />   */}
             {/* <Route path="/error" component={error} /> */}
