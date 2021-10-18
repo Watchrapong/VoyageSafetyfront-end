@@ -72,48 +72,20 @@ class Detail extends Component {
                                     source="custom"
                                   >
                                     <div class="row">
-                                      <div class="col-sm">
-                                        {/* <div className="u-form-date u-form-group u-form-group-1"> */}
-
-                                        {/* <label
-                                          htmlFor="date-824c"
-                                          className="u-label"
-                                        >
-                                          วัน/เดือน/ปี
-                                        </label> */}
-
+                                      <div class="col-sm-10">
                                         <input
                                           type="date"
-                                          id="date-824c"
+                                          id="date"
                                           name="date"
                                           className="textInput"
                                           required
                                         />
-                                        {/* </div> */}
                                       </div>
-                                      <div class="col-sm">
-                                        {/* <div className="formsubmit"> */}
-                                          {/* <label
-                                            htmlFor="text-c942"
-                                            className="u-label"
-                                          >
-                                            เวลา
-                                          </label> */}
-                                        
-                                          <input
-                                            type="text"
-                                            id="text-c942"
-                                            name="text"
-                                            className="textInput"
-                                            placeholder="เวลา"
-                                          />
-                                       
-                                       </div>
-                                      <div class="col-sm">
-                                          
+                                      <div class="col-sm-2">
                                         <a
                                           href="#"
-                                          className="u-btn u-btn-submit u-button-style"
+                                          className="u-btn u-btn-round u-btn-submit u-hover-palette-1-light-1 u-radius-6 u-button-style u-btn-1"
+                                          style={{background:"#0F4A69",color:"#ffffff"}}
                                         >
                                           จองคิว
                                           <br />

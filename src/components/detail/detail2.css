@@ -31,6 +31,12 @@
   padding: 10px;
 }
 
+.sectiondetail .u-btn-1 {
+  border-style: none;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
 .sectiondetail .u-carousel-item-2 {
   margin-right: 0;
 }
