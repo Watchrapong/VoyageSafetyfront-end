@@ -51,29 +51,8 @@ const SecuredRoute = ({ component: Component, ...rest }) => (
 
 class App extends Component {
 
-  // constructor(props) {
-  //   super(props)
-  //   this.state = { account: '' }
-  // }
-  getMyLocation = () => {
-    const location = window.navigator.geolocation;
-    if(location){
-      location.getCurrentPosition(
-        (position) => {
-          console.log(position.coords.latitude);
-          console.log(position.coords.longitude);
-        },
-        (error) => {
-          console.error(error);
-        }
-      );
-    }else{
-      console.log("GPS unacess")
-    }
-  }
 
  componentDidMount(){
-   this.getMyLocation();
     this.props.setApp(this)
   }
 
@@ -113,9 +92,9 @@ class App extends Component {
           <Route path="/verify/:email/:key" component={Verify}/> 
           <SecuredRoute path="/vaccinationstatus" component={Vaccinationstatus}/>
           <Route path="/forgetpassword" component={Forgetpassword} />
-          <Route path="/resetpassword" component={Resetpassword} />
           <SecuredRoute path="/confirmbooking/:date" component={Confirmbooking} />
           <SecuredRoute path="/thanksforbooking" component={Thanksforbooking} />
+          <Route path="/resetpassword/:key" component={Resetpassword} />
           {/* <Route path="/addstore" component={Addstore} /> */}
         {/* <Route path="/*" component={this.redirectToLogin} />   */}
             {/* <Route path="/error" component={error} /> */}

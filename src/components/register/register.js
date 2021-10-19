@@ -79,13 +79,13 @@ class Register extends Component {
         break;
       case "Password":
         errors.Password =
-          value.length < 8 || validPassword.test(value)
+          value.length < 8 || !validPassword.test(value)
             ? "Password must be 8 characters long!"
             : "";
         break;
       case "Confirm_Password":
         errors.Confirmation_Password =
-          value.length < 8 || validPassword.test(value)
+          value.length < 8 || !validPassword.test(value)
             ? "Confirmation Password must be 8 characters long!"
             : "";
         break;

@@ -1,15 +1,78 @@
 import React, { Component } from "react";
-import "./resetpassword.css"
+import Cryptr from "cryptr";
+import "./resetpassword.css";
+import { keycryptr, server } from "../../constants";
+import { validPassword, validateForm } from "../../utils/regex.js";
+import { httpClient } from "../../utils/HttpClient";
 
 class Resetpassword extends Component {
-  
   constructor(props) {
     super(props);
     this.state = {
+      Email: "",
       NewPassword: "",
       ReNewPassword: "",
+      errors: { NewPassword: "", ReNewPassword: "" },
     };
   }
+
+  componentDidMount() {
+    const cryptr = new Cryptr(keycryptr);
+    let key = this.props.match.params.key;
+    let email = cryptr.decrypt(key);
+    this.setState({ Email: email });
+  }
+
+  handleChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    let errors = this.state.errors;
+    switch (name) {
+      case "NewPassword":
+        errors.NewPassword =
+          value.length < 8 || !validPassword.test(value)
+            ? "Password must be 8 characters long!"
+            : "";
+        break;
+      case "ReNewPassword":
+        errors.ReNewPassword =
+          value.length == 0
+            ? "โปรดกรอก"
+            : "";
+        break;
+      default:
+        break;
+    }
+
+    this.setState({ errors, [name]: value });
+  };
+
+  handleSubmit = () => {
+    const { Email, NewPassword, ReNewPassword} = this.state;
+      if (validateForm(this.state.errors)) {
+      console.info("Valid Form");
+      if(NewPassword.length > 0 && ReNewPassword.length > 0){
+        console.log("done");
+        if (NewPassword !== ReNewPassword) {
+          console.error("Invalid password")
+        } else {
+          console.log(NewPassword+" : "+ReNewPassword)
+          let data = { Email: Email, Password: NewPassword }
+          httpClient.put(server.UPDATE_PASSWORD, data).then((response) => {
+            console.log(JSON.stringify(response.data))
+            this.props.history.push("/login");
+          }).catch((error) => {
+            console.error("error",error)
+          })
+        }
+      }else{
+        console.error("Fill Form");
+      }
+    } else {
+      console.error("Invalid Form");
+      console.log(this.state.errors);
+    }
+  };
 
   render() {
     return (
@@ -51,11 +114,7 @@ class Resetpassword extends Component {
                         </p>
                         <div className="u-expanded-width-md u-form u-form-1">
                           <form
-                            action="#"
-                            method="POST"
                             className="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form"
-                            source="custom"
-                            name="form"
                             style={{ padding: 10 }}
                           >
                             <div className="u-form-group u-form-name u-form-group-1">
@@ -64,47 +123,35 @@ class Resetpassword extends Component {
                                 className="u-form-control-hidden u-label"
                               />
                               <input
-                                type="text"
-                                id="name-29fd"
+                                type="password"
                                 name="NewPassword"
                                 className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white"
-                                required
+                                onChange={this.handleChange}
                               />
                             </div>
                             <div className="u-form-group u-form-group-2">
-                              <label
-                                htmlFor="text-a5e9"
-                                className="u-form-control-hidden u-label"
-                              />
+                              <label className="u-form-control-hidden u-label" />
                               <input
-                                type="text"
-                                placeholder
-                                id="text-a5e9"
+                                type="password"
                                 name="ReNewPassword"
                                 className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white"
-                                required="required"
+                                onChange={this.handleChange}
                               />
                             </div>
                             <div className="u-align-right u-form-group u-form-submit">
                               <a
                                 href="#"
+                                onClick={this.handleSubmit}
                                 className="u-btn u-btn-submit u-button-style"
-                                style={{background:"#0F4A69",color:"#ffffff"}}
+                                style={{
+                                  background: "#0F4A69",
+                                  color: "#ffffff",
+                                }}
                               >
                                 ยืนยัน
                                 <br />
                               </a>
-                              <input
-                                type="submit"
-                                defaultValue="submit"
-                                className="u-form-control-hidden"
-                              />
                             </div>
-                            <input
-                              type="hidden"
-                              defaultValue
-                              name="recaptchaResponse"
-                            />
                           </form>
                         </div>
                         <p className="u-text u-text-default u-text-4">

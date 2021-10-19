@@ -43,12 +43,12 @@ class Home extends Component {
                   data-holder-rendered="true"
                 />
                 <div className="card-body">
-                  <p className="card-text">{item.Name}</p>
+                  <p className="card-text"><b>{item.Name}</b></p>
                   <p>
-                    {item.Address}
-                    {item.District}
-                    {item.Province}
-                    {item.PostCode}
+                    {item.Address}{" "}
+                    {item.District}{" "}
+                    {item.Province}{" "}
+                    {item.PostCode}{" "}
                   </p>
                   <div className="d-flex justify-content-between align-items-center">
                     <div className="btn-group">

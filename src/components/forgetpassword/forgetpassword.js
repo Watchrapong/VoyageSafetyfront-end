@@ -1,16 +1,130 @@
 import React, { Component } from "react";
-import "../forgetpassword/forgetpassword.css"
+import "../forgetpassword/forgetpassword.css";
+import { validEmail, validateForm } from "../../utils/regex.js";
+import { httpClient } from "../../utils/HttpClient";
+import { OK, server } from "../../constants";
 
 class Forgetpassword extends Component {
-  
   constructor(props) {
     super(props);
     this.state = {
       Email: "",
+      errors: { Email: "" },
+      Error: "",
+      view: 1,
     };
   }
 
+  handleChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    let errors = this.state.errors;
+    switch (name) {
+      case "Email":
+        errors.Email = validEmail.test(value) ? "" : "Email is not valid!";
+        break;
+      default:
+        break;
+    }
+    this.setState({ errors, [name]: value });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    if (validateForm(this.state.errors)) {
+      console.info("Valid Form");
+      let data = { Email: this.state.Email, host: window.location.host };
+      httpClient
+        .post(server.RESET_PASSWORD, data)
+        .then((response) => {
+          if (response.data.result === OK) {
+            this.setState({ view: 2 })
+            console.log(response.data);
+          } else {
+            console.log("null");
+            console.log(response.data);
+            this.setState({ Error: "ข้อมูลผิดพลาด" });
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+          this.setState({ Error: "ข้อมูลผิดพลาด" });
+        });
+    } else {
+      console.error("Invalid Form");
+      console.log(this.state.errors);
+    }
+  };
+
+  inputEmail = () => {
+    const { errors, Error } = this.state;
+    return (
+      <div>
+        <p className="u-text u-text-default u-text-2">
+          กรุณากรอกอีเมลล์ของท่านเพื่อที่จะรับการรีเซ็ตรหัสผ่านทางอีเมลล์ *
+        </p>
+        <div className="u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-form u-form-1">
+          <form
+            className="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form"
+            name="form"
+            style={{ padding: 10 }}
+          >
+            <div className="u-form-group u-form-name">
+              <label
+                htmlFor="name-29fd"
+                className="u-form-control-hidden u-label"
+              />
+              <input
+                type="email"
+                placeholder="อีเมลล์"
+                name="Email"
+                className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white"
+                onChange={this.handleChange}
+              />
+              {errors.Email.length > 0 && (
+                <span className="error">{errors.Email}</span>
+              )}
+              {Error.length > 0 && <span className="error">{Error}</span>}
+            </div>
+            <div
+              className="u-align-right u-form-group u-form-submit"
+              style={{ color: "#0F4A69" }}
+            >
+              <a
+                href="#"
+                onClick={this.handleSubmit}
+                className="u-btn u-btn-submit u-button-style"
+                style={{
+                  background: "#0F4A69",
+                  color: "#ffffff",
+                }}
+              >
+                ยืนยัน
+                <br />
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    );
+  };
+
+  submitEmail = () => {
+    const { Email } = this.state;
+    return (
+      <div>
+        <p className="u-text u-text-default u-text-2">
+          ลิงก์การยืนยันบัญชีถูกส่งไปยัง {Email}
+          <p>
+            คุณสามารถปิดหน้านี้และดำเนินการแก้ไขรหัสผ่านของคุณต่อได้จากลิงก์นี้
+          </p>
+        </p>
+      </div>
+    );
+  };
+
   render() {
+    const { view } = this.state;
     return (
       <div>
         <div>
@@ -43,75 +157,10 @@ class Forgetpassword extends Component {
                               </p>
                             </div>
                           </div>
-                          <p className="u-text u-text-default u-text-2">
-                            กรุณากรอกอีเมลล์ของท่านเพื่อที่จะรับการรีเซ็ตรหัสผ่านทางอีเมลล์
-                            *
-                          </p>
-                          <div className="u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-form u-form-1">
-                            <form
-                              action="#"
-                              method="POST"
-                              className="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form"
-                              source="custom"
-                              name="form"
-                              style={{ padding: 10 }}
-                            >
-                              <input
-                                type="hidden"
-                                id="siteId"
-                                name="siteId"
-                                defaultValue={2787330704}
-                              />
-                              <input
-                                type="hidden"
-                                id="pageId"
-                                name="pageId"
-                                defaultValue={236865951}
-                              />
-                              <div className="u-form-group u-form-name">
-                                <label
-                                  htmlFor="name-29fd"
-                                  className="u-form-control-hidden u-label"
-                                />
-                                <input
-                                  type="text"
-                                  placeholder="อีเมลล์"
-                                  id="name-29fd"
-                                  name="name"
-                                  className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white"
-                                  required
-                                />
-                              </div>
-                              <div className="u-align-right u-form-group u-form-submit" style={{color:"#0F4A69"}}>
-                                <a
-                                  href="#"
-                                  className="u-btn u-btn-submit u-button-style"
-                                  style={{background:"#0F4A69",color:"#ffffff"}}
-                                >
-                                  ยืนยัน
-                                  <br />
-                                </a>
-                                <input
-                                  type="submit"
-                                  defaultValue="submit"
-                                  className="u-form-control-hidden"
-                                />
-                              </div>
-                              <input
-                                type="hidden"
-                                defaultValue
-                                name="recaptchaResponse"
-                              />
-                            </form>
-                          </div>
+                          {view === 1 && this.inputEmail()}
+                          {view === 2 && this.submitEmail()}
                         </div>
                       </div>
-                      <a
-                        href
-                        className="u-border-2 u-border-white u-btn u-btn-rectangle u-button-style u-none u-btn-2"
-                      >
-                        learn more
-                      </a>
                     </div>
                   </div>
                 </div>
