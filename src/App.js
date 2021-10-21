@@ -28,6 +28,7 @@ import Vaccinationstatus from "./components/vaccinationstatus/vaccinationstatus"
 import Forgetpassword from "./components/forgetpassword/forgetpassword";
 import Resetpassword from "./components/resetpassword/resetpassword";
 import Confirmbooking from "./components/confirmbooking/confirmbooking";
+import Viewstaff from "./components/viewstaff/viewstaff";
 import Thanksforbooking from "./components/thanksforbooking/thanksforbooking"
 // import Addstore from "./components/addstore";
 
@@ -82,6 +83,7 @@ class App extends Component {
           <Route path="/index"  component={Welcome}/> 
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} /> 
+          <Route path="/viewstaff" component = {Viewstaff} />
            {/* <Route exact={true} path="/" component={this.redirectToLogin} />  */}
           <SecuredRoute path="/home" component={Home} />
           <SecuredRoute path="/detail/:EstId/" component={Detail} />
@@ -100,6 +102,7 @@ class App extends Component {
             {/* <Route path="/error" component={error} /> */}
           </Switch>  
           {/* {isLoggedIn() && <Footer />} */}
+          
         </div>
       </Router>
     );
