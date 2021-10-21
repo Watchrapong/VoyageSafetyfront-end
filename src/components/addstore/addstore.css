@@ -418,7 +418,7 @@
     }
   
     .restaurant-section .u-text-4 {
-      margin-top: -8px;
+      margin-top: 10px;
       color: #ff0000 !important;
     }
   
@@ -495,7 +495,7 @@
   
   .hotel-section .u-layout-wrap-1 {
     width: 1140px;
-    margin: 10px 0 60px;
+    margin-top: 10px;
   }
   
   .hotel-section .u-image-1 {
@@ -664,7 +664,7 @@
     .hotel-section .u-layout-wrap-1 {
       position: relative;
       width: 720px;
-      margin-bottom: 20px;
+      /* margin-bottom: 20px; */
     }
   
     .hotel-section .u-image-1 {
