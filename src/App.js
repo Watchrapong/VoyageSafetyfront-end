@@ -9,6 +9,7 @@ import Home from "./components/home/home";
 import Detail from "./components/detail/detail";
 import Header2 from "./components/header2/header2";
 import Addstore from "./components/addstore/addstore";
+import Addestablishment from "./components/addestablishment/addestablishment";
 import Verify from "./components/verify/verify"
 import { server, YES} from "./constants";
 import {
@@ -97,6 +98,7 @@ class App extends Component {
           <SecuredRoute path="/confirmbooking/:date" component={Confirmbooking} />
           <SecuredRoute path="/thanksforbooking" component={Thanksforbooking} />
           <Route path="/resetpassword/:key" component={Resetpassword} />
+          <SecuredRoute path="addestablishment" component={Addestablishment} />
         {/* <Route path="/*" component={this.redirectToLogin} />   */}
             {/* <Route path="/error" component={error} /> */}
           </Switch>  
