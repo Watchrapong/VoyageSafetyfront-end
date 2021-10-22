@@ -97,7 +97,6 @@ class App extends Component {
           <SecuredRoute path="/confirmbooking/:date" component={Confirmbooking} />
           <SecuredRoute path="/thanksforbooking" component={Thanksforbooking} />
           <Route path="/resetpassword/:key" component={Resetpassword} />
-          {/* <Route path="/addstore" component={Addstore} /> */}
         {/* <Route path="/*" component={this.redirectToLogin} />   */}
             {/* <Route path="/error" component={error} /> */}
           </Switch>  
