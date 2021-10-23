@@ -1,4 +1,5 @@
 import {
+  HTTP_ESTABLISH_EDIT_FAILED,
   HTTP_ESTABLISH_FETCHING,
   HTTP_ESTABLISH_SUCCESS,
   server,
@@ -15,7 +16,7 @@ export const setEstablishmentStateToSuccess = (payload) => ({
 });
 
 export const setEstablishmentStateToFail = () => ({
-  type: HTTP_ESTABLISH_SUCCESS,
+  type: HTTP_ESTABLISH_EDIT_FAILED,
 });
 
 const doGetEstablishments = (dispatch) => {

@@ -117,7 +117,7 @@ class Login extends Component {
                                     this.state
                                   );
                                 }}
-                              >Submit                              
+                              >ลงชื่อเข้าใช้                              
                               <input
                                 type="submit"
                                 defaultValue="submit"

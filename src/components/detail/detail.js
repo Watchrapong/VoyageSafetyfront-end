@@ -5,6 +5,7 @@ import * as action from "../../actions/detail.action";
 import "./detail.css";
 import "./detail2.css";
 import Carousel from "react-bootstrap/Carousel";
+import { WaveLoading } from "react-loadingg";
 
 class Detail extends Component {
   componentDidMount() {
@@ -19,15 +20,22 @@ class Detail extends Component {
     };
   }
 
-  handleSubmit =  (e) => {
-    
-    console.log(this.state.Date)
+  handleSubmit = (e) => {
+    console.log(this.state.Date);
     this.props.history.push(`/confirmbooking/${this.state.Date}`);
   };
 
   showInfo = () => {
     try {
       const { result, isFetching } = this.props.detailReducer;
+      if (isFetching) {
+        return (<div style={{ marginTop: "500px" }}>
+        <WaveLoading />
+      </div>)
+      }else {
+      const data = result.result;
+      const arrImg = result.arrImg;
+      console.log(arrImg);
       return (
         !isFetching &&
         result != null && (
@@ -42,28 +50,19 @@ class Detail extends Component {
                       <div className="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
                         <div className="u-container-layout u-container-layout-1">
                           <Carousel>
-                            <Carousel.Item interval={1500}>
-                              <img
-                                src={
-                                  result.pathImg ||
-                                  "https://via.placeholder.com/700x350"
-                                }
-                                alt="mainImage"
-                                style={{ width: "100%" }}
-                                className="w3-hover-opacity img"
-                              />
-                            </Carousel.Item>
-                            <Carousel.Item interval={1500}>
-                              <img
-                                src={
-                                  result.pathImg ||
-                                  "https://via.placeholder.com/700x350"
-                                }
-                                alt="mainImage"
-                                style={{ width: "100%" }}
-                                className="w3-hover-opacity img"
-                              />
-                            </Carousel.Item>
+                            {arrImg.map((item) => (
+                              <Carousel.Item interval={1500}>
+                                <img
+                                  src={
+                                    item.Img ||
+                                    "https://via.placeholder.com/700x350"
+                                  }
+                                  alt="mainImage"
+                                  style={{ width: "100%" }}
+                                  className="w3-hover-opacity img"
+                                />
+                              </Carousel.Item>
+                            ))}
                           </Carousel>
 
                           <section
@@ -91,14 +90,21 @@ class Detail extends Component {
                                           id="date"
                                           name="date"
                                           className="textInput"
-                                          onChange={e=>{this.setState({Date: e.target.value})}}
+                                          onChange={(e) => {
+                                            this.setState({
+                                              Date: e.target.value,
+                                            });
+                                          }}
                                         />
                                       </div>
                                       <div class="col-lg-2">
                                         <a
                                           href="#"
                                           className="u-btn u-btn-round u-btn-submit u-hover-palette-1-light-1 u-radius-6 u-button-style u-btn-1"
-                                          style={{background:"#0F4A69",color:"#ffffff"}}
+                                          style={{
+                                            background: "#0F4A69",
+                                            color: "#ffffff",
+                                          }}
                                           onClick={this.handleSubmit}
                                         >
                                           จองคิว
@@ -109,9 +115,9 @@ class Detail extends Component {
                                           defaultValue="submit"
                                           className="u-form-control-hidden"
                                         />
-                                      {/* </div> */}
-                                       {/* </div> */}
-                                      {/* </div> */}
+                                        {/* </div> */}
+                                        {/* </div> */}
+                                        {/* </div> */}
                                       </div>
                                       <div className="u-form-send-message u-form-send-success">
                                         Thank you! Your message has been sent.
@@ -166,10 +172,10 @@ class Detail extends Component {
                               {/* <h5 className="u-text u-text-default u-text-1"> */}
                               <div className="u-container-layout u-container-layout-4">
                                 <p className="u-text u-text-default u-text-1 names">
-                                  <b>{result.Name}</b>
+                                  <b>{data.Name}</b>
                                 </p>
                                 <p className="u-text u-text-2 dess">
-                                  {result.Description}
+                                  {data.Description}
                                 </p>
                               </div>
                               {/* </h5> */}
@@ -183,27 +189,27 @@ class Detail extends Component {
                                 <div className="row">
                                   <div className="col-xl-6 col-lg-6">
                                     <img
-                                      src={`https://maps.googleapis.com/maps/api/staticmap?center=${result.Lat},${result.Lng}&zoom=18&size=500x500&key=AIzaSyATAXCWMqd7hmu44d93FCJpPTGcHLKN6lg&markers="https://img.icons8.com/dusk/64/000000/marker.png"|${result.Lat},${result.Lng}`}
+                                      src={`https://maps.googleapis.com/maps/api/staticmap?center=${data.Lat},${data.Lng}&zoom=18&size=500x500&key=AIzaSyATAXCWMqd7hmu44d93FCJpPTGcHLKN6lg&markers="https://img.icons8.com/dusk/64/000000/marker.png"|${data.Lat},${data.Lng}`}
                                       className="map-img"
                                     />
                                   </div>
                                   <div className="col-xl-6 col-lg-6">
                                     <div className="address-detail-con">
                                       <div className="address-detail">
-                                        {result.Address}{" "}
+                                        {data.Address}{" "}
                                       </div>
                                       <div className="address-detail">
-                                        {result.District}
+                                        {data.District}
                                       </div>
                                       <div className="address-detail">
-                                        {result.Province} {result.PostCode}
+                                        {data.Province} {data.PostCode}
                                       </div>
 
                                       <button
                                         className="btn-map"
                                         onClick={() => {
                                           window.open(
-                                            `https://www.google.com/maps/search/?api=1&query=${result.Lat},${result.Lng}`
+                                            `https://www.google.com/maps/search/?api=1&query=${data.Lat},${data.Lng}`
                                           );
                                         }}
                                       >
@@ -224,7 +230,7 @@ class Detail extends Component {
             </section>
           </div>
         )
-      );
+      );}
     } catch (e) {}
   };
 
