@@ -7,8 +7,13 @@ import { BiCurrentLocation } from "react-icons/bi";
 import GoogleMapReact from "google-map-react";
 import { validateForm } from "../../utils/regex.js";
 import FormData from "form-data";
-import hotel from "../../assets/img/hotel.jpeg"
-import restaurant from "../../assets/img/restaurant.jpeg"
+import hotel from "../../assets/img/hotel.jpeg";
+import restaurant from "../../assets/img/restaurant.jpeg";
+import { WaveLoading } from "react-loadingg";
+import { Button } from "react-bootstrap";
+import Modal from "react-bootstrap/Modal";
+import pin from "../../assets/img/addstore/pin.gif";
+import novaccine from "../../assets/img/addstore/novaccination.png";
 
 const API_KEY = "AIzaSyATAXCWMqd7hmu44d93FCJpPTGcHLKN6lg";
 
@@ -23,46 +28,82 @@ class Addstore extends Component {
     this.state = {
       userId: null,
       Name: null,
+      Citizen: null,
       Description: null,
       type: null,
       address: null,
       view: null,
       collectionImage: [],
       district: null,
-    province: null,
-    postcode: null,
-      lat: "",
-      lng: "",
+      province: null,
+      postcode: null,
+      lat: null,
+      lng: null,
       errors: {
         Name: "",
         Description: "",
         type: "",
         address: "",
         district: "",
-    province: "",
-    postcode: "",
+        province: "",
+        postcode: "",
       },
       ImgError: "",
       Error: "",
-    
+      showEnableLocation: false,
+      showVaccineAlert: false,
+      vaccine: false,
     };
+    this.showEnableLocationModal = this.showEnableLocationModal.bind(this);
+    this.hideEnableLocationModal = this.hideEnableLocationModal.bind(this);
+    this.showVaccineAlertModal = this.showVaccineAlertModal.bind(this);
+    this.hideVaccineAlertModal = this.hideVaccineAlertModal.bind(this);
     this.onFileChange = this.onFileChange.bind(this);
     this.getMyLocation = this.getMyLocation.bind(this);
   }
 
+  showEnableLocationModal = () => {
+    this.setState({ showEnableLocation: true });
+  };
+
+  hideEnableLocationModal = () => {
+    this.setState({ showEnableLocation: false });
+  };
+
+  showVaccineAlertModal = () => {
+    this.setState({ showVaccineAlertModal: true });
+  };
+
+  hideVaccineAlertModal = () => {
+    this.setState({ showVaccineAlertModal: false });
+  };
+
+  isLoading = () => {
+    return (
+      <div style={{ marginTop: "500px" }}>
+        <WaveLoading />
+      </div>
+    );
+  };
+
   async getMyLocation() {
     const location = window.navigator.geolocation;
+    this.setState({ view: null });
     if (location) {
       await location.getCurrentPosition(
         (position) => {
           this.setState({
             lat: position.coords.latitude,
             lng: position.coords.longitude,
+            view: 0,
           });
+          this.hideEnableLocationModal();
           console.log(this.state.lat);
           console.log(this.state.lng);
         },
         (error) => {
+          this.showEnableLocationModal();
+          console.log(this.state.showEnableLocation);
           this.setState({ lat: "", lng: "" });
         }
       );
@@ -71,17 +112,21 @@ class Addstore extends Component {
 
   async componentDidMount() {
     let token = localStorage.getItem("Token");
-        httpClient
-          .get(server.LOGIN_USER, {
-            headers: { Authorization: `Authorization ${token}` },
-          })
-          .then((result) => {
-            this.setState({ userId: result.data.result.UserId });
-          }).catch((error) => {
-            this.setState({ userId: null })
-          })
+    httpClient
+      .get(server.LOGIN_USER, {
+        headers: { Authorization: `Authorization ${token}` },
+      })
+      .then((result) => {
+        this.setState({
+          userId: result.data.result.UserId,
+          vaccine: result.data.result.Status,
+          CitizenId: result.data.result.CitizenId
+        });
+      })
+      .catch((error) => {
+        this.setState({ userId: null });
+      });
     await this.getMyLocation();
-    this.Addstore();
   }
 
   onFileChange = (e) => {
@@ -127,15 +172,15 @@ class Addstore extends Component {
         errors.Description =
           value.length === 0 || value === null ? "โปรดระบุ" : "";
         break;
-        case "district":
+      case "district":
         errors.district =
           value.length === 0 || value === null ? "โปรดระบุ" : "";
         break;
-        case "province":
+      case "province":
         errors.province =
           value.length === 0 || value === null ? "โปรดระบุ" : "";
         break;
-        case "postcode":
+      case "postcode":
         errors.postcode =
           value.length === 0 || value === null ? "โปรดระบุ" : "";
         break;
@@ -154,55 +199,79 @@ class Addstore extends Component {
 
       var images = this.state.collectionImage;
       console.log(images.length);
-      const { userId, Name, Description, type, address, district, province, postcode, lat, lng} = this.state;
+      const {
+        userId,
+        Name,
+        CitizenId,
+        Description,
+        type,
+        address,
+        district,
+        province,
+        postcode,
+        lat,
+        lng,
+      } = this.state;
 
-      if (userId == null|| Name == null || type == 0 || address == null || Description == null || district == null || province == null || postcode == null) {
+      if (
+        userId == null ||
+        Name == null ||
+        CitizenId == null ||
+        type == 0 ||
+        address == null ||
+        Description == null ||
+        district == null ||
+        province == null ||
+        postcode == null
+      ) {
         console.log("notPassform");
         console.log(this.state);
-        this.setState({Error: "ข้อมูลผิดพลาด"});
-      }else{
-      console.log("Passform");
-         if (
-        images.length < 1) {
-        this.setState({ ImgError: "โปรดเลือกไฟล์รูปใหม่" });
+        this.setState({ Error: "ข้อมูลผิดพลาด" });
       } else {
-        var images = this.state.collectionImage;
-        var formData = new FormData();
-        // formData.append("EstId", "100")
-        formData.append("Owner", userId);
-        formData.append("Name", Name);
-        formData.append("SubCategoryId", type);
-        formData.append("Description", Description);
-        formData.append("Address", address);
-        formData.append("District", district);
-        formData.append("Province", province);
-        formData.append("PostCode", postcode);
-        formData.append("Lat", lat);
-        formData.append("Lng", lng)
-        for (let i = 0 ; i < images.length ; i++) {
-          formData.append("images", images[i]);
-      }
-        httpClient.post(server.ESTABLISH_URL, formData).then(response => {
-          console.log(JSON.stringify(response.data));
-          if(response.data.result === OK){
-            console.log("Done");
-            this.setState({Error: ""})
-          }else{
-            console.log("Error");
-            this.setState({Error: "ข้อมูลผิดพลาด"})
+        console.log("Passform");
+        if (images.length < 1) {
+          this.setState({ ImgError: "โปรดเลือกไฟล์รูปใหม่" });
+        } else {
+          var images = this.state.collectionImage;
+          var formData = new FormData();
+          // formData.append("EstId", "100")
+          formData.append("Owner", userId);
+          formData.append("Name", Name);
+          formData.append("CitizenId", CitizenId)
+          formData.append("SubCategoryId", type);
+          formData.append("Description", Description);
+          formData.append("Address", address);
+          formData.append("District", district);
+          formData.append("Province", province);
+          formData.append("PostCode", postcode);
+          formData.append("Lat", lat);
+          formData.append("Lng", lng);
+          for (let i = 0; i < images.length; i++) {
+            formData.append("images", images[i]);
           }
-        }).catch((error) => {
-          console.error(error)
-          this.setState({Error: "ข้อมูลผิดพลาด"})
-        });
+          httpClient
+            .post(server.ESTABLISH_URL, formData)
+            .then((response) => {
+              console.log(JSON.stringify(response.data));
+              if (response.data.result === OK) {
+                console.log("Done");
+                this.setState({ Error: "" });
+              } else {
+                console.log("Error");
+                this.setState({ Error: "ข้อมูลผิดพลาด" });
+              }
+            })
+            .catch((error) => {
+              console.error(error);
+              this.setState({ Error: "ข้อมูลผิดพลาด" });
+            });
+        }
       }
-    }
     } else {
       console.log(this.state.errors);
       console.info("Invalid Form");
     }
   };
-
 
   Addstore = () => {
     return (
@@ -227,9 +296,10 @@ class Addstore extends Component {
                     href=""
                     onClick={(e) => {
                       e.preventDefault();
-                      if (this.state.lat) {
+                      if (this.state.vaccine === true) {
                         this.setState({ view: 1 });
                       } else {
+                        this.showVaccineAlertModal();
                       }
                     }}
                     className="u-container-layout u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-container-layout-1"
@@ -248,9 +318,10 @@ class Addstore extends Component {
                     href=""
                     onClick={(e) => {
                       e.preventDefault();
-                      if (this.state.lat) {
+                      if (this.state.vaccine === true) {
                         this.setState({ view: 2 });
                       } else {
+                        this.showVaccineAlertModal();
                       }
                     }}
                     className="u-container-layout u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-container-layout-2"
@@ -269,13 +340,16 @@ class Addstore extends Component {
   };
 
   hotel = () => {
-    const { errors, lat, lng, collectionImage, ImgError, Error} = this.state;
+    const { errors, lat, lng, collectionImage, ImgError, Error } = this.state;
     const Marker = () => {
       return <BiCurrentLocation style={{ fontSize: "20px", color: "blue" }} />;
     };
     return (
       <div>
-        <section className="u-align-left u-clearfix hotel-section" id="sec-7c81">
+        <section
+          className="u-align-left u-clearfix hotel-section"
+          id="sec-7c81"
+        >
           <p className="u-text u-text-default u-text-1">
             <a href="" onClick={() => this.setState({ view: null })}>
               ลงทะเบียนสถานที่
@@ -448,20 +522,20 @@ class Addstore extends Component {
                 รหัสไปรษณีย์
               </p>
               <div className="u-google-map">
-              <GoogleMapReact
-                bootstrapURLKeys={{ key: API_KEY }}
-                defaultCenter={this.props.center}
-                center={{ lat: lat, lng: lng }}
-                defaultZoom={this.props.zoom}
-                yesIWantToUseGoogleMapApiInternals
-                style={{
-                  height: "250px", 
-                  width: "250px", 
-                  position: "relative",
-                }}
-              >
-                <Marker lat={lat} lng={lng} />
-              </GoogleMapReact>
+                <GoogleMapReact
+                  bootstrapURLKeys={{ key: API_KEY }}
+                  defaultCenter={this.props.center}
+                  center={{ lat: lat, lng: lng }}
+                  defaultZoom={this.props.zoom}
+                  yesIWantToUseGoogleMapApiInternals
+                  style={{
+                    height: "250px",
+                    width: "250px",
+                    position: "relative",
+                  }}
+                >
+                  <Marker lat={lat} lng={lng} />
+                </GoogleMapReact>
               </div>
               <p className="u-text u-text-default u-text-10">
                 แผนที่ที่พักของคุณ
@@ -470,7 +544,6 @@ class Addstore extends Component {
                 ละติจูด
               </p>
               <div className="u-form u-form-2">
-                
                 <form
                   className="u-clearfix u-form-spacing-25 u-form-vertical u-inner-form"
                   source="custom"
@@ -543,26 +616,21 @@ class Addstore extends Component {
             <p className="u-text u-text-default-xl u-text-13">
               * กรุณาใส่รูปที่พักของคุณ
             </p>
-            
-                <div className="input-group mb-3">
-                         <div className="custom-file">
-                           <input
-                            type="file"
-                            className="custom-file-input"
-                            multiple="multiple"
-                            accept=".jpg,.jpe,.png,.gif"
-                            onChange={this.onFileChange}
-                          />
-                          <span
-                            className="error"
-                            style={{ marginLeft: "10px" }}
-                          ></span>
-                          <label className="custom-file-label">
-                            Choose file
-                          </label>
-                        </div>
-                      </div>
-              {/* <div className="u-upload">
+
+            <div className="input-group mb-3">
+              <div className="custom-file">
+                <input
+                  type="file"
+                  className="custom-file-input"
+                  multiple="multiple"
+                  accept=".jpg,.jpe,.png,.gif"
+                  onChange={this.onFileChange}
+                />
+                <span className="error" style={{ marginLeft: "10px" }}></span>
+                <label className="custom-file-label">Choose file</label>
+              </div>
+            </div>
+            {/* <div className="u-upload">
                 <input
                   type="file"
                   className="custom-file-input"
@@ -861,7 +929,10 @@ class Addstore extends Component {
     };
     return (
       <div>
-        <section className="u-align-left u-clearfix hotel-section" id="sec-7c81">
+        <section
+          className="u-align-left u-clearfix hotel-section"
+          id="sec-7c81"
+        >
           <p className="u-text u-text-default u-text-1">
             <a href="" onClick={() => this.setState({ view: null })}>
               ลงทะเบียนสถานที่
@@ -1035,20 +1106,20 @@ class Addstore extends Component {
                 รหัสไปรษณีย์
               </p>
               <div className="u-google-map">
-              <GoogleMapReact
-                bootstrapURLKeys={{ key: API_KEY }}
-                defaultCenter={this.props.center}
-                center={{ lat: lat, lng: lng }}
-                defaultZoom={this.props.zoom}
-                yesIWantToUseGoogleMapApiInternals
-                style={{
-                  height: "250px", 
-                  width: "250px", 
-                  position: "relative",
-                }}
-              >
-                <Marker lat={lat} lng={lng} />
-              </GoogleMapReact>
+                <GoogleMapReact
+                  bootstrapURLKeys={{ key: API_KEY }}
+                  defaultCenter={this.props.center}
+                  center={{ lat: lat, lng: lng }}
+                  defaultZoom={this.props.zoom}
+                  yesIWantToUseGoogleMapApiInternals
+                  style={{
+                    height: "250px",
+                    width: "250px",
+                    position: "relative",
+                  }}
+                >
+                  <Marker lat={lat} lng={lng} />
+                </GoogleMapReact>
               </div>
               <p className="u-text u-text-default u-text-10">
                 แผนที่ร้านของคุณ
@@ -1057,7 +1128,6 @@ class Addstore extends Component {
                 ละติจูด
               </p>
               <div className="u-form u-form-2">
-                
                 <form
                   className="u-clearfix u-form-spacing-25 u-form-vertical u-inner-form"
                   source="custom"
@@ -1130,25 +1200,20 @@ class Addstore extends Component {
             <p className="u-text u-text-default-xl u-text-13">
               * กรุณาใส่รูปร้านของคุณ
             </p>
-            
-                <div className="input-group mb-3">
-                         <div className="custom-file">
-                           <input
-                            type="file"
-                            className="custom-file-input"
-                            multiple="multiple"
-                            accept=".jpg,.jpe,.png,.gif"
-                            onChange={this.onFileChange}
-                          />
-                          <span
-                            className="error"
-                            style={{ marginLeft: "10px" }}
-                          ></span>
-                          <label className="custom-file-label">
-                            Choose file
-                          </label>
-                        </div>
-                      </div>
+
+            <div className="input-group mb-3">
+              <div className="custom-file">
+                <input
+                  type="file"
+                  className="custom-file-input"
+                  multiple="multiple"
+                  accept=".jpg,.jpe,.png,.gif"
+                  onChange={this.onFileChange}
+                />
+                <span className="error" style={{ marginLeft: "10px" }}></span>
+                <label className="custom-file-label">Choose file</label>
+              </div>
+            </div>
             <div className="u-img-upload">
               {collectionImage.length > 0 && (
                 <img
@@ -1431,9 +1496,77 @@ class Addstore extends Component {
     const { view } = this.state;
     return (
       <div>
-        {view === null && this.Addstore()}
+        {view === null && this.isLoading()}
+        {view === 0 && this.Addstore()}
         {view === 1 && this.restaurant()}
         {view === 2 && this.hotel()}
+        <Modal
+          show={this.state.showEnableLocation}
+          onHide={this.hideEnableLocationModal}
+          animation={true}
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>โปรดเปิดใช้งานการระบุตำแหน่ง</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div className="text-center">
+              <img
+                className="d-block mx-auto mb-4"
+                src={pin}
+                width={200}
+                height={150}
+              />
+              <div className="">
+                <p className="lead mb-4">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+              </div>
+              <Button variant="secondary" onClick={() => this.getMyLocation()}>
+                เปิด
+              </Button>
+              <p />
+              <a href="" onClick={() => this.props.history.push("/home")}>
+                ข้าม
+              </a>
+            </div>
+          </Modal.Body>
+        </Modal>
+        <Modal
+          show={this.state.showVaccineAlertModal}
+          onHide={this.hideVaccineAlertModal}
+          animation={true}
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>
+              คุณไม่มีข้อมูลการฉีดวัคซีนหรือข้อมูลยังไม่ได้อัพเดท
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div className="text-center">
+              <img
+                className="d-block mx-auto mb-4"
+                src={novaccine}
+                width={200}
+                height={200}
+              />
+              <div className="">
+                <p className="lead mb-4">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+              </div>
+              <Button
+                variant="secondary"
+                onClick={() => this.props.history.push("/vaccinationstatus")}
+              >
+                อัพเดทสถานะการฉีดวัคซีน
+              </Button>
+              <p />
+              <a href="" onClick={() => this.hideVaccineAlertModal()}>
+                ข้าม
+              </a>
+            </div>
+          </Modal.Body>
+        </Modal>
       </div>
     );
   }

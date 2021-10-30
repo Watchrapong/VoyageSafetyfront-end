@@ -7,6 +7,7 @@ import { server, YES } from "../../constants";
 import { httpClient } from "../../utils/HttpClient";
 import { withRouter } from "react-router-dom";
 import { Container, Nav, Navbar, Dropdown } from "react-bootstrap";
+import { CommonLoading } from "react-loadingg";
 
 class Header extends Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class Header extends Component {
           })
           .catch((err) => {
             localStorage.clear();
-          })
+          });
 
         // const user = result.data.userData;
       } else {
@@ -58,9 +59,24 @@ class Header extends Component {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#featurs" onClick={() => this.props.history.push("/dashboard")}>จำนวนผู้ติดเชื้อ</Nav.Link>
-              <Nav.Link href="#vaccinestatus" onClick={() => this.props.history.push("/vaccinationstatus")}>สถานะการฉีดวัคซีน</Nav.Link>
-              <Nav.Link href="#registation" onClick={() => this.props.history.push("/addstore")}>ลงทะเบียนสถานที่</Nav.Link>
+              <Nav.Link
+                href="#featurs"
+                onClick={() => this.props.history.push("/dashboard")}
+              >
+                จำนวนผู้ติดเชื้อ
+              </Nav.Link>
+              <Nav.Link
+                href="#vaccinestatus"
+                onClick={() => this.props.history.push("/vaccinationstatus")}
+              >
+                สถานะการฉีดวัคซีน
+              </Nav.Link>
+              <Nav.Link
+                href="#registation"
+                onClick={() => this.props.history.push("/addstore")}
+              >
+                ลงทะเบียนสถานที่
+              </Nav.Link>
             </Nav>
             <Navbar.Collapse className="justify-content-end">
               <Navbar.Text> Signed in as : </Navbar.Text>
@@ -69,7 +85,14 @@ class Header extends Component {
                   {this.state.User} <cg.CgProfile />
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                  <Dropdown.Item href="#/profile" onClick={() => {this.props.history.push("/profile")}}>Profile</Dropdown.Item>
+                  <Dropdown.Item
+                    href="#/profile"
+                    onClick={() => {
+                      this.props.history.push("/profile");
+                    }}
+                  >
+                    Profile
+                  </Dropdown.Item>
                   <Dropdown.Item href="#/action-2">
                     Another action
                   </Dropdown.Item>

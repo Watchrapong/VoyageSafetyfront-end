@@ -67,6 +67,12 @@
   margin: -112px auto 0 36px;
 }
 
+.section-dashboard .u-text-0 {
+  font-size: 1.5rem;
+  margin: -112px auto 0 36px;
+  margin-top: 5px;
+}
+
 .section-dashboard .u-shape-1 {
   width: 235px;
   height: 60px;
@@ -101,6 +107,11 @@
 
 .section-dashboard .u-text-7 {
   margin: 6px auto 0;
+}
+
+.section-dashboard .u-text-00 {
+  margin: 6px auto 0;
+  margin-top: -3px;
 }
 
 .section-dashboard .u-text-8 {
@@ -240,6 +251,12 @@
     margin-left: 32px;
   }
 
+  .section-dashboard .u-text-0 {
+    width: auto;
+    margin-top: 5px;
+    margin-left: 32px;
+  }
+
   .section-dashboard .u-shape-1 {
     width: 222px;
     height: 50px;
@@ -336,6 +353,11 @@
     margin-left: 26px;
   }
 
+  .section-dashboard .u-text-0 {
+    margin-top: 5px;
+    margin-left: 26px;
+  }
+
   .section-dashboard .u-shape-1 {
     height: 46px;
     margin-top: 28px;
@@ -362,6 +384,11 @@
 
   .section-dashboard .u-text-7 {
     margin-left: 67px;
+  }
+
+  .section-dashboard .u-text-00 {
+    margin-left: 67px;
+    margin-top: -3px;
   }
 
   .section-dashboard .u-shape-2 {
@@ -431,6 +458,10 @@
     margin-top: -73px;
   }
 
+  .section-dashboard .u-text-0 {
+    margin-top: 5px;
+  }
+
   .section-dashboard .u-shape-1 {
     width: 201px;
     margin-top: 5px;
@@ -465,6 +496,12 @@
   .section-dashboard .u-text-7 {
     width: auto;
     margin-top: 10px;
+    margin-left: 22px;
+  }
+
+  .section-dashboard .u-text-00 {
+    width: auto;
+    margin-top: 7px;
     margin-left: 22px;
   }
 
@@ -591,6 +628,12 @@
     margin-left: 18px;
   }
 
+  .section-dashboard .u-text-0 {
+    font-size: 1.25rem;
+    margin-top: 5px;
+    margin-left: 18px;
+  }
+
   .section-dashboard .u-shape-1 {
     height: 35px;
     margin-top: 39px;
@@ -617,6 +660,11 @@
   }
 
   .section-dashboard .u-text-7 {
+    margin-top: 8px;
+    margin-left: 4px;
+  }
+
+  .section-dashboard .u-text-00 {
     margin-top: 8px;
     margin-left: 4px;
   }

@@ -56,8 +56,7 @@ class Home extends Component {
         this.state.offset + this.state.perPage
       );
       const postData = slice.map(
-        (pd) => (
-          <React.Fragment>
+        (pd) => (    
             <div key={pd.EstId} className="col-md-4">
               <a onClick={() => this.props.history.push(`/detail/${pd.EstId}`)}>
                 <div className="card mb-4 box-shadow">
@@ -96,7 +95,6 @@ class Home extends Component {
                 </div>
               </a>
             </div>
-          </React.Fragment>
         )
         // return (
         //   !isFetching &&
@@ -148,21 +146,16 @@ class Home extends Component {
 
         postData,
       });
-    } catch (e) {
-      this.debounceSearchCategory = _.debounce(
-        this.props.getEstablishmentsByCategory,
-        500
-      );
-      this.props.getEstablishments();
+    } catch (error) {
       setTimeout(() => {
         const { result } = this.props.establishmentReducer;
-        console.log("result", result);
+        console.log("result error", result);
+        if(result!=null){
         const slice = result.slice(
           this.state.offset,
           this.state.offset + this.state.perPage
         );
         const postData = slice.map((pd) => (
-          <React.Fragment>
             <div key={pd.EstId} className="col-md-4">
               <a onClick={() => this.props.history.push(`/detail/${pd.EstId}`)}>
                 <div className="card mb-4 box-shadow">
@@ -200,15 +193,17 @@ class Home extends Component {
                   </div>
                 </div>
               </a>
-            </div>
-          </React.Fragment>
+            </div>   
         ));
         this.setState({
           pageCount: Math.ceil(result.length / this.state.perPage),
 
           postData,
         });
-      }, 4000);
+      }else{
+        this.createRow();
+      }
+      }, 6000);
     }
   };
 
@@ -236,10 +231,19 @@ class Home extends Component {
     this.isLoading();
     e.preventDefault();
     e.persist();
-    this.debounceSearchCategory(e);
-    setTimeout(() => {
-      this.createRow();
-    }, 1000);
+    const offset = 0 * this.state.perPage;
+    this.setState(
+      {
+        currentPage: 0,
+        offset: 0,
+      },
+      () => {
+        this.debounceSearchCategory(e);
+        setTimeout(() => {
+          this.createRow();
+        }, 4000);
+      }
+    );
   };
 
   render() {

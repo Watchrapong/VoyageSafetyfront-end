@@ -29,8 +29,7 @@ import Forgetpassword from "./components/forgetpassword/forgetpassword";
 import Resetpassword from "./components/resetpassword/resetpassword";
 import Confirmbooking from "./components/confirmbooking/confirmbooking";
 import Viewstaff from "./components/viewstaff/viewstaff";
-import Thanksforbooking from "./components/thanksforbooking/thanksforbooking"
-// import Addstore from "./components/addstore";
+import Thanksforbooking from "./components/thanksforbooking/thanksforbooking";
 
 const isLoggedIn = () => {
   return localStorage.getItem(server.LOGIN_PASSED) === YES;
@@ -83,7 +82,6 @@ class App extends Component {
           <Route path="/index"  component={Welcome}/> 
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} /> 
-          <Route path="/viewstaff" component = {Viewstaff} />
            {/* <Route exact={true} path="/" component={this.redirectToLogin} />  */}
           <SecuredRoute path="/home" component={Home} />
           <SecuredRoute path="/detail/:EstId/" component={Detail} />
@@ -91,12 +89,13 @@ class App extends Component {
           <SecuredRoute path="/dashboard" component={Dashboard}/>
           <SecuredRoute path="/profile" component={Profile}/>
           <SecuredRoute path="/addstore" component={Addstore}/>
-          <Route path="/verify/:email/:key" component={Verify}/> 
+          <Route path="/verify/:email/:key" component={Verify}/>
           <SecuredRoute path="/vaccinationstatus" component={Vaccinationstatus}/>
           <Route path="/forgetpassword" component={Forgetpassword} />
           <SecuredRoute path="/confirmbooking/:date" component={Confirmbooking} />
           <SecuredRoute path="/thanksforbooking" component={Thanksforbooking} />
           <Route path="/resetpassword/:key" component={Resetpassword} />
+          <SecuredRoute path="/viewstaff/:EstId" component={Viewstaff} />
         {/* <Route path="/*" component={this.redirectToLogin} />   */}
             {/* <Route path="/error" component={error} /> */}
           </Switch>  

@@ -33,6 +33,11 @@ export const HTTP_DETAIL_FETCHING = "HTTP_DETAIL_FETCHING";
 export const HTTP_DETAIL_SUCCESS = "HTTP_DETAIL_SUCCESS";
 export const HTTP_DETAIL_FAILED = "HTTP_DETAIL_FAILED";
 
+//View Staff
+export const HTTP_STAFF_FETCHING = "HTTP_STAFF_FETCHING";
+export const HTTP_STAFF_SUCCESS = "HTTP_STAFF_SUCCESS";
+export const HTTP_STAFF_FAILED = "HTTP_STAFF_FAILED";
+
 // export const SHOP_UPDATE_ORDER = "SHOP_UPDATE_ORDER";
 // export const SHOP_UPDATE_PAYMENT = "SHOP_UPDATE_PAYMENT";
 
@@ -80,5 +85,6 @@ export const server = {
     UPDATE_PASSWORD: `authen/updatepassword`,
     UPLOAD: `authen/upload`,
     VACCINATION: `vaccination/vaccine`,
+    VIEWSTAFF: `establishment/staff`,
 }
 

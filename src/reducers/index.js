@@ -4,6 +4,7 @@ import loginReducer from "./login.reducer";
 import appReducer from "./app.reducer";
 import establishmentReducer from "./establishment.reducer";
 import detailReducer from "./detail.reducer";
+import staffReducer from "./staff.reducer";
 
 export default combineReducers(
     {
@@ -11,6 +12,7 @@ export default combineReducers(
     loginReducer,
     appReducer,
     establishmentReducer,
-    detailReducer
+    detailReducer,
+    staffReducer
     }
     )

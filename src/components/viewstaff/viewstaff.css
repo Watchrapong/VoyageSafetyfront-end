@@ -43,7 +43,7 @@
   
   .sectionviewstaff .u-group-1 {
     min-height: 125px;
-    height: auto;
+    height: 500px;
     width: 686px;
     margin: 15px 0 0;
   }
@@ -193,7 +193,7 @@
   
     .sectionviewstaff .u-group-1 {
       width: 556px;
-      height: auto;
+      height: 550px;
     }
   
     .sectionviewstaff .u-container-layout-3 {
@@ -303,6 +303,7 @@
     .sectionviewstaff .u-group-1 {
       min-height: 130px;
       width: 413px;
+      height: 550px;
     }
   
     .sectionviewstaff .u-container-layout-3 {
@@ -401,6 +402,7 @@
       margin-right: initial;
       margin-left: initial;
       width: auto;
+      height: 550px;
     }
   
     .sectionviewstaff .u-text-3 {
