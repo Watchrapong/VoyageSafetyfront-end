@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import blankprofile from "../../assets/img/blankprofile.png";
-import { server, apiBlockChain } from "../../constants";
-import { httpClient } from "../../utils/HttpClient";
 import "./viewstaff.css";
 import { WaveLoading } from "react-loadingg";
 import * as action from "../../actions/staff.action";
 import { connect } from "react-redux";
-import axios from "axios";
 import ReactPaginate from "react-paginate";
+import { Button, Modal } from "react-bootstrap";
 
 class Viewstaff extends Component {
   componentDidMount() {
@@ -29,6 +27,7 @@ class Viewstaff extends Component {
       data: [],
       perPage: 3,
       currentPage: 0,
+      show: false,
     };
     this.handlePageClick = this.handlePageClick.bind(this);
   }
@@ -48,20 +47,13 @@ class Viewstaff extends Component {
     );
   };
 
-  // getVaccines = (CitizenId) => {
-  //   axios
-  //     .post(`${apiBlockChain}/${server.VACCINATION}/${CitizenId}`)
-  //     .then((result) => {
-  //       let data = result.data.result;
-  //       console.log(data);
-  //       this.setState({ managerData: data });
-  //       console.log(this.state.managerData)
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //       return error;
-  //     });
-  // };
+  changeHandler = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
+  submitHandler = (e) => {};
+
   addStaff = () => {
     return (
       <div className="u-btn u-btn-round u-button-style u-radius-5 u-btn-1">
@@ -101,7 +93,9 @@ class Viewstaff extends Component {
               </Button>
             </div>
             <div>
-              <Button variant="outline-danger" className="mx-2 px-3"
+              <Button
+                variant="outline-danger"
+                className="mx-2 px-3"
                 onClick={this.submitHandler}
               >
                 Submit
@@ -137,7 +131,7 @@ class Viewstaff extends Component {
               width="84px"
               height="84px"
               className="u-image u-image-circle u-preserve-proportions"
-              src={pd.pathImg||blankprofile}
+              src={pd.pathImg || blankprofile}
               alt=""
               data-image-width="153"
               data-image-height="206"
@@ -146,19 +140,9 @@ class Viewstaff extends Component {
           <td>
             {pd.FirstName} {pd.LastName}
           </td>
-          <td></td>
-          <td>
-            {/* {axios
-              .post(`${apiBlockChain}/${server.VACCINATION}/${pd.CitizenId}`)
-              .then((result) => {
-                let data = result.data.result;
-                console.log(data);
-              })
-              .catch((error) => {
-                console.error(error);
-              })} */}
-          </td>
-          <td></td>
+          <td>{pd.Position}</td>
+          <td>{pd.vaccineName1}</td>
+          <td>{pd.vaccineName2}</td>
         </tr>
       ));
       this.setState({
@@ -171,7 +155,6 @@ class Viewstaff extends Component {
 
   render() {
     const { result, isFetching } = this.props.staffReducer;
-    // this.getVaccines(result.result.CitizenId);
     return (
       !isFetching &&
       result != null && (
@@ -198,32 +181,6 @@ class Viewstaff extends Component {
                       </p>
                       <div className="u-container-style u-expanded-width-sm u-expanded-width-xs u-grey-10 u-group u-radius-5 u-shape-round u-group-1">
                         <div className="u-container-layout u-container-layout-3">
-                          {/* <div class="u-expanded-height u-grey-40 u-radius-5 u-shape u-shape-round u-shape-1"></div>
-                        <p class="u-custom-font u-font-roboto u-text u-text-default u-text-3">
-                          นายรัชชวัสส์ วิลัยรักษ์
-                        </p>
-                        <p class="u-custom-font u-font-roboto u-text u-text-default u-text-4">
-                          ผู้จัดกา​รร้าน
-                        </p>
-                        <img
-                          class="u-image u-image-circle u-preserve-proportions u-image-2"
-                          src="../../assets/img/rooftop.png"
-                          alt=""
-                          data-image-width="153"
-                          data-image-height="206"
-                        />
-                        <p class="u-custom-font u-font-roboto u-text u-text-default u-text-5">
-                          วัคซีนเข็มที่สอง
-                        </p>
-                        <p class="u-custom-font u-font-roboto u-text u-text-default u-text-6">
-                          Astrazeneca
-                        </p>
-                        <p class="u-custom-font u-font-roboto u-text u-text-default u-text-7">
-                          Astrazeneca
-                        </p>
-                        <p class="u-custom-font u-font-roboto u-text u-text-default u-text-8">
-                          วัคซีนเข็มที่หนึ่ง
-                        </p> */}
                           <div className="table-responsive">
                             <table className="table table-striped align-middle">
                               <thead>
@@ -242,7 +199,9 @@ class Viewstaff extends Component {
                                       width="84px"
                                       height="84px"
                                       className="u-image u-image-circle u-preserve-proportions"
-                                      src={result.result.pathImg || blankprofile}
+                                      src={
+                                        result.result.pathImg || blankprofile
+                                      }
                                       alt=""
                                       data-image-width="153"
                                       data-image-height="206"
@@ -258,7 +217,6 @@ class Viewstaff extends Component {
                                 </tr>
                               </thead>
                               <tbody>{this.state.postData}</tbody>
-                              {/* {this.staffRow} */}
                             </table>
                           </div>
                         </div>
@@ -283,9 +241,10 @@ class Viewstaff extends Component {
                         pageClassName={"page-item"}
                         pageLinkClassName={"page-link"}
                       />
+                      {this.addStaff()}
                     </div>
                   </div>
-                </div> */}
+                </div>
               </div>
             </div>
           </div>
