@@ -62,6 +62,56 @@ class Viewstaff extends Component {
   //       return error;
   //     });
   // };
+  addStaff = () => {
+    return (
+      <div className="u-btn u-btn-round u-button-style u-radius-5 u-btn-1">
+        <Button variant="none" onClick={() => this.setState({ show: true })}>
+          เพิ่มพนักงาน
+        </Button>
+        <Modal
+          show={this.state.show}
+          animation={true}
+          size="md"
+          className=" shadow-lg border"
+        >
+          <Modal.Header className="bg-info text-white text-center py-1">
+            <Modal.Title className="text-center">
+              <h5>กรุณาใส่ข้อมูลพนักงานที่ท่านต้องการเพิ่ม</h5>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body className="py-0 border">
+            <form>
+              <div className="form-group">
+                <label htmlFor="citizId">เลขบัตรประชาชน</label>
+                <input className="form-control" id="citizId" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="position">ตำแหน่ง</label>
+                <input className="form-control" id="position" />
+              </div>
+            </form>
+          </Modal.Body>
+          <Modal.Footer className="py-1 d-flex justify-content-center">
+            <div>
+              <Button
+                variant="outline-dark"
+                onClick={() => this.setState({ show: false })}
+              >
+                Cancel
+              </Button>
+            </div>
+            <div>
+              <Button variant="outline-danger" className="mx-2 px-3"
+                onClick={this.submitHandler}
+              >
+                Submit
+              </Button>
+            </div>
+          </Modal.Footer>
+        </Modal>
+      </div>
+    );
+  };
 
   isLoading = () => {
     this.setState({
@@ -235,7 +285,7 @@ class Viewstaff extends Component {
                       />
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
