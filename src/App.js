@@ -30,6 +30,8 @@ import Resetpassword from "./components/resetpassword/resetpassword";
 import Confirmbooking from "./components/confirmbooking/confirmbooking";
 import Viewstaff from "./components/viewstaff/viewstaff";
 import Thanksforbooking from "./components/thanksforbooking/thanksforbooking";
+import Editestabilishment from "./components/editestabilishment/editestabilishment";
+import Myestablishment from "./components/myestablishment/myestablishment";
 
 const isLoggedIn = () => {
   return localStorage.getItem(server.LOGIN_PASSED) === YES;
@@ -97,6 +99,8 @@ class App extends Component {
           <Route path="/resetpassword/:key" component={Resetpassword} />
           <SecuredRoute path="/viewstaff/:EstId" component={Viewstaff} />
         {/* <Route path="/*" component={this.redirectToLogin} />   */}
+        <Route path="/myestablishment" component={Myestablishment}/>
+        <Route path="/editestabilishment/" component={Editestabilishment}/>
             {/* <Route path="/error" component={error} /> */}
           </Switch>  
           {/* {isLoggedIn() && <Footer />} */}

@@ -1,0 +1,247 @@
+.myestablishment-section .u-sheet-1 {
+  min-height: 588px;
+}
+
+.myestablishment-section .u-tabs-1 {
+  min-height: 480px;
+  margin: 60px auto 60px 0;
+}
+
+.myestablishment-section .u-tab-link-1 {
+  font-size: 1.25rem;
+  background-image: none;
+  font-weight: 600;
+  padding: 10px 25px;
+}
+
+.myestablishment-section .u-tab-pane-1 {
+  background-image: none;
+}
+
+.myestablishment-section .u-container-layout-1 {
+  padding: 30px;
+}
+
+.myestablishment-section .u-image-1 {
+  width: 420px;
+  height: 367px;
+  margin: 0 auto 0 0;
+}
+
+.myestablishment-section .u-text-1 {
+  margin: -367px 0 0 522px;
+}
+
+.myestablishment-section .u-text-2 {
+  margin: 23px 0 0 522px;
+}
+
+.myestablishment-section .u-text-3 {
+  margin: 20px 0 0 522px;
+}
+
+.myestablishment-section .u-btn-1 {
+  border-style: none;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  margin: 30px auto 0 522px;
+  padding: 0;
+}
+
+.myestablishment-section .u-btn-2 {
+  border-style: none;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  margin: 36px 439px 0 522px;
+  padding: 8px 33px;
+}
+
+.myestablishment-section .u-btn-3 {
+  border-style: none;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  margin: -40px 196px 0 auto;
+  padding: 8px 33px;
+}
+
+@media (max-width: 1199px) {
+  .myestablishment-section .u-tabs-1 {
+    height: auto;
+    margin-right: initial;
+    margin-left: initial;
+  }
+
+  .myestablishment-section .u-text-1 {
+    width: auto;
+    margin-left: 451px;
+  }
+
+  .myestablishment-section .u-text-2 {
+    width: auto;
+    margin-left: 451px;
+  }
+
+  .myestablishment-section .u-text-3 {
+    width: auto;
+    margin-left: 451px;
+  }
+
+  .myestablishment-section .u-btn-1 {
+    margin-top: 31px;
+    margin-right: 329px;
+    margin-left: auto;
+  }
+
+  .myestablishment-section .u-btn-2 {
+    margin-top: 33px;
+    margin-right: 310px;
+    margin-left: 451px;
+  }
+
+  .myestablishment-section .u-btn-3 {
+    margin-right: 44px;
+  }
+}
+
+@media (max-width: 991px) {
+  .myestablishment-section .u-container-layout-1 {
+    padding: 20px 27px;
+  }
+
+  .myestablishment-section .u-image-1 {
+    width: 303px;
+    height: 377px;
+    margin-left: 3px;
+  }
+
+  .myestablishment-section .u-text-1 {
+    margin-top: -377px;
+    margin-right: 3px;
+    margin-left: 333px;
+  }
+
+  .myestablishment-section .u-text-2 {
+    margin-right: 3px;
+    margin-left: 333px;
+  }
+
+  .myestablishment-section .u-text-3 {
+    margin-right: 3px;
+    margin-left: 333px;
+  }
+
+  .myestablishment-section .u-btn-1 {
+    margin-top: 27px;
+    margin-right: 233px;
+  }
+
+  .myestablishment-section .u-btn-2 {
+    margin-top: 37px;
+    margin-right: 165px;
+    margin-left: auto;
+  }
+
+  .myestablishment-section .u-btn-3 {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .myestablishment-section .u-container-layout-1 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .myestablishment-section .u-image-1 {
+    width: 178px;
+    height: 178px;
+  }
+
+  .myestablishment-section .u-text-1 {
+    margin-top: -177px;
+    margin-right: 0;
+    margin-left: 190px;
+  }
+
+  .myestablishment-section .u-text-2 {
+    margin-right: 0;
+    margin-left: 190px;
+  }
+
+  .myestablishment-section .u-text-3 {
+    margin-left: 190px;
+    margin-right: 0;
+  }
+
+  .myestablishment-section .u-btn-1 {
+    margin-top: 23px;
+    margin-right: auto;
+    margin-left: 190px;
+  }
+
+  .myestablishment-section .u-btn-2 {
+    margin-top: 41px;
+    margin-right: 156px;
+  }
+
+  .myestablishment-section .u-btn-3 {
+    margin-top: -6;
+    margin-right: -20px;
+  }
+}
+
+@media (max-width: 575px) {
+  .myestablishment-section .u-tabs-1 {
+    min-height: 763px;
+    margin-right: initial;
+    margin-left: initial;
+  }
+
+  .myestablishment-section .u-container-layout-1 {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .myestablishment-section .u-image-1 {
+    height: 226px;
+    margin-right: initial;
+    margin-left: initial;
+    width: auto;
+  }
+
+  .myestablishment-section .u-text-1 {
+    margin-top: 150px;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+
+  .myestablishment-section .u-text-2 {
+    margin-top: 17px;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+
+  .myestablishment-section .u-text-3 {
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+
+  .myestablishment-section .u-btn-1 {
+    margin-left: 2px;
+  }
+
+  .myestablishment-section .u-btn-2 {
+    margin-right: 0;
+    padding-right: 19px;
+    padding-left: 19px;
+  }
+
+  .myestablishment-section .u-btn-3 {
+    margin-right: auto;
+    margin-left: 2px;
+    padding-right: 26px;
+    padding-left: 25px;
+  }
+}

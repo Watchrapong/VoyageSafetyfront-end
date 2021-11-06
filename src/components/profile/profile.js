@@ -7,6 +7,7 @@ import { Button } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import FormData from "form-data";
 import { validEmail, validPassword, validateForm } from "../../utils/regex.js";
+import { WaveLoading } from "react-loadingg";
 
 class Profile extends Component {
   constructor(props) {
@@ -34,6 +35,7 @@ class Profile extends Component {
       },
       showProfile: false,
       showResetPass: false,
+      isFetching: false,
     };
     this.showProfileModal = this.showProfileModal.bind(this);
     this.hideProfileModal = this.hideProfileModal.bind(this);
@@ -60,6 +62,7 @@ class Profile extends Component {
 
   componentDidMount() {
     try {
+      this.setState({ isFetching: true });
       if (localStorage.getItem(server.LOGIN_PASSED) == YES) {
         let token = localStorage.getItem("Token");
         httpClient
@@ -80,6 +83,7 @@ class Profile extends Component {
               CitizenId: data.result.CitizenId,
               Telno: data.result.Telno,
               PathImg: data.result.pathImg,
+              isFetching: false,
             });
           });
       } else {
@@ -94,13 +98,13 @@ class Profile extends Component {
     switch (name) {
       case "Password":
         errors.Password =
-          value.length < 8 || validPassword.test(value)
+          value.length < 8 || !validPassword.test(value)
             ? "Password must be 8 characters long!"
             : "";
         break;
       case "Confirm_Password":
         errors.Confirmation_Password =
-          value.length < 8 || validPassword.test(value)
+          value.length < 8 || !validPassword.test(value)
             ? "Confirmation Password must be 8 characters long!"
             : "";
         break;
@@ -204,8 +208,8 @@ class Profile extends Component {
   };
 
   render() {
-    const { errors, Error, fileError } = this.state;
-    return (
+    const { errors, Error, fileError, isFetching } = this.state;
+    return (isFetching !== false && (<WaveLoading/>)||(
       <section
         className="skrollable u-clearfix u-image u-parallax profile-section skrollable-between"
         id="sec-6e38"
@@ -481,7 +485,7 @@ class Profile extends Component {
             </div>
           </div>
         </div>
-      </section>
+      </section>)
     );
   }
 }

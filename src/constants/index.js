@@ -77,7 +77,7 @@ export const server = {
     ESTABLISH_URL: `establishment`,
     DETAIL_URL: `detail`,
     TRANSACTION_URL: `transaction`,
-    // REPORT_URL: `ESTABLISH/report`,
+    UPDATE_STATUS: `authen/updatevaccine`,
     LOGIN_PASSED: `yes`,
     LOGIN_USER: `authen/info`,
     EDIT_USER: `authen/update`,
@@ -86,5 +86,6 @@ export const server = {
     UPLOAD: `authen/upload`,
     VACCINATION: `vaccination/vaccine`,
     VIEWSTAFF: `establishment/staff`,
+    MYESTABLISHMENT: `/establishment/owner`,
 }
 

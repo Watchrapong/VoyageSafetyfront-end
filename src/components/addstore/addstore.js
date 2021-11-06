@@ -53,13 +53,24 @@ class Addstore extends Component {
       showEnableLocation: false,
       showVaccineAlert: false,
       vaccine: false,
+      successModal: false,
     };
     this.showEnableLocationModal = this.showEnableLocationModal.bind(this);
     this.hideEnableLocationModal = this.hideEnableLocationModal.bind(this);
     this.showVaccineAlertModal = this.showVaccineAlertModal.bind(this);
     this.hideVaccineAlertModal = this.hideVaccineAlertModal.bind(this);
+    this.showSuccessModal = this.showSuccessModal.bind(this);
+    this.hideSuccessModal = this.hideSuccessModal.bind(this);
     this.onFileChange = this.onFileChange.bind(this);
     this.getMyLocation = this.getMyLocation.bind(this);
+  }
+
+  showSuccessModal = () => {
+    this.setState({ successModal: true })
+  }
+
+  hideSuccessModal = () => {
+    this.setState({ successModal: false })
   }
 
   showEnableLocationModal = () => {
@@ -120,7 +131,7 @@ class Addstore extends Component {
         this.setState({
           userId: result.data.result.UserId,
           vaccine: result.data.result.Status,
-          CitizenId: result.data.result.CitizenId
+          CitizenId: result.data.result.CitizenId,
         });
       })
       .catch((error) => {
@@ -237,7 +248,7 @@ class Addstore extends Component {
           // formData.append("EstId", "100")
           formData.append("Owner", userId);
           formData.append("Name", Name);
-          formData.append("CitizenId", CitizenId)
+          formData.append("CitizenId", CitizenId);
           formData.append("SubCategoryId", type);
           formData.append("Description", Description);
           formData.append("Address", address);
@@ -256,6 +267,7 @@ class Addstore extends Component {
               if (response.data.result === OK) {
                 console.log("Done");
                 this.setState({ Error: "" });
+                this.showSuccessModal();
               } else {
                 console.log("Error");
                 this.setState({ Error: "ข้อมูลผิดพลาด" });
@@ -1506,10 +1518,8 @@ class Addstore extends Component {
           animation={true}
           aria-labelledby="contained-modal-title-vcenter"
           centered
+          size="sm"
         >
-          <Modal.Header closeButton>
-            <Modal.Title>โปรดเปิดใช้งานการระบุตำแหน่ง</Modal.Title>
-          </Modal.Header>
           <Modal.Body>
             <div className="text-center">
               <img
@@ -1519,7 +1529,7 @@ class Addstore extends Component {
                 height={150}
               />
               <div className="">
-                <p className="lead mb-4">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                <p className="lead mb-4">โปรดเปิดใช้งานการระบุตำแหน่ง</p>
               </div>
               <Button variant="secondary" onClick={() => this.getMyLocation()}>
                 เปิด
@@ -1537,12 +1547,8 @@ class Addstore extends Component {
           animation={true}
           aria-labelledby="contained-modal-title-vcenter"
           centered
+          size="sm"
         >
-          <Modal.Header closeButton>
-            <Modal.Title>
-              คุณไม่มีข้อมูลการฉีดวัคซีนหรือข้อมูลยังไม่ได้อัพเดท
-            </Modal.Title>
-          </Modal.Header>
           <Modal.Body>
             <div className="text-center">
               <img
@@ -1552,7 +1558,9 @@ class Addstore extends Component {
                 height={200}
               />
               <div className="">
-                <p className="lead mb-4">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                <p className="lead mb-4">
+                  คุณไม่มีข้อมูลการฉีดวัคซีนหรือข้อมูลยังไม่ได้อัพเดท
+                </p>
               </div>
               <Button
                 variant="secondary"
@@ -1566,6 +1574,34 @@ class Addstore extends Component {
               </a>
             </div>
           </Modal.Body>
+        </Modal>
+        <Modal
+          show={this.state.successModal}
+          onHide={this.hideSuccessModal}
+          animation={true}
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+          size="sm"
+        >
+          <div style={{ textAlign: "center" }}>
+            <div className="simplert__header">
+              <div>
+                <div className="simplert__icon simplert__icon--success">
+                  <div className="simplert__line simplert__line--success" />
+                  <div className="simplert__line simplert__line--success-2" />
+                </div>
+              </div>
+              {/* <b className="simplert__title">เพิ่มร้านค้าสำเร็จ</b> */}
+            </div>
+            <div className="simplert__body">
+              <div className="simplert__title">
+              <b>เพิ่มร้านค้าสำเร็จ</b>
+              </div>
+            </div>
+            <div className="simplert__footer">
+              <button className="simplert__close " onClick={() => this.props.history.push("/home")}>Close</button>
+            </div>
+          </div>
         </Modal>
       </div>
     );

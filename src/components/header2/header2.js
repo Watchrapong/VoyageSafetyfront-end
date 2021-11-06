@@ -14,7 +14,7 @@ class Header2 extends Component {
       >
         <Container>
           <Navbar.Brand
-            href="#home"
+            href=""
             onClick={() => this.props.history.push("/")}
           >
             <img src={logo} style={{ height: "40px" }} />

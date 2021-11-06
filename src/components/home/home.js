@@ -263,7 +263,7 @@ class Home extends Component {
                     className="btn btn-dark"
                     onClick={(e) => {
                       e.preventDefault();
-                      this.props.getEstablishments();
+                      //this.props.getEstablishments();
                       this.createRow();
                     }}
                   >

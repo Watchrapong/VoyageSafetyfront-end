@@ -27,6 +27,7 @@ class Viewstaff extends Component {
       data: [],
       perPage: 3,
       currentPage: 0,
+      count : 0,
       show: false,
     };
     this.handlePageClick = this.handlePageClick.bind(this);
@@ -65,6 +66,7 @@ class Viewstaff extends Component {
           animation={true}
           size="md"
           className=" shadow-lg border"
+          centered
         >
           <Modal.Header className="bg-info text-white text-center py-1">
             <Modal.Title className="text-center">
@@ -146,9 +148,10 @@ class Viewstaff extends Component {
         </tr>
       ));
       this.setState({
-        pageCount: Math.ceil(result.length / this.state.perPage),
+        pageCount: Math.ceil(result.staffUser.length / this.state.perPage),
 
         postData,
+        count: result.staffUser.length + 1,
       });
     } catch (error) {}
   };
@@ -177,7 +180,7 @@ class Viewstaff extends Component {
                       </h4>
                       <div className="u-border-2 u-border-grey-15 u-line u-line-horizontal u-line-1" />
                       <p className="u-small-text u-text u-text-default u-text-variant u-text-2">
-                        จำนวนพนักงานทั้งหมด : 0
+                        จำนวนพนักงานทั้งหมด : {this.state.count}
                       </p>
                       <div className="u-container-style u-expanded-width-sm u-expanded-width-xs u-grey-10 u-group u-radius-5 u-shape-round u-group-1">
                         <div className="u-container-layout u-container-layout-3">
@@ -249,7 +252,8 @@ class Viewstaff extends Component {
             </div>
           </div>
         </section>
-      )
+      )||
+      (<WaveLoading/>)
     );
   }
 }

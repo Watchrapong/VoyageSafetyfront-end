@@ -7,7 +7,6 @@ import { server, YES } from "../../constants";
 import { httpClient } from "../../utils/HttpClient";
 import { withRouter } from "react-router-dom";
 import { Container, Nav, Navbar, Dropdown } from "react-bootstrap";
-import { CommonLoading } from "react-loadingg";
 
 class Header extends Component {
   constructor(props) {
@@ -60,19 +59,19 @@ class Header extends Component {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link
-                href="#featurs"
+                href=""
                 onClick={() => this.props.history.push("/dashboard")}
               >
                 จำนวนผู้ติดเชื้อ
               </Nav.Link>
               <Nav.Link
-                href="#vaccinestatus"
+                href=""
                 onClick={() => this.props.history.push("/vaccinationstatus")}
               >
                 สถานะการฉีดวัคซีน
               </Nav.Link>
               <Nav.Link
-                href="#registation"
+                href=""
                 onClick={() => this.props.history.push("/addstore")}
               >
                 ลงทะเบียนสถานที่
@@ -86,15 +85,18 @@ class Header extends Component {
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                   <Dropdown.Item
-                    href="#/profile"
+                    href=""
                     onClick={() => {
                       this.props.history.push("/profile");
                     }}
                   >
-                    Profile
+                    โปรไฟล์
                   </Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">
-                    Another action
+                  <Dropdown.Item href=""
+                  onClick={() => {
+                    this.props.history.push("/myestablishment");
+                  }}>
+                    ร้านค้าของฉัน
                   </Dropdown.Item>
                   <Dropdown.Divider />
                   <Dropdown.Item
@@ -105,7 +107,7 @@ class Header extends Component {
                       this.props.appReducer.app.forceUpdate();
                     }}
                   >
-                    Logout
+                    ลงชื่อออก
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
