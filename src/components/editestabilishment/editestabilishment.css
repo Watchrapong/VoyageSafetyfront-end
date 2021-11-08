@@ -1,0 +1,350 @@
+.sectionEditEst {
+    background-image: url("..//..//assets//img/bgest.png");
+    background-position: 50% 50%;
+  }
+  
+  .sectionEditEst .u-sheet-1 {
+    min-height: 1270px;
+  }
+  
+  .sectionEditEst .u-text-1 {
+    font-size: 1rem;
+    margin: 20px 665px 0 0;
+  }
+  
+  .sectionEditEst .u-text-2 {
+    font-size: 1.5rem;
+    background-image: none;
+    margin: 15px auto 0;
+  }
+  
+  .sectionEditEst .u-layout-wrap-1 {
+    margin-top: 15px;
+    margin-bottom: 30px;
+  }
+  
+  .sectionEditEst .u-layout-cell-1 {
+    min-height: auto;
+    font-size: 0.875rem;
+  }
+  
+  .sectionEditEst .u-container-layout-1 {
+    margin-left: 0;
+    padding: 10px;
+  }
+  
+  .sectionEditEst .u-group-1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    background-image: none;
+    min-height: auto;
+    height: auto;
+  }
+  
+  .sectionEditEst .u-container-layout-2 {
+    font-size: 0.875rem;
+    padding: 10px;
+  }
+  
+  .sectionEditEst .u-text-3 {
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: 1rem;
+    margin-left: 0;
+  }
+  
+  .sectionEditEst .u-form-1 {
+    height: 313px;
+    width: 602px;
+    margin: 20px auto 0;
+  }
+  
+  .sectionEditEst .u-form-group-2 {
+    margin-left: 0;
+  }
+  
+  .sectionEditEst .u-form-group-4 {
+    margin-left: 0;
+  }
+  
+  .sectionEditEst .u-form-group-5 {
+    margin-left: 0;
+  }
+  
+  .sectionEditEst .u-form-group-6 {
+    margin-left: 0;
+  }
+  
+  .sectionEditEst .u-form-group-7 {
+    margin-left: 0;
+  }
+  
+  .sectionEditEst .u-form-group-8 {
+    margin-left: 0;
+  }
+  
+  .sectionEditEst .u-text-4 {
+    margin: 10px 183px 0 auto;
+  }
+  
+  .sectionEditEst .u-shape-1 {
+    width: 340px;
+    height: 204px;
+    background-image: none;
+    margin: 10px 114px 0 140px;
+  }
+  
+  .sectionEditEst .u-form-2 {
+    height: 154px;
+    width: 602px;
+    margin: 10px auto 0;
+  }
+  
+  .sectionEditEst .u-layout-cell-2 {
+    min-height: 1143px;
+  }
+  
+  .sectionEditEst .u-container-layout-3 {
+    font-size: 0.875rem;
+    padding: 10px 0;
+  }
+  
+  .sectionEditEst .u-group-2 {
+    width: 436px;
+    min-height: 473px;
+    margin: 0 auto;
+  }
+  
+  .sectionEditEst .u-container-layout-4 {
+    padding: 10px 0;
+  }
+  
+  .sectionEditEst .u-text-5 {
+    font-size: 1rem;
+    margin: 10px auto 0;
+  }
+  
+  .sectionEditEst .u-shape-2 {
+    height: 327px;
+    width: 416px;
+    background-image: none;
+    margin: 15px auto 0;
+  }
+  
+  .sectionEditEst .u-btn-3 {
+    margin: 20px 10px 0 auto;
+  }
+  
+  @media (max-width: 1199px) {
+    .sectionEditEst .u-sheet-1 {
+      min-height: 1253px;
+    }
+  
+    .sectionEditEst .u-text-1 {
+      width: auto;
+      margin-right: 470px;
+      margin-left: 15px;
+    }
+  
+    .sectionEditEst .u-layout-wrap-1 {
+      margin-bottom: 29px;
+    }
+  
+    .sectionEditEst .u-layout-cell-1 {
+      min-height: auto;
+    }
+  
+    .sectionEditEst .u-group-1 {
+      min-height: auto;
+      height: auto;
+    }
+  
+    .sectionEditEst .u-container-layout-2 {
+      padding-left: 0;
+      padding-right: 0;
+      padding-bottom: 6px;
+    }
+  
+    .sectionEditEst .u-text-3 {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  
+    .sectionEditEst .u-form-1 {
+      width: 524px;
+    }
+  
+    .sectionEditEst .u-text-4 {
+      width: auto;
+      margin-right: auto;
+    }
+  
+    .sectionEditEst .u-shape-1 {
+      width: 150;
+      height: 100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    .sectionEditEst .u-form-2 {
+      width: 508px;
+    }
+  
+    .sectionEditEst .u-layout-cell-2 {
+      min-height: 1127px;
+    }
+  
+    .sectionEditEst .u-group-2 {
+      margin-right: initial;
+      margin-left: initial;
+      width: auto;
+    }
+  
+    .sectionEditEst .u-text-5 {
+      margin-left: 163px;
+    }
+  
+    .sectionEditEst .u-shape-2 {
+      width: 376px;
+    }
+  
+    .sectionEditEst .u-btn-3 {
+      margin-right: 8px;
+    }
+  }
+  
+  @media (max-width: 991px) {
+    .sectionEditEst .u-sheet-1 {
+      min-height: 156px;
+    }
+  
+    .sectionEditEst .u-text-1 {
+      margin-right: 108px;
+      margin-left: 20px;
+    }
+  
+    .sectionEditEst .u-layout-wrap-1 {
+      position: relative;
+    }
+  
+    .sectionEditEst .u-layout-cell-1 {
+      min-height: 100px;
+    }
+  
+    .sectionEditEst .u-form-1 {
+      width: 392px;
+    }
+  
+    .sectionEditEst .u-form-2 {
+      width: 380px;
+    }
+  
+    .sectionEditEst .u-layout-cell-2 {
+      min-height: 100px;
+    }
+  
+    .sectionEditEst .u-text-5 {
+      margin-left: 125px;
+    }
+  
+    .sectionEditEst .u-shape-2 {
+      width: 288px;
+    }
+  
+    .sectionEditEst .u-btn-3 {
+      margin-right: 6px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .sectionEditEst .u-sheet-1 {
+      min-height: 256px;
+    }
+  
+    .sectionEditEst .u-text-1 {
+      margin-right: 20px;
+    }
+  
+    .sectionEditEst .u-layout-wrap-1 {
+      margin-bottom: 43px;
+    }
+  
+    .sectionEditEst .u-layout-cell-1 {
+      min-height: auto;
+    }
+  
+    .sectionEditEst .u-group-1 {
+      min-height: auto;
+    }
+  
+    .sectionEditEst .u-layout-cell-2 {
+      min-height: 493px;
+    }
+  
+    .sectionEditEst .u-group-2 {
+      width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    .sectionEditEst .u-text-5 {
+      width: auto;
+      margin-left: auto;
+    }
+  
+    .sectionEditEst .u-btn-3 {
+      margin-right: 10px;
+    }
+  }
+  
+  @media (max-width: 575px) {
+    .sectionEditEst .u-sheet-1 {
+      min-height: 2118px;
+    }
+  
+    .sectionEditEst .u-text-1 {
+      margin-right: 0;
+    }
+  
+    .sectionEditEst .u-layout-wrap-1 {
+      margin-bottom: 29px;
+    }
+  
+    .sectionEditEst .u-layout-cell-1 {
+      min-height: auto;
+    }
+  
+    .sectionEditEst .u-group-1 {
+      min-height: auto;
+    }
+  
+    .sectionEditEst .u-form-1 {
+      width: 320px;
+    }
+  
+    .sectionEditEst .u-form-2 {
+      height: 241px;
+      width: 300px;
+    }
+  
+    .sectionEditEst .u-layout-cell-2 {
+      min-height: 538px;
+    }
+  
+    .sectionEditEst .u-group-2 {
+      margin-top: 20px;
+      margin-right: initial;
+      margin-left: initial;
+      width: auto;
+    }
+  
+    .sectionEditEst .u-btn-3 {
+      margin-right: 26px;
+    }
+  }.u-section-2 .u-sheet-1 {
+    min-height: 157px;
+  }
+
+  .colortext{
+    color : #ff0000;
+  }
