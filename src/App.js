@@ -99,8 +99,8 @@ class App extends Component {
           <Route path="/resetpassword/:key" component={Resetpassword} />
           <SecuredRoute path="/viewstaff/:EstId" component={Viewstaff} />
         {/* <Route path="/*" component={this.redirectToLogin} />   */}
-        <Route path="/myestablishment" component={Myestablishment}/>
-        <Route path="/editestabilishment/" component={Editestabilishment}/>
+        <SecuredRoute path="/myestablishment" component={Myestablishment}/>
+        <SecuredRoute path="/editestabilishment" component={Editestabilishment}/>
             {/* <Route path="/error" component={error} /> */}
           </Switch>  
           {/* {isLoggedIn() && <Footer />} */}

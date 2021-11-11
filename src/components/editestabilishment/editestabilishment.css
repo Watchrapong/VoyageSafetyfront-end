@@ -90,7 +90,6 @@
   .sectionEditEst .u-shape-1 {
     width: 340px;
     height: 204px;
-    background-image: none;
     margin: 10px 114px 0 140px;
   }
   
@@ -127,7 +126,6 @@
   .sectionEditEst .u-shape-2 {
     height: 327px;
     width: 416px;
-    background-image: none;
     margin: 15px auto 0;
   }
   
@@ -181,7 +179,7 @@
   
     .sectionEditEst .u-shape-1 {
       width: 150;
-      height: 100px;
+      height: 140px;
       margin-left: auto;
       margin-right: auto;
     }

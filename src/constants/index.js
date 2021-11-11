@@ -87,5 +87,7 @@ export const server = {
     VACCINATION: `vaccination/vaccine`,
     VIEWSTAFF: `establishment/staff`,
     MYESTABLISHMENT: `/establishment/owner`,
+    DELETEIMAGE: `/establishment/deleteimage`,
+    ADDMOREIMAGE: `/establishment/addmoreimage`,
 }
 

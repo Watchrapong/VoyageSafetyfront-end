@@ -55,10 +55,7 @@ class Detail extends Component {
                               {arrImg.map((item) => (
                                 <Carousel.Item interval={1500}>
                                   <img
-                                    src={
-                                      item.Img ||
-                                      "https://via.placeholder.com/700x350"
-                                    }
+                                    src={item.Img}
                                     alt="mainImage"
                                     style={{ width: "100%" }}
                                     className="w3-hover-opacity img"
@@ -66,7 +63,14 @@ class Detail extends Component {
                                 </Carousel.Item>
                               ))}
                             </Carousel>
-
+                            {arrImg.length == 0 && (
+                              <img
+                                src={"https://via.placeholder.com/700x350"}
+                                alt="mainImage"
+                                style={{ width: "100%" }}
+                                className="w3-hover-opacity img"
+                              />
+                            )}
                             <section
                               className="u-clearfix sectiondetail2"
                               id="sec-c6a2"
@@ -208,7 +212,10 @@ class Detail extends Component {
                                         </div>
 
                                         <button
-                                          className="btn btn-primary" style={{backgroundColor: 'rgb(15 74 105)'}}
+                                          className="btn btn-primary"
+                                          style={{
+                                            backgroundColor: "rgb(15 74 105)",
+                                          }}
                                           onClick={() => {
                                             window.open(
                                               `https://www.google.com/maps/search/?api=1&query=${data.Lat},${data.Lng}`

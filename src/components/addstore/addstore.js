@@ -1112,7 +1112,7 @@ class Addstore extends Component {
                 จังหวัด
               </p>
               <p className="u-hidden-xs u-text u-text-default u-text-8">
-                ประเภทที่พัก
+                ประเภทร้านอาหาร
               </p>
               <p className="u-hidden-xs u-text u-text-default u-text-9">
                 รหัสไปรษณีย์

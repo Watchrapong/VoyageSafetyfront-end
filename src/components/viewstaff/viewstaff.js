@@ -6,6 +6,7 @@ import * as action from "../../actions/staff.action";
 import { connect } from "react-redux";
 import ReactPaginate from "react-paginate";
 import { Button, Modal } from "react-bootstrap";
+import { BsTrash } from "react-icons/bs";
 
 class Viewstaff extends Component {
   componentDidMount() {
@@ -43,7 +44,7 @@ class Viewstaff extends Component {
         offset: offset,
       },
       () => {
-        this.receivedData();
+        this.staffRow();
       }
     );
   };
@@ -145,6 +146,7 @@ class Viewstaff extends Component {
           <td>{pd.Position}</td>
           <td>{pd.vaccineName1}</td>
           <td>{pd.vaccineName2}</td>
+          <td><BsTrash/></td>
         </tr>
       ));
       this.setState({
@@ -163,6 +165,7 @@ class Viewstaff extends Component {
       result != null && (
         <section className="u-clearfix sectionviewstaff" id="sec-c6a2">
           <div className="u-clearfix u-sheet u-sheet-1">
+          <p className="u-text label-text"><a href="" onClick={() => this.props.history.push('/home')}>หน้าแรก</a> / <a href="" onClick={() => this.props.history.push('/myestablishment')}> ร้านค้าของฉัน </a> / รายชื่อบุคลากร</p>
             <div className="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
               <div className="u-layout">
                 <div className="u-layout-row">
