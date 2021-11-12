@@ -11,6 +11,7 @@ class Detail extends Component {
   componentDidMount() {
     let EstId = this.props.match.params.EstId;
     this.props.getDetail(EstId);
+    this.setState({EstId});
   }
 
   constructor(props) {
@@ -22,7 +23,7 @@ class Detail extends Component {
 
   handleSubmit = (e) => {
     console.log(this.state.Date);
-    this.props.history.push(`/confirmbooking/${this.state.Date}`);
+    this.props.history.push(`/confirmbooking/${this.state.Date}/${this.state.EstId}`);
   };
 
   showInfo = () => {

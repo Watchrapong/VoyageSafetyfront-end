@@ -9,12 +9,17 @@ class Confirmbooking extends Component {
   constructor(props){
     super(props);
     this.state = {
+      Name: "",
       Date: "" ,
       FirstName: "",
+      Est: "",
     };
   }
 
   componentDidMount(){
+    let EstId = this.props.match.params.EstId;
+    let Date = this.props.match.params.date;
+    this.setState({ Date })
     try {
       if (localStorage.getItem(server.LOGIN_PASSED) == YES) {
         let token = localStorage.getItem("Token");
@@ -27,6 +32,12 @@ class Confirmbooking extends Component {
             this.setState({
               FirstName: data.result.FirstName,
             });
+            httpClient.get(`${server.DETAIL_URL}/${EstId}`).
+    then(result => {
+        const data = result.data;
+        console.log(data.result)
+        this.setState({ Est: data.result })
+    })
           });
       } else {
       }
@@ -36,7 +47,8 @@ class Confirmbooking extends Component {
   }
 
   render() {
-    let date = this.props.match.params.date;
+    
+    const { Est, Date } = this.state;
   return(
   <div>
     <section
@@ -56,7 +68,8 @@ class Confirmbooking extends Component {
               data-image-height={626}
             />
             <p className="u-text u-text-default u-text-1">
-              หัวปลาแม่กลอง
+              {/* หัวปลาแม่กลอง */}
+              <span style={{ fontWeight: 400 }}>{Est.Name}</span>
               <br />
             </p>
             <p className="u-align-center u-text u-text-2">
@@ -74,7 +87,7 @@ class Confirmbooking extends Component {
                   <b>ชื่อ</b>
                 </p>
                 <p className="u-text u-text-5">
-                  <span style={{ fontWeight: 400 }}> {date}</span>
+                  <span style={{ fontWeight: 400 }}> {Date}</span>
                   <br />
                 </p>
                 <p className="u-text u-text-6">
