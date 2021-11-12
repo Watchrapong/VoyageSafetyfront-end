@@ -89,5 +89,6 @@ export const server = {
     MYESTABLISHMENT: `/establishment/owner`,
     DELETEIMAGE: `/establishment/deleteimage`,
     ADDMOREIMAGE: `/establishment/addmoreimage`,
+    CONFIRM: `authen/confirmbooking`,
 }
 

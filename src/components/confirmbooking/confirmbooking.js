@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./confirmbooking.css"
 import  booking from "../../assets/img/womanbooking.jpeg" ;
-import { server, YES } from "../../constants";
+import { OK, server, YES } from "../../constants";
 import { httpClient } from "../../utils/HttpClient";
 
 class Confirmbooking extends Component {
@@ -11,7 +11,10 @@ class Confirmbooking extends Component {
     this.state = {
       Name: "",
       Date: "" ,
+      Email: "",
       FirstName: "",
+      LastName: "",
+      CitizenId: "",
       Est: "",
     };
   }
@@ -30,12 +33,14 @@ class Confirmbooking extends Component {
           .then((result) => {
             const data = result.data;
             this.setState({
+              CitizenId: data.result.CitizenId,
               FirstName: data.result.FirstName,
+              LastName: data.result.LastName,
+              Email: data.result.Email,
             });
             httpClient.get(`${server.DETAIL_URL}/${EstId}`).
     then(result => {
         const data = result.data;
-        console.log(data.result)
         this.setState({ Est: data.result })
     })
           });
@@ -44,6 +49,24 @@ class Confirmbooking extends Component {
     } catch (e) {}
     // this.setState({Date: date});
     // console.log(this.state.Date)
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { Email, CitizenId, FirstName, LastName, Est, Date } = this.state;
+    const Name = Est.Name;
+    console.log(Name)
+    let data = { Email, CitizenId, FirstName, LastName, Name, Date };
+    httpClient.post(server.CONFIRM, data).then((response) => {
+      console.log(response.data)
+      if(response.data.result == OK){
+        this.props.history.push(`/thanksforbooking`);
+      }else{
+        console.log("ไม่ได้")
+      }
+    }).catch(error => {
+      console.error(error);
+    })
   }
 
   render() {
@@ -97,7 +120,8 @@ class Confirmbooking extends Component {
               </div>
             </div>
             <a
-              href="/thanksforbooking"
+              href=""
+              onClick={this.handleSubmit}
               className="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-radius-6 u-btn-1"
               style={{background:"#0F4A69",color:"#ffffff"}}
             >
