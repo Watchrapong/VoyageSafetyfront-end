@@ -47,12 +47,15 @@ class Editestabilishment extends Component {
       },
       Error: "",
       showDeleteModal: false,
+      showModal: false,
       delete: "",
       File: null,
     };
     this.handlePageClick = this.handlePageClick.bind(this);
     this.showDeleteModal = this.showDeleteModal.bind(this);
     this.hideDeleteModal = this.hideDeleteModal.bind(this);
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
   }
 
   showDeleteModal = () => {
@@ -61,6 +64,16 @@ class Editestabilishment extends Component {
 
   hideDeleteModal = () => {
     this.setState({ showDeleteModal: false });
+  };
+
+  showModal = (e) => {
+    e.preventDefault();
+    this.setState({ showModal: true });
+  };
+
+  hideModal = () => {
+    this.setState({ showModal: false });
+    window.location.reload();
   };
 
   handlePageClick = (e) => {
@@ -81,25 +94,26 @@ class Editestabilishment extends Component {
   onFileChange = (e) => {
     const file = e.target.files[0];
     console.log(file);
-    this.setState({ File: file});
+    this.setState({ File: file });
   };
 
   onFileUpload = (e) => {
     e.preventDefault();
     const file = this.state.File;
     console.log(file);
-if(file!= null){
-  var formData = new FormData();
-  formData.append('image', file);
-  formData.append('EstId', this.state.EstId);
-    httpClient.put(server.ADDMOREIMAGE, formData).then((response) => {
-      this.setState({ isFetching: true })
-      setTimeout(() => {window.location.reload();},5000)
-    })
-  }else{
-
-  }
-  }
+    if (file != null) {
+      var formData = new FormData();
+      formData.append("image", file);
+      formData.append("EstId", this.state.EstId);
+      httpClient.put(server.ADDMOREIMAGE, formData).then((response) => {
+        this.setState({ isFetching: true });
+        setTimeout(() => {
+          window.location.reload();
+        }, 5000);
+      });
+    } else {
+    }
+  };
 
   componentDidMount() {
     try {
@@ -187,10 +201,44 @@ if(file!= null){
   };
 
   handleSubmit = (e) => {
+    const {
+      EstId,
+      Name,
+      address,
+      type,
+      Description,
+      district,
+      province,
+      postcode,
+      lat,
+      lng,
+    } = this.state;
     e.preventDefault();
     if (validateForm(this.state.errors)) {
       console.info("Valid Form");
       console.log(this.state.errors);
+      let data = {
+        EstId,
+        Name,
+        address,
+        type,
+        Description,
+        district,
+        province,
+        postcode,
+        lat,
+        lng,
+      };
+      console.log(data);
+      httpClient
+        .put(server.ESTABLISH_URL, data)
+        .then((response) => {
+          console.log(response.data);
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     } else {
       console.log(this.state.errors);
       console.info("Invalid Form");
@@ -200,16 +248,18 @@ if(file!= null){
   deleteImage = () => {
     const fileName = this.state.delete;
     const EstId = this.state.EstId;
-    httpClient.delete(`${server.DELETEIMAGE}/${fileName}/${EstId}`).then((response) => {
-      if(response.data.result === OK){
-        window.location.reload();
-      }else{
-
-      }
-    }).catch((error) => {
-      console.log(error);
-    });
-  }
+    httpClient
+      .delete(`${server.DELETEIMAGE}/${fileName}/${EstId}`)
+      .then((response) => {
+        if (response.data.result === OK) {
+          window.location.reload();
+        } else {
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   ImgRow = () => {
     try {
@@ -218,7 +268,7 @@ if(file!= null){
         this.state.offset,
         this.state.offset + this.state.perPage
       );
-      const postData = slice.map((pd, index) => (
+      const postData = slice.map((pd) => (
         <tr>
           <td>
             <img src={pd.Img} height="auto" width="100" />
@@ -249,7 +299,8 @@ if(file!= null){
   };
 
   render() {
-    const { isFetching, lat, lng, errors, Error, showDeleteModal } = this.state;
+    const { isFetching, lat, lng, errors, showModal, showDeleteModal } =
+      this.state;
     return (
       <div>
         {isFetching == true && <WaveLoading />}
@@ -524,7 +575,7 @@ if(file!= null){
                                   <div className="u-align-right u-form-group u-form-submit">
                                     <a
                                       href=""
-                                      onClick={this.handleSubmit}
+                                      onClick={this.showModal}
                                       className="u-btn u-btn-submit u-button-style"
                                     >
                                       แก้ไขข้อมูลร้านค้า
@@ -585,7 +636,7 @@ if(file!= null){
                                 position: "absolute",
                               }}
                             >
-                              <div className="custom-file" >
+                              <div className="custom-file">
                                 <input
                                   type="file"
                                   className="custom-file-input"
@@ -602,7 +653,11 @@ if(file!= null){
                               </div>
                             </div>
 
-                            <a href="" className="u-btn u-button-style u-btn-3" onClick={(e) => this.onFileUpload(e)}>
+                            <a
+                              href=""
+                              className="u-btn u-button-style u-btn-3"
+                              onClick={(e) => this.onFileUpload(e)}
+                            >
                               เพิ่มรูปภาพ
                             </a>
                           </div>
@@ -635,11 +690,42 @@ if(file!= null){
               <div>ต้องการลบรูปภาพ</div>
             </div>
             <div className="simplert__footer">
-              <button className="simplert__close " onClick={this.deleteImage}>ใช่</button>
+              <button className="simplert__close " onClick={this.deleteImage}>
+                ใช่
+              </button>
               <button
                 className="simplert__close "
                 onClick={this.hideDeleteModal}
               >
+                ไม่ใช่
+              </button>
+            </div>
+          </div>
+        </Modal>
+        <Modal
+          size="sm"
+          show={showModal}
+          aria-labelledby="example-modal-sizes-title-sm"
+          centered
+        >
+          <div style={{ textAlign: "center" }}>
+            <div className="simplert__header">
+              <div>
+                <div className="simplert__icon simplert__icon--warning">
+                  <div className="simplert__line simplert__line--warning" />
+                  <div className="simplert__line simplert__line--warning-2" />
+                </div>
+              </div>
+              {/* <b className="simplert__title">Title</b> */}
+            </div>
+            <div className="simplert__body">
+              <div>ต้องการแก้ไขข้อมูล</div>
+            </div>
+            <div className="simplert__footer">
+              <button className="simplert__close " onClick={this.handleSubmit}>
+                ใช่
+              </button>
+              <button className="simplert__close " onClick={this.hideModal}>
                 ไม่ใช่
               </button>
             </div>

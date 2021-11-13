@@ -23,7 +23,7 @@ export const getStaff = (EstId) => {
   return (dispatch) => {
     dispatch(setStaffStateToFetching);
     httpClient
-      .get(`${server.VIEWSTAFF}/${EstId}`)
+      .get(`${server.STAFF}/${EstId}`)
       .then((result) => {
         dispatch(setStaffStateToSuccess(result.data));
       })

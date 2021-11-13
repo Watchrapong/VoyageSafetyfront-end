@@ -85,7 +85,7 @@ export const server = {
     UPDATE_PASSWORD: `authen/updatepassword`,
     UPLOAD: `authen/upload`,
     VACCINATION: `vaccination/vaccine`,
-    VIEWSTAFF: `establishment/staff`,
+    STAFF: `establishment/staff`,
     MYESTABLISHMENT: `/establishment/owner`,
     DELETEIMAGE: `/establishment/deleteimage`,
     ADDMOREIMAGE: `/establishment/addmoreimage`,

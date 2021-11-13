@@ -6,24 +6,32 @@ import "./detail.css";
 import "./detail2.css";
 import Carousel from "react-bootstrap/Carousel";
 import { WaveLoading } from "react-loadingg";
+import { Pie } from "react-chartjs-2";
 
 class Detail extends Component {
   componentDidMount() {
     let EstId = this.props.match.params.EstId;
     this.props.getDetail(EstId);
-    this.setState({EstId});
+    this.setState({ EstId });
   }
 
   constructor(props) {
     super(props);
     this.state = {
       Date: "",
+      Error: "",
     };
   }
 
   handleSubmit = (e) => {
-    console.log(this.state.Date);
-    this.props.history.push(`/confirmbooking/${this.state.Date}/${this.state.EstId}`);
+    e.preventDefault();
+    if (this.state.Date != "") {
+      this.props.history.push(
+        `/confirmbooking/${this.state.Date}/${this.state.EstId}`
+      );
+    } else {
+      this.setState({ Error: "โปรดเลือกวันที่" });
+    }
   };
 
   showInfo = () => {
@@ -38,12 +46,29 @@ class Detail extends Component {
       } else {
         const data = result.result;
         const arrImg = result.arrImg;
-        console.log(arrImg);
+        console.log(result.percentageData);
+        const datachart = {
+          labels: ["ได้รับวัคซีนแล้ว", "ยังไม่ได้รับวัคซีน"],
+          datasets: [
+            {
+              label: "# of Votes",
+              data: [
+                parseInt(result.percentageData[0].Total) + 1,
+                parseInt(result.percentageData[0].NotVaccinated),
+              ],
+              backgroundColor: [
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 99, 132, 0.2)",
+              ],
+              borderColor: ["rgba(54, 162, 235, 1)", "rgba(255, 99, 132, 1)"],
+              borderWidth: 1,
+            },
+          ],
+        };
+        const { Error } = this.state;
         return (
           !isFetching &&
           result != null && (
-            // result.map((item) => (
-            // <div key={result.EstId}>
             <div>
               <section className="u-clearfix sectiondetail" id="sec-c6a2">
                 <div className="u-clearfix u-sheet u-sheet-1">
@@ -84,8 +109,6 @@ class Detail extends Component {
                                   </h5>
                                   <div className="u-expanded-width-sm u-expanded-width-xs u-form u-form-1">
                                     <form
-                                      action="#"
-                                      method="POST"
                                       className="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form"
                                       style={{ padding: 15 }}
                                       source="custom"
@@ -106,7 +129,7 @@ class Detail extends Component {
                                         </div>
                                         <div class="col-lg-2">
                                           <a
-                                            href="#"
+                                            href=""
                                             className="u-btn u-btn-round u-btn-submit u-hover-palette-1-light-1 u-radius-6 u-button-style u-btn-1"
                                             style={{
                                               background: "#0F4A69",
@@ -117,59 +140,31 @@ class Detail extends Component {
                                             จองคิว
                                             <br />
                                           </a>
+                                          {Error.length > 0 && (
+                                            <span
+                                              style={{
+                                                position: "absolute",
+                                                width: "70px",
+                                                marginTop: "10px",
+                                                marginLeft: "10px",
+                                              }}
+                                              className="error"
+                                            >
+                                              {Error}
+                                            </span>
+                                          )}
                                           <input
                                             type="submit"
                                             defaultValue="submit"
                                             className="u-form-control-hidden"
                                           />
-                                          {/* </div> */}
-                                          {/* </div> */}
-                                          {/* </div> */}
                                         </div>
-                                        <div className="u-form-send-message u-form-send-success">
-                                          Thank you! Your message has been sent.
-                                        </div>
-                                        <div className="u-form-send-error u-form-send-message">
-                                          Unable to send your message. Please
-                                          fix errors then try again.
-                                        </div>
-                                        <input
-                                          type="hidden"
-                                          defaultValue
-                                          name="recaptchaResponse"
-                                        />
                                       </div>
                                     </form>
                                   </div>
                                 </div>
                               </div>
                             </section>
-
-                            {/* <div className="u-expanded-width u-grey-10 u-radius-10 u-shape u-shape-round u-shape-2">
-                          <div className="u-container-layout u-container-layout-4">
-            <h5 className="u-text u-text-default u-text-1 names">การจองคิว<br />
-            </h5>
-            </div>
-              <div className="u-form u-form-1">
-             <form action="#" method="POST" className="u-clearfix u-form-spacing-15 u-form-vertical u-inner-form" style={{padding: 15}} source="custom" name="form">
-        <div className="u-form-date u-form-group u-form-group-1">
-          <label htmlFor="date-67dd" className="u-label">วัน/เดือน/ปี</label>
-          <input type="date" placeholder="MM/DD/YYYY" id="date-67dd" name="date" className="u-border-1 u-border-grey-30 u-input u-input-rectangle" required />
-        </div>
-        <div className="u-form-group u-form-group-2">
-          <label htmlFor="text-997d" className="u-label">เวลา</label>
-          <input type="text" placeholder id="text-997d" name="text" className="u-border-1 u-border-grey-30 u-input u-input-rectangle" />
-        </div>
-        <div className="u-align-right u-form-group u-form-submit">
-          <a href="#" className="u-btn u-btn-submit u-button-style">Submit</a>
-          <input type="submit" defaultValue="submit" className="u-form-control-hidden" />
-        </div>
-        <div className="u-form-send-message u-form-send-success">Thank you! Your message has been sent.</div>
-        <div className="u-form-send-error u-form-send-message">Unable to send your message. Please fix errors then try again.</div>
-        <input type="hidden" defaultValue name="recaptchaResponse" />
-      </form>
-    </div>
-  </div> */}
                           </div>
                         </div>
                         <div className="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
@@ -189,7 +184,27 @@ class Detail extends Component {
                                 {/* <p className="u-text u-text-2">Description</p> */}
                               </div>
                             </div>
-                            <div className="u-expanded-width-sm u-expanded-width-xs u-grey-10 u-radius-10 u-shape u-shape-round u-shape-1" />
+                            <div className="u-expanded-width-sm u-expanded-width-xs u-grey-10 u-radius-10 u-shape u-shape-round u-shape-1">
+                              <div
+                                className="container"
+                                style={{ padding: "8px 30px" }}
+                              >
+                                <div className="row">
+                                  <div className="col-4">
+                                    <b>การฉีดวัคซีน</b>
+                                    <p>{data.Percent} %</p>
+                                  </div>
+                                  <div className="col-8">
+                                    <div style={{ height: "100px" }}>
+                                      <Pie
+                                        data={datachart}
+                                        options={{ maintainAspectRatio: false }}
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                             <div className="u-expanded-width u-grey-10 u-radius-10 u-shape u-shape-round u-shape-2">
                               <div className="address-con">
                                 <div className="container">
@@ -245,39 +260,8 @@ class Detail extends Component {
     } catch (e) {}
   };
 
-  // showMap = () => {
-  //   try {
-  //     const { result, isFetching } = this.props.detailReducer;
-  //     return (
-  //       !isFetching &&
-  //       result != null &&
-  //         <div style={{ height: "100vh", width: "100%" }}>
-  //           <GoogleMapReact
-  //             bootstrapURLKeys={{
-  //               key: "AIzaSyATAXCWMqd7hmu44d93FCJpPTGcHLKN6lg",
-  //             }}
-  //             defaultCenter={{ lat: 13.736717, lng: 100.523186 }}
-  //             defaultZoom={11}
-  //           >
-  //             <AiFillAndroid
-  //               lat={result.lat}
-  //               lng={result.lng}
-  //               text="My Marker"
-  //             />
-  //           </GoogleMapReact>
-  //         </div>
-
-  //     );
-  //   } catch (e) {}
-  // };
-
   render() {
-    return (
-      <div>
-        {this.showInfo()}
-        {/* {this.showMap()} */}
-      </div>
-    );
+    return <div>{this.showInfo()}</div>;
   }
 }
 

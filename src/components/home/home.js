@@ -56,45 +56,47 @@ class Home extends Component {
         this.state.offset + this.state.perPage
       );
       const postData = slice.map(
-        (pd) => (    
-            <div key={pd.EstId} className="col-md-4">
-              <a onClick={() => this.props.history.push(`/detail/${pd.EstId}`)}>
-                <div className="card mb-4 box-shadow">
-                  <img
-                    className="card-img-top"
-                    data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
-                    alt="Thumbnail [100%x225]"
-                    style={{ height: 225, width: "100%", display: "block" }}
-                    src={pd.pathImg}
-                    data-holder-rendered="true"
-                  />
-                  <div className="card-body">
-                    <p className="card-text">
-                      <b>{pd.Name}</b>
-                    </p>
-                    <p>
-                      {pd.Address} {pd.District} {pd.Province} {pd.PostCode}{" "}
-                    </p>
-                    <div className="d-flex justify-content-between align-items-center">
-                      <div className="btn-group">
-                        <button
-                          type="button"
-                          className="btn btn-sm btn-outline-secondary"
-                        >
-                          View
-                        </button>
-                      </div>
-                      <small className="text-muted">
-                        <i
-                          style={{ fontSize: 24 }}
-                          className="fa fa-pie-chart"
-                        ></i>
-                      </small>
+        (pd) => (
+          <div key={pd.EstId} className="col-md-4">
+            <a onClick={() => this.props.history.push(`/detail/${pd.EstId}`)}>
+              <div className="card mb-4 box-shadow">
+                <img
+                  className="card-img-top"
+                  data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
+                  alt="Thumbnail [100%x225]"
+                  style={{ height: 225, width: "100%", display: "block" }}
+                  src={pd.pathImg}
+                  data-holder-rendered="true"
+                />
+                <div className="card-body">
+                  <p className="card-text">
+                    <b>{pd.Name}</b>
+                  </p>
+                  <p>
+                    {pd.Address} {pd.District} {pd.Province} {pd.PostCode}{" "}
+                  </p>
+                  <div className="d-flex justify-content-between align-items-center">
+                    <div className="btn-group">
+                      <button
+                        type="button"
+                        className="btn btn-sm btn-outline-secondary"
+                      >
+                        View
+                      </button>
                     </div>
+                    
+                    <small className="text-muted">
+                    <p>จำนวนการฉีดวัคซีน {pd.Percent} %</p>
+                      {/* <i
+                        style={{ fontSize: 24 }}
+                        className="fa fa-pie-chart"
+                      ></i> */}
+                    </small>
                   </div>
                 </div>
-              </a>
-            </div>
+              </div>
+            </a>
+          </div>
         )
         // return (
         //   !isFetching &&
@@ -150,12 +152,12 @@ class Home extends Component {
       setTimeout(() => {
         const { result } = this.props.establishmentReducer;
         console.log("result error", result);
-        if(result!=null){
-        const slice = result.slice(
-          this.state.offset,
-          this.state.offset + this.state.perPage
-        );
-        const postData = slice.map((pd) => (
+        if (result != null) {
+          const slice = result.slice(
+            this.state.offset,
+            this.state.offset + this.state.perPage
+          );
+          const postData = slice.map((pd) => (
             <div key={pd.EstId} className="col-md-4">
               <a onClick={() => this.props.history.push(`/detail/${pd.EstId}`)}>
                 <div className="card mb-4 box-shadow">
@@ -193,16 +195,16 @@ class Home extends Component {
                   </div>
                 </div>
               </a>
-            </div>   
-        ));
-        this.setState({
-          pageCount: Math.ceil(result.length / this.state.perPage),
+            </div>
+          ));
+          this.setState({
+            pageCount: Math.ceil(result.length / this.state.perPage),
 
-          postData,
-        });
-      }else{
-        this.createRow();
-      }
+            postData,
+          });
+        } else {
+          this.createRow();
+        }
       }, 6000);
     }
   };
@@ -225,6 +227,14 @@ class Home extends Component {
         this.createRow();
       }, 4000);
     }
+  };
+
+  submitSearch = (e) => {
+    this.isLoading();
+    this.props.getEstablishmentsByKeyword(this.state.search);
+    setTimeout(() => {
+      this.createRow();
+    }, 4000);
   };
 
   onChangeType = (e) => {
@@ -279,7 +289,7 @@ class Home extends Component {
                   </button>{" "}
                   <button
                     type="button"
-                    className="btn btn-outline-secondary"
+                    className="btn btn-outline-primary"
                     value="12"
                     onClick={this.onChangeType}
                   >
@@ -287,7 +297,7 @@ class Home extends Component {
                   </button>{" "}
                   <button
                     type="button"
-                    className="btn btn-outline-success"
+                    className="btn btn-outline-primary"
                     value="13"
                     onClick={this.onChangeType}
                   >
@@ -295,7 +305,7 @@ class Home extends Component {
                   </button>{" "}
                   <button
                     type="button"
-                    className="btn btn-outline-danger"
+                    className="btn btn-outline-primary"
                     value="21"
                     onClick={this.onChangeType}
                   >
@@ -303,7 +313,7 @@ class Home extends Component {
                   </button>{" "}
                   <button
                     type="button"
-                    className="btn btn-outline-warning"
+                    className="btn btn-outline-primary"
                     value="22"
                     onClick={this.onChangeType}
                   >
@@ -311,7 +321,7 @@ class Home extends Component {
                   </button>{" "}
                   <button
                     type="button"
-                    className="btn btn-outline-info"
+                    className="btn btn-outline-primary"
                     value="23"
                     onClick={this.onChangeType}
                   >
@@ -319,23 +329,29 @@ class Home extends Component {
                   </button>{" "}
                   <button
                     type="button"
-                    className="btn btn-outline-dark"
+                    className="btn btn-outline-primary"
                     value="14"
                     onClick={this.onChangeType}
                   >
                     Buffet
                   </button>{" "}
                 </div>
-
-                <input
-                  list="list"
-                  onChange={(e) => this.setState({ search: e.target.value })}
-                  onKeyDown={this.enterSearch}
-                  type="text"
-                  className="form-control"
-                  placeholder="ค้นหาสถานที่"
-                  style={{ marginTop: "15px" }}
-                />
+                <div className="input-group mb-3" style={{ marginTop: "15px" }}>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="ค้นหาสถานที่"
+                    onChange={(e) => this.setState({ search: e.target.value })}
+                    onKeyDown={this.enterSearch}
+                  />
+                  <button
+                    className="btn btn-secondary"
+                    type="button"
+                    onClick={this.submitSearch}
+                  >
+                    ค้นหา
+                  </button>
+                </div>
               </div>
             </div>
           </div>
