@@ -51,7 +51,7 @@ class Detail extends Component {
           labels: ["ได้รับวัคซีนแล้ว", "ยังไม่ได้รับวัคซีน"],
           datasets: [
             {
-              label: "# of Votes",
+              label: "วัคซีน",
               data: [
                 parseInt(result.percentageData[0].Total) + 1,
                 parseInt(result.percentageData[0].NotVaccinated),

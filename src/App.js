@@ -104,7 +104,7 @@ class App extends Component {
             {/* <Route path="/error" component={error} /> */}
           </Switch>  
           {/* {isLoggedIn() && <Footer />} */}
-          
+          <Footer />
         </div>
       </Router>
     );

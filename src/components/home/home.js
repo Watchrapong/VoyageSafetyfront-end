@@ -55,94 +55,48 @@ class Home extends Component {
         this.state.offset,
         this.state.offset + this.state.perPage
       );
-      const postData = slice.map(
-        (pd) => (
-          <div key={pd.EstId} className="col-md-4">
-            <a onClick={() => this.props.history.push(`/detail/${pd.EstId}`)}>
-              <div className="card mb-4 box-shadow">
-                <img
-                  className="card-img-top"
-                  data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
-                  alt="Thumbnail [100%x225]"
-                  style={{ height: 225, width: "100%", display: "block" }}
-                  src={pd.pathImg}
-                  data-holder-rendered="true"
-                />
-                <div className="card-body">
-                  <p className="card-text">
-                    <b>{pd.Name}</b>
-                  </p>
-                  <p>
-                    {pd.Address} {pd.District} {pd.Province} {pd.PostCode}{" "}
-                  </p>
-                  <div className="d-flex justify-content-between align-items-center">
-                    <div className="btn-group">
-                      <button
-                        type="button"
-                        className="btn btn-sm btn-outline-secondary"
-                      >
-                        View
-                      </button>
-                    </div>
-                    
-                    <small className="text-muted">
+      const postData = slice.map((pd) => (
+        <div key={pd.EstId} className="col-md-4">
+          <a onClick={() => this.props.history.push(`/detail/${pd.EstId}`)}>
+            <div className="card mb-4 box-shadow">
+              <img
+                className="card-img-top"
+                data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
+                alt="Thumbnail [100%x225]"
+                style={{ height: 225, width: "100%", display: "block" }}
+                src={pd.pathImg}
+                data-holder-rendered="true"
+              />
+              <div className="card-body">
+                <p className="card-text">
+                  <b>{pd.Name}</b>
+                </p>
+                <p>
+                  {pd.Address} {pd.District} {pd.Province} {pd.PostCode}{" "}
+                </p>
+                <div className="d-flex justify-content-between align-items-center">
+                  <div className="btn-group">
+                    <button
+                      type="button"
+                      className="btn btn-sm btn-outline-secondary"
+                    >
+                      View
+                    </button>
+                  </div>
+
+                  <small className="text-muted">
                     <p>จำนวนการฉีดวัคซีน {pd.Percent} %</p>
-                      {/* <i
+                    {/* <i
                         style={{ fontSize: 24 }}
                         className="fa fa-pie-chart"
                       ></i> */}
-                    </small>
-                  </div>
+                  </small>
                 </div>
               </div>
-            </a>
-          </div>
-        )
-        // return (
-        //   !isFetching &&
-        //   result != null &&
-        //   result.map((item) => (
-        //     <div key={item.EstId} className="col-md-4">
-        //       <a onClick={() => this.props.history.push(`/detail/${item.EstId}`)}>
-        //         <div className="card mb-4 box-shadow">
-        //           <img
-        //             className="card-img-top"
-        //             data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
-        //             alt="Thumbnail [100%x225]"
-        //             style={{ height: 225, width: "100%", display: "block" }}
-        //             src={item.pathImg}
-        //             data-holder-rendered="true"
-        //           />
-        //           <div className="card-body">
-        //             <p className="card-text"><b>{item.Name}</b></p>
-        //             <p>
-        //               {item.Address}{" "}
-        //               {item.District}{" "}
-        //               {item.Province}{" "}
-        //               {item.PostCode}{" "}
-        //             </p>
-        //             <div className="d-flex justify-content-between align-items-center">
-        //               <div className="btn-group">
-        //                 <button
-        //                   type="button"
-        //                   className="btn btn-sm btn-outline-secondary"
-        //                 >
-        //                   View
-        //                 </button>
-        //               </div>
-        //               <small className="text-muted">
-        //                 <i
-        //                   style={{ fontSize: 24 }}
-        //                   className="fa fa-pie-chart"
-        //                 ></i>
-        //               </small>
-        //             </div>
-        //           </div>
-        //         </div>
-        //       </a>
-        //     </div>
-        //   ))
-      );
+            </div>
+          </a>
+        </div>
+      ));
       this.setState({
         pageCount: Math.ceil(result.length / this.state.perPage),
 
@@ -186,10 +140,11 @@ class Home extends Component {
                         </button>
                       </div>
                       <small className="text-muted">
-                        <i
-                          style={{ fontSize: 24 }}
-                          className="fa fa-pie-chart"
-                        ></i>
+                        <p>จำนวนการฉีดวัคซีน {pd.Percent} %</p>
+                        {/* <i
+                        style={{ fontSize: 24 }}
+                        className="fa fa-pie-chart"
+                      ></i> */}
                       </small>
                     </div>
                   </div>

@@ -2,13 +2,13 @@ import React, { Component } from "react";
 
 class Footer extends Component {
   render() {
-    return (<footer className="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div className="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.1.0
-    </div>
-  </footer>);
+    return (
+      <footer className="u-align-center u-clearfix u-custom-color-1 u-footer u-footer" style={{backgroundColor: "rgb(101, 158, 188)"}}><div className="u-clearfix u-sheet u-sheet-1">
+    <p className="u-small-text u-text u-text-variant u-text-1"> Copyrights © Company All Rights Reserved</p>
+  </div></footer>
+
+
+    );
   }
 }
 
