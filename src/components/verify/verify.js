@@ -13,13 +13,15 @@ class Verify extends Component {
     try {
       const cryptr = new Cryptr(keycryptr);
       let key = this.props.match.params.key;
+      let email = this.props.match.params.email;
       let UserId = cryptr.decrypt(key);
       console.log(UserId);
       var data = new FormData();
       data.append("UserId", UserId);
+      data.append("Email", email);
       data.append("Verify", true);
       httpClient
-        .put(server.EDIT_USER, data)
+        .put(server.VERIFY_USER, data)
         .then(function (response) {
           console.log(JSON.stringify(response.data));
         })

@@ -35,6 +35,7 @@ import Myestablishment from "./components/myestablishment/myestablishment";
 
 const isLoggedIn = () => {
   return localStorage.getItem(server.LOGIN_PASSED) === YES;
+  // return localStorage.getItem("Token") !== null;
 };
 
 // Protected Route

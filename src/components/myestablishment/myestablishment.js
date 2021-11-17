@@ -63,7 +63,7 @@ class Myestablishment extends Component {
     const { data, arrImg, isFetching } = this.state;
     return (
       <div>
-        {isFetching == true &&(<WaveLoading/>)}
+        {isFetching == true &&(<div><WaveLoading/></div>)}
         {(isFetching == false && data != null) &&(<div>
       <section
         className="u-align-center u-clearfix myestablishment-section"
