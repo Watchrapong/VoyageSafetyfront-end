@@ -266,13 +266,13 @@ class Register extends Component {
                           style={{ padding: 10 }}
                         >
                           <div className="u-form-group u-form-name">
-                            <label className="u-custom-font u-font-roboto u-label u-text-white u-label-1">
+                            <label className="u-custom-font u-label u-text-white u-label-1">
                               อีเมล
                             </label>
                             <input
                               type="email"
                               name="Email"
-                              className="u-border-1 u-border-grey-30 u-custom-font u-font-roboto u-input u-input-rectangle u-radius-10 u-white u-input-1"
+                              className="u-border-1 u-border-grey-30 u-custom-font u-input u-input-rectangle u-radius-10 u-white u-input-1"
                               required
                               onChange={this.handleChange}
                             />
@@ -281,13 +281,13 @@ class Register extends Component {
                             )}
                           </div>
                           <div className="u-form-email u-form-group">
-                            <label className="u-custom-font u-font-roboto u-label u-text-white u-label-2">
+                            <label className="u-custom-font u-label u-text-white u-label-2">
                               รหัสผ่าน
                             </label>
                             <input
                               type="password"
                               name="Password"
-                              className="u-border-1 u-border-grey-30 u-custom-font u-font-roboto u-input u-input-rectangle u-radius-10 u-white u-input-2"
+                              className="u-border-1 u-border-grey-30 u-custom-font u-input u-input-rectangle u-radius-10 u-white u-input-2"
                               required
                               onChange={this.handleChange}
                             />
@@ -296,13 +296,13 @@ class Register extends Component {
                             )}
                           </div>
                           <div className="u-form-group u-form-group-3">
-                            <label className="u-custom-font u-font-roboto u-label u-text-white u-label-3">
+                            <label className="u-custom-font u-label u-text-white u-label-3">
                               ยืนยันรหัสผ่าน
                             </label>
                             <input
                               type="password"
                               name="Confirmation_Password"
-                              className="u-border-1 u-border-grey-30 u-custom-font u-font-roboto u-input u-input-rectangle u-radius-10 u-white u-input-3"
+                              className="u-border-1 u-border-grey-30 u-custom-font u-input u-input-rectangle u-radius-10 u-white u-input-3"
                               required
                               onChange={this.handleChange}
                             />
@@ -313,13 +313,13 @@ class Register extends Component {
                             )}
                           </div>
                           <div className="u-form-group u-form-select u-form-group-4">
-                            <label className="u-custom-font u-font-roboto u-label u-text-white u-label-4">
+                            <label className="u-custom-font u-label u-text-white u-label-4">
                               เพศ
                             </label>
                             <div className="u-form-select-wrapper">
                               <select
                                 name="Gender"
-                                className="u-border-1 u-border-grey-30 u-custom-font u-font-roboto u-input u-input-rectangle u-radius-10 u-white u-input-4"
+                                className="u-border-1 u-border-grey-30 u-custom-font u-input u-input-rectangle u-radius-10 u-white u-input-4"
                                 required
                                 onChange={(e) =>
                                   this.setState({ Gender: e.target.value })
@@ -340,13 +340,13 @@ class Register extends Component {
                             </div>
                           </div>
                           <div className="u-form-group u-form-group-5">
-                            <label className="u-custom-font u-font-roboto u-label u-text-white u-label-5">
+                            <label className="u-custom-font u-label u-text-white u-label-5">
                               ชื่อ
                             </label>
                             <input
                               type="text"
                               name="FirstName"
-                              className="u-border-1 u-border-grey-30 u-custom-font u-font-roboto u-input u-input-rectangle u-radius-10 u-white u-input-5"
+                              className="u-border-1 u-border-grey-30 u-custom-font u-input u-input-rectangle u-radius-10 u-white u-input-5"
                               required
                               onChange={this.handleChange}
                             />
@@ -355,13 +355,13 @@ class Register extends Component {
                             )}
                           </div>
                           <div className="u-form-group u-form-group-6">
-                            <label className="u-custom-font u-font-roboto u-label u-text-white u-label-6">
+                            <label className="u-custom-font u-label u-text-white u-label-6">
                               นามสกุล
                             </label>
                             <input
                               type="text"
                               name="LastName"
-                              className="u-border-1 u-border-grey-30 u-custom-font u-font-roboto u-input u-input-rectangle u-radius-10 u-white u-input-6"
+                              className="u-border-1 u-border-grey-30 u-custom-font u-input u-input-rectangle u-radius-10 u-white u-input-6"
                               required
                               onChange={this.handleChange}
                             />
@@ -370,13 +370,13 @@ class Register extends Component {
                             )}
                           </div>
                           <div className="u-form-group u-form-name u-form-group-7">
-                            <label className="u-custom-font u-font-roboto u-label u-text-white u-label-7">
+                            <label className="u-custom-font u-label u-text-white u-label-7">
                               รหัสบัตรประชาชน
                             </label>
                             <input
                               type="text"
                               name="CitizenId"
-                              className="u-border-1 u-border-grey-30 u-custom-font u-font-roboto u-input u-input-rectangle u-radius-10 u-white u-input-7"
+                              className="u-border-1 u-border-grey-30 u-custom-font u-input u-input-rectangle u-radius-10 u-white u-input-7"
                               required
                               minLength="13"
                               maxLength="13"
@@ -389,14 +389,14 @@ class Register extends Component {
                           <div className="u-form-group u-form-phone u-form-group-8">
                             <label
                               htmlFor="phone-3f10"
-                              className="u-custom-font u-font-roboto u-label u-text-white u-label-8"
+                              className="u-custom-font u-label u-text-white u-label-8"
                             >
                               เบอร์ติดต่อ
                             </label>
                             <input
                               type="tel"
                               name="Telno"
-                              className="u-border-1 u-border-grey-30 u-custom-font u-font-roboto u-input u-input-rectangle u-radius-10 u-white u-input-8"
+                              className="u-border-1 u-border-grey-30 u-custom-font u-input u-input-rectangle u-radius-10 u-white u-input-8"
                               required
                               placeholder="0XX-XXX-XXXX"
                               minLength="10"

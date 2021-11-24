@@ -17,7 +17,7 @@ import novaccine from "../../assets/img/addstore/novaccination.png";
 
 const API_KEY = "AIzaSyATAXCWMqd7hmu44d93FCJpPTGcHLKN6lg";
 
-let url="";
+let url = "";
 
 class Addstore extends Component {
   static defaultProps = {
@@ -68,12 +68,12 @@ class Addstore extends Component {
   }
 
   showSuccessModal = () => {
-    this.setState({ successModal: true })
-  }
+    this.setState({ successModal: true });
+  };
 
   hideSuccessModal = () => {
-    this.setState({ successModal: false })
-  }
+    this.setState({ successModal: false });
+  };
 
   showEnableLocationModal = () => {
     this.setState({ showEnableLocation: true });
@@ -140,7 +140,6 @@ class Addstore extends Component {
       .catch((error) => {
         this.setState({ userId: null });
       });
-    
   }
 
   onFileChange = (e) => {
@@ -294,7 +293,7 @@ class Addstore extends Component {
         id="sec-b1e2"
       >
         <div className="u-align-left u-clearfix u-sheet u-sheet-1">
-          <h1 className="u-text u-text-default u-text-1">Create Your Store </h1>
+          <h1 className="u-text u-text-default u-text-1">สร้างร้านของคุณ </h1>
           <h6 className="u-text u-text-custom-color-2 u-text-default u-text-2">
             *กรุณาเลือกประเภทของร้านค้าของท่าน
           </h6>
@@ -371,7 +370,7 @@ class Addstore extends Component {
             / สร้างที่พักของคุณ
           </p>
           <img
-          alt="Thumbnail"
+            alt="Thumbnail"
             className="u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-1"
             src={hotel}
             data-image-width={626}
@@ -642,24 +641,13 @@ class Addstore extends Component {
                   onChange={this.onFileChange}
                 />
                 <span className="error" style={{ marginLeft: "10px" }}></span>
-                <label className="custom-file-label">Choose file</label>
+                <label className="custom-file-label">เลือกไฟล์</label>
               </div>
             </div>
-            {/* <div className="u-upload">
-                <input
-                  type="file"
-                  className="custom-file-input"
-                  multiple="multiple"
-                  accept=".jpg,.jpe,.png,.gif"
-                  onChange={this.onFileChange}
-                />
-                <span className="error" style={{ marginLeft: "10px" }}></span>
-                <label className="custom-file-label" style={{ marginTop: '35px' }}>Choose file</label>
-              </div> */}
             <div className="u-img-upload">
               {collectionImage.length > 0 && (
                 <img
-                alt="Thumbnail 200x200"
+                  alt="Thumbnail 200x200"
                   height="200"
                   width="200"
                   src={URL.createObjectURL(collectionImage[0])}
@@ -685,261 +673,9 @@ class Addstore extends Component {
         </section>
       </div>
     );
-    // return (
-    //   <section className="u-clearfix hotel-section" id="sec-97b3">
-    //     <div className="u-align-left u-clearfix u-sheet u-valign-middle-lg u-sheet-1">
-    //       <h4 className="u-text-1">
-    //         <a href="" onClick={() => this.setState({ view: null })}>
-    //           ลงทะเบียนสถานที่
-    //         </a>{" "}
-    //         / ที่พัก
-    //       </h4>
-    //       <div className="u-clearfix u-gutter-0 u-layout-wrap u-layout-wrap-1">
-    //         <div className="u-layout">
-    //           <div className="u-layout-row">
-    //             <div
-    //               className="u-container-style u-image u-layout-cell u-size-12 u-image-1"
-    //               data-image-width={897}
-    //               data-image-height={759}
-    //             >
-    //               <div className="u-container-layout u-valign-middle u-container-layout-1">
-    //                 <h3 className="u-text u-text-custom-color-4 u-text-default u-text-2">
-    //                   ที่พัก
-    //                 </h3>
-    //               </div>
-    //             </div>
-    //             <div className="u-container-style u-layout-cell u-size-24 u-layout-cell-2">
-    //               <div className="u-container-layout u-valign-top u-container-layout-2">
-    //                 <h6 className="u-text u-text-custom-color-2 u-text-default u-text-3">
-    //                   *กรุณาใส่ช้อมูลสถานที่
-    //                 </h6>
-    //                 <div className="u-expanded-width-xs u-form u-form-1">
-    //                   <form
-    //                     className="u-clearfix u-form-spacing-15 u-form-vertical u-inner-form"
-    //                     style={{ padding: 15 }}
-    //                   >
-    //                     <div className="u-form-group u-form-name">
-    //                       <label className="u-label u-label-1">
-    //                         ชื่อสถานที่
-    //                       </label>
-    //                       <input
-    //                         type="text"
-    //                         placeholder="Name"
-    //                         name="Name"
-    //                         className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-input-1"
-    //                         onChange={this.handleChange}
-    //                       />
-    //                       {errors.Name.length > 0 && (
-    //                         <span className="error">{errors.Name}</span>
-    //                       )}
-    //                     </div>
-    //                     <div className="u-form-group u-form-message">
-    //                       <label className="u-label u-label-2">
-    //                         รายละเอียดสถานที่
-    //                       </label>
-    //                       <textarea
-    //                         rows={4}
-    //                         cols={50}
-    //                         name="Description"
-    //                         className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-input-2"
-    //                         onChange={this.handleChange}
-    //                       />
-    //                       {errors.Description.length > 0 && (
-    //                         <span className="error">{errors.Description}</span>
-    //                       )}
-    //                     </div>
-    //                     <div className="u-form-group u-form-select u-form-group-3">
-    //                       <label className="u-form-control-hidden u-label u-label-3" />
-    //                       <div className="u-form-select-wrapper">
-    //                         <select
-    //                           name="type"
-    //                           className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-input-3"
-    //                           onChange={this.handleChange}
-    //                         >
-    //                           <option value="0">ประเภทที่พัก</option>
-    //                           <option value="21">Hotel</option>
-    //                           <option value="22">Hostel</option>
-    //                           <option value="23">Resort</option>
-    //                         </select>
-    //                         <svg
-    //                           xmlns="http://www.w3.org/2000/svg"
-    //                           width={14}
-    //                           height={12}
-    //                           version={1}
-    //                           className="u-caret"
-    //                         >
-    //                           <path fill="currentColor" d="M4 8L0 4h8z" />
-    //                         </svg>
-    //                         {errors.type.length > 0 && (
-    //                           <span className="error">{errors.type}</span>
-    //                         )}
-    //                       </div>
-    //                     </div>
-    //                     <div className="u-form-group u-form-group-4">
-    //                       <label className="u-label u-label-4">ที่อยู่</label>
-    //                       <input
-    //                         type="text"
-    //                         name="address"
-    //                         className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-input-4"
-    //                         onChange={this.handleChange}
-    //                       />
-    //                       {errors.address.length > 0 && (
-    //                         <span className="error">{errors.address}</span>
-    //                       )}
-    //                     </div>
-    //                     <div className="u-form-group u-form-group-4">
-    //                       <label className="u-label u-label-4">อำเภอ</label>
-    //                       <input
-    //                         type="text"
-    //                         name="district"
-    //                         className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-input-4"
-    //                         onChange={this.handleChange}
-    //                       />
-    //                       {errors.district.length > 0 && (
-    //                         <span className="error">{errors.district}</span>)}
-    //                       </div>
-    //                       <div className="u-form-group u-form-group-4">
-    //                       <label className="u-label u-label-4">จังหวัด</label>
-    //                       <input
-    //                         type="text"
-    //                         name="province"
-    //                         className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-input-4"
-    //                         onChange={this.handleChange}
-    //                       />
-    //                       {errors.province.length > 0 && (
-    //                         <span className="error">{errors.province}</span>)}
-    //                       </div>
-    //                       <div className="u-form-group u-form-group-4">
-    //                       <label className="u-label u-label-4">รหัสไปรษณีย์</label>
-    //                       <input
-    //                         type="text"
-    //                         name="postcode"
-    //                         className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-input-4"
-    //                         onChange={this.handleChange}
-    //                       />
-    //                       {errors.postcode.length > 0 && (
-    //                         <span className="error">{errors.postcode}</span>)}
-    //                       </div>
-    //                     <div className="u-form-group u-form-group-4">
-    //                       <label className="u-label u-label-4">Latitude</label>
-    //                       <input
-    //                         type="text"
-    //                         name="Longitude"
-    //                         className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-input-4"
-    //                         disabled
-    //                         value={lat}
-    //                       />
-    //                     </div>
-    //                     <div className="u-form-group u-form-group-4">
-    //                       <label className="u-label u-label-4">Longitude</label>
-    //                       <input
-    //                         type="text"
-    //                         name="Longitude"
-    //                         className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-input-4"
-    //                         disabled
-    //                         value={lng}
-    //                       />
-    //                     </div>
-
-    //                     <GoogleMapReact
-    //                       bootstrapURLKeys={{ key: API_KEY }}
-    //                       defaultCenter={this.props.center}
-    //                       center={{ lat: lat, lng: lng }}
-    //                       defaultZoom={this.props.zoom}
-    //                       yesIWantToUseGoogleMapApiInternals
-    //                       style={{
-    //                         height: "300px",
-    //                         width: "300px",
-    //                         position: "relative",
-    //                       }}
-    //                     >
-    //                       <Marker lat={lat} lng={lng} />
-    //                     </GoogleMapReact>
-
-    //                     <div className="u-align-left u-form-group u-form-submit">
-    //                       <a
-    //                         href="#"
-    //                         className="u-btn u-btn-submit u-button-style"
-    //                         onClick={this.handleSubmit}
-    //                       >
-    //                         Submit
-    //                       </a>
-    //                       <input
-    //                         type="submit"
-    //                         defaultValue="submit"
-    //                         className="u-form-control-hidden"
-    //                       />
-    //                       {Error.length > 0 && (
-    //                     <span className="error">{Error}</span>
-    //                   )}
-    //                     </div>
-    //                   </form>
-    //                 </div>
-    //               </div>
-    //             </div>
-    //             <div className="u-align-left u-container-style u-layout-cell u-size-24 u-layout-cell-3">
-    //               <div className="u-container-layout u-container-layout-3">
-    //                 <h6 className="u-text u-text-custom-color-2 u-text-default u-text-4">
-    //                   *กรุณาใส่รูปภาพ
-    //                 </h6>
-    //                 <div className="u-shape u-shape-rectangle u-white u-shape-1">
-    //                   <div className="input-group mb-3">
-    //                     <div className="custom-file">
-    //                       <input
-    //                         type="file"
-    //                         className="custom-file-input"
-    //                         multiple="multiple"
-    //                         accept=".jpg,.jpe,.png,.gif"
-    //                         onChange={this.onFileChange}
-    //                       />
-    //                       <span
-    //                         className="error"
-    //                         style={{ marginLeft: "10px" }}
-    //                       ></span>
-    //                       <label className="custom-file-label">
-    //                         Choose file
-    //                       </label>
-    //                     </div>
-    //                   </div>
-    //                   <div style={{ margin: "10px" }}>
-    //                     {collectionImage.length > 0 && (
-    //                       <img
-    //                         height="200"
-    //                         width="auto"
-    //                         src={URL.createObjectURL(collectionImage[0])}
-    //                       />
-    //                     )}
-    //                   </div>
-    //                 </div>
-    //                 <div className="u-shape u-shape-rectangle u-white u-shape-2">
-    //                   <div className="row">
-    //                     {collectionImage.map((x) => (
-    //                       <div className="col-md-4">
-    //                         <a href="" onClick={this.removeFile.bind(this, x)}>
-    //                           <BsXCircle />
-    //                         </a>
-    //                         <div className="card mb-4 shadow-sm">
-    //                           <img src={URL.createObjectURL(x)}></img>
-    //                         </div>
-    //                       </div>
-    //                     ))}
-    //                   </div>
-    //                   {ImgError.length > 0 && (
-    //                     <span className="error">{ImgError}</span>
-    //                   )}
-    //                 </div>
-    //               </div>
-    //             </div>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </section>
-    // );
   };
 
   restaurant = () => {
-
     const { errors, lat, lng, collectionImage, ImgError, Error } = this.state;
     const Marker = () => {
       return <BiCurrentLocation style={{ fontSize: "20px", color: "blue" }} />;
@@ -957,7 +693,7 @@ class Addstore extends Component {
             / สร้างร้านอาหารของคุณ
           </p>
           <img
-          alt="Thumbnail"
+            alt="Thumbnail"
             className="u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-1"
             src={restaurant}
             data-image-width={626}
@@ -1229,13 +965,13 @@ class Addstore extends Component {
                   onChange={this.onFileChange}
                 />
                 <span className="error" style={{ marginLeft: "10px" }}></span>
-                <label className="custom-file-label">Choose file</label>
+                <label className="custom-file-label">เลือกไฟล์</label>
               </div>
             </div>
             <div className="u-img-upload">
               {collectionImage.length > 0 && (
                 <img
-                alt="Thumbnail 200x200"
+                  alt="Thumbnail 200x200"
                   height="200"
                   width="200"
                   src={URL.createObjectURL(collectionImage[0])}
@@ -1261,254 +997,6 @@ class Addstore extends Component {
         </section>
       </div>
     );
-    // return (
-    //   <section className="u-clearfix restaurant-section" id="sec-8600">
-    //     <div className="u-clearfix u-sheet u-sheet-1">
-    //       <h4 className="u-text-1">
-    //         <a href="" onClick={() => this.Addstore}>
-    //           ลงทะเบียนสถานที่{" "}
-    //         </a>
-    //         / ร้านอาหาร
-    //       </h4>
-    //       <div className="u-clearfix u-expanded-width-xs u-gutter-0 u-layout-wrap u-layout-wrap-1">
-    //         <div className="u-layout">
-    //           <div className="u-layout-row">
-    //             <div
-    //               className="u-container-style u-image u-layout-cell u-size-12 u-image-1"
-    //               data-image-width={897}
-    //               data-image-height={759}
-    //             >
-    //               <div className="u-container-layout u-valign-middle u-container-layout-1">
-    //                 <h4 className="u-text u-text-custom-color-4 u-text-default-lg u-text-default-xl u-text-2">
-    //                   ร้านอาหาร
-    //                 </h4>
-    //               </div>
-    //             </div>
-    //             <div className="u-container-style u-layout-cell u-size-24 u-layout-cell-2">
-    //               <div className="u-container-layout u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-2">
-    //                 <h6 className="u-text u-text-custom-color-2 u-text-default u-text-3">
-    //                   *กรุณาใส่ข้อมูลสถานที่
-    //                 </h6>
-    //                 <div className="u-expanded-width-xs u-form u-form-1">
-    //                   <form
-    //                     className="u-clearfix u-form-spacing-15 u-form-vertical u-inner-form"
-    //                     style={{ padding: 15 }}
-    //                   >
-    //                     <div className="u-form-group u-form-name">
-    //                       <label className="u-label u-label-1">
-    //                         ชื่อสถานที่
-    //                       </label>
-    //                       <input
-    //                         type="text"
-    //                         placeholder="Name"
-    //                         name="Name"
-    //                         className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-input-1"
-    //                         onChange={this.handleChange}
-    //                       />
-    //                       {errors.Name.length > 0 && (
-    //                         <span className="error">{errors.Name}</span>
-    //                       )}
-    //                     </div>
-    //                     <div className="u-form-group u-form-message">
-    //                       <label className="u-label u-label-2">
-    //                         รายละเอียดสถานที่
-    //                       </label>
-    //                       <textarea
-    //                         rows={4}
-    //                         cols={50}
-    //                         name="Description"
-    //                         className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-input-2"
-    //                         onChange={this.handleChange}
-    //                       />
-    //                       {errors.Description.length > 0 && (
-    //                         <span className="error">{errors.Description}</span>
-    //                       )}
-    //                     </div>
-    //                     <div className="u-form-group u-form-select u-form-group-3">
-    //                       <label className="u-form-control-hidden u-label u-label-3" />
-    //                       <div className="u-form-select-wrapper">
-    //                         <select
-    //                           name="type"
-    //                           className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-input-3"
-    //                           onChange={this.handleChange}
-    //                         >
-    //                           <option value="0">ประเภทร้านอาหาร</option>
-    //                           <option value="14">Buffet</option>
-    //                           <option value="11">Restaurant</option>
-    //                           <option value="13">Fastfood</option>
-    //                           <option value="12">Cafe</option>
-    //                         </select>
-    //                         <svg
-    //                           xmlns="http://www.w3.org/2000/svg"
-    //                           width={14}
-    //                           height={12}
-    //                           version={1}
-    //                           className="u-caret"
-    //                         >
-    //                           <path fill="currentColor" d="M4 8L0 4h8z" />
-    //                         </svg>
-    //                         {errors.type.length > 0 && (
-    //                           <span className="error">{errors.type}</span>
-    //                         )}
-    //                       </div>
-    //                     </div>
-    //                     <div className="u-form-group u-form-group-4">
-    //                       <label className="u-label u-label-4">ที่อยู่</label>
-    //                       <input
-    //                         type="text"
-    //                         name="address"
-    //                         className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-input-4"
-    //                         onChange={this.handleChange}
-    //                       />
-    //                       {errors.address.length > 0 && (
-    //                         <span className="error">{errors.address}</span>
-    //                       )}
-    //                     </div>
-    //                     <div className="u-form-group u-form-group-4">
-    //                       <label className="u-label u-label-4">อำเภอ</label>
-    //                       <input
-    //                         type="text"
-    //                         name="district"
-    //                         className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-input-4"
-    //                         onChange={this.handleChange}
-    //                       />
-    //                       {errors.district.length > 0 && (
-    //                         <span className="error">{errors.district}</span>)}
-    //                       </div>
-    //                       <div className="u-form-group u-form-group-4">
-    //                       <label className="u-label u-label-4">จังหวัด</label>
-    //                       <input
-    //                         type="text"
-    //                         name="province"
-    //                         className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-input-4"
-    //                         onChange={this.handleChange}
-    //                       />
-    //                       {errors.province.length > 0 && (
-    //                         <span className="error">{errors.province}</span>)}
-    //                       </div>
-    //                       <div className="u-form-group u-form-group-4">
-    //                       <label className="u-label u-label-4">รหัสไปรษณีย์</label>
-    //                       <input
-    //                         type="text"
-    //                         name="postcode"
-    //                         className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-input-4"
-    //                         onChange={this.handleChange}
-    //                       />
-    //                       {errors.postcode.length > 0 && (
-    //                         <span className="error">{errors.postcode}</span>)}
-    //                       </div>
-    //                     <div className="u-form-group u-form-group-4">
-    //                       <label className="u-label u-label-4">Latitude</label>
-    //                       <input
-    //                         type="text"
-    //                         name="Latitude"
-    //                         className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-input-4"
-    //                         disabled
-    //                         value={lat}
-    //                       />
-    //                     </div>
-    //                     <div className="u-form-group u-form-group-4">
-    //                       <label className="u-label u-label-4">Longitude</label>
-    //                       <input
-    //                         type="text"
-    //                         name="Longitude"
-    //                         className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-input-4"
-    //                         disabled
-    //                         value={lng}
-    //                       />
-    //                     </div>
-
-    //                     <GoogleMapReact
-    //                       bootstrapURLKeys={{ key: API_KEY }}
-    //                       defaultCenter={this.props.center}
-    //                       center={{ lat: lat, lng: lng }}
-    //                       defaultZoom={this.props.zoom}
-    //                       yesIWantToUseGoogleMapApiInternals
-    //                       style={{
-    //                         height: "300px",
-    //                         width: "300px",
-    //                         position: "relative",
-    //                       }}
-    //                     >
-    //                       <Marker lat={lat} lng={lng} />
-    //                     </GoogleMapReact>
-
-    //                     <div className="u-align-left u-form-group u-form-submit">
-    //                       <a
-    //                         href="#"
-    //                         className="u-btn u-btn-submit u-button-style"
-    //                         onClick={this.handleSubmit}
-    //                       >
-    //                         Submit
-    //                       </a>
-    //                       <input
-    //                         type="submit"
-    //                         defaultValue="submit"
-    //                         className="u-form-control-hidden"
-    //                       />
-    //                      {Error.length > 0 && (
-    //                     <span className="error">{Error}</span>
-    //                   )}
-    //                     </div>
-    //                   </form>
-    //                 </div>
-    //               </div>
-    //             </div>
-    //             <div className="u-align-left u-container-style u-layout-cell u-size-24 u-layout-cell-3">
-    //               <div className="u-container-layout u-valign-bottom-sm u-valign-bottom-xs u-container-layout-3">
-    //                 <h6 className="u-text u-text-custom-color-2 u-text-default u-text-4">
-    //                   *กรุณาใส่รูปภาพ
-    //                 </h6>
-    //                 <div className="u-expanded-width-md u-shape u-shape-rectangle u-white u-shape-1">
-    //                   <div className="input-group mb-3">
-    //                     <div className="custom-file">
-    //                       <input
-    //                         type="file"
-    //                         className="custom-file-input"
-    //                         multiple="multiple"
-    //                         accept=".jpg,.jpe,.png,.gif"
-    //                         onChange={this.onFileChange}
-    //                       />
-    //                       <label className="custom-file-label">
-    //                         Choose file
-    //                       </label>
-    //                     </div>
-    //                   </div>
-    //                   <div style={{ margin: "10px" }}>
-    //                     {collectionImage.length > 0 && (
-    //                       <img
-    //                         height="200"
-    //                         width="auto"
-    //                         src={URL.createObjectURL(collectionImage[0])}
-    //                       />
-    //                     )}
-    //                   </div>
-    //                 </div>
-    //                 <div className="u-expanded-width-md u-shape u-shape-rectangle u-white u-shape-2">
-    //                   <div className="row">
-    //                     {collectionImage.map((x) => (
-    //                       <div className="col-md-4">
-    //                         <a href="" onClick={this.removeFile.bind(this, x)}>
-    //                           <BsXCircle />
-    //                         </a>
-    //                         <div className="card mb-4 shadow-sm">
-    //                           <img src={URL.createObjectURL(x)}></img>
-    //                         </div>
-    //                       </div>
-    //                     ))}
-    //                   </div>
-    //                   {ImgError.length > 0 && (
-    //                     <span className="error">{ImgError}</span>
-    //                   )}
-    //                 </div>
-    //               </div>
-    //             </div>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </section>
-    // );
   };
 
   render() {
@@ -1530,7 +1018,7 @@ class Addstore extends Component {
           <Modal.Body>
             <div className="text-center">
               <img
-              alt="Thumbnail 200x150"
+                alt="Thumbnail 200x150"
                 className="d-block mx-auto mb-4"
                 src={pin}
                 width={200}
@@ -1560,7 +1048,7 @@ class Addstore extends Component {
           <Modal.Body>
             <div className="text-center">
               <img
-              alt="Thumbnail 200x200"
+                alt="Thumbnail 200x200"
                 className="d-block mx-auto mb-4"
                 src={novaccine}
                 width={200}
@@ -1604,11 +1092,16 @@ class Addstore extends Component {
             </div>
             <div className="simplert__body">
               <div className="simplert__title">
-              <b>เพิ่มร้านค้าสำเร็จ</b>
+                <b>เพิ่มร้านค้าสำเร็จ</b>
               </div>
             </div>
             <div className="simplert__footer">
-              <button className="simplert__close " onClick={() => this.props.history.push("/home")}>Close</button>
+              <button
+                className="simplert__close "
+                onClick={() => this.props.history.push("/home")}
+              >
+                Close
+              </button>
             </div>
           </div>
         </Modal>

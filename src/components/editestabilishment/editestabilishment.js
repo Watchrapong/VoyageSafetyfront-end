@@ -299,7 +299,7 @@ class Editestabilishment extends Component {
   };
 
   render() {
-    const { isFetching, lat, lng, errors, showModal, showDeleteModal } =
+    const { isFetching, lat, lng, errors, showModal, showDeleteModal, File } =
       this.state;
     return (
       <div>
@@ -648,7 +648,7 @@ class Editestabilishment extends Component {
                                   className="custom-file-label"
                                   style={{ width: "200px" }}
                                 >
-                                  Choose file
+                                  {(File != null && File.name)||"เลือกไฟล์"}
                                 </label>
                               </div>
                             </div>

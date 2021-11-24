@@ -15,9 +15,9 @@ class Error extends Component {
     <div className="notfound-404">
       <h1>404</h1>
     </div>
-    <h2>We are sorry, Page not found!</h2>
-    <p>The page you are looking for might have been removed had its name changed or is temporarily unavailable.</p>
-    <a href="/home">Back To Homepage</a>
+    <h2>ขออภัย ไม่พบหน้าที่คุณต้องการ</h2>
+      <p>กรุณาตรวจลิ้งค์ที่คุณเข้า หรือกลับไปที่หน้าแรก</p>
+    <a href="/home">กลับสู่หน้าแรก</a>
   </div>
 </div>
 

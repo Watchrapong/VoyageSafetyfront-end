@@ -78,7 +78,7 @@ class Header extends Component {
               </Nav.Link>
             </Nav>
             <Navbar.Collapse className="justify-content-end">
-              <Navbar.Text> Signed in as : </Navbar.Text>
+              <Navbar.Text> ลงชื่อเข้าใช้ด้วย : </Navbar.Text>
               <Dropdown>
                 <Dropdown.Toggle variant="light">
                   {this.state.User} <cg.CgProfile />

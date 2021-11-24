@@ -289,6 +289,7 @@ class Profile extends Component {
       showConfirmResetModal,
       SuccessModal,
       ErrorModal,
+      FileName
     } = this.state;
     return (
       (isFetching !== false && <WaveLoading />) || (
@@ -397,7 +398,7 @@ class Profile extends Component {
                             accept=".jpg,.jpe,.png,.gif"
                             onChange={this.onFileChange}
                           />
-                          <label className="custom-file-label">เลือกไฟล์</label>
+                          <label className="custom-file-label">{(FileName != null && FileName)|| "เลือกไฟล์"}</label>
                         </div>
                         <div className="input-group-append">
                           <button

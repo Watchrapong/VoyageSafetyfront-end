@@ -9,6 +9,14 @@ import { Pie } from "react-chartjs-2";
 
 let url = "";
 
+const disablePastDate = () => {
+  const today = new Date();
+  const dd = String(today.getDate() + 1).padStart(2, "0");
+  const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  const yyyy = today.getFullYear();
+  return yyyy + "-" + mm + "-" + dd;
+};
+
 class Detail extends Component {
   componentDidMount() {
     let EstId = this.props.match.params.EstId;
@@ -77,7 +85,7 @@ class Detail extends Component {
                     <div className="u-layout">
                       <div className="u-layout-row">
                         <div className="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
-                          <div className="u-container-layout u-container-layout-1">
+                          <div className="u-container-layout u-container-layout-1 ">
                             <Carousel>
                               {arrImg.map((item) => (
                                 <Carousel.Item interval={1500}>
@@ -120,6 +128,7 @@ class Detail extends Component {
                                             type="date"
                                             id="date"
                                             name="date"
+                                            min={disablePastDate()}
                                             className="textInput"
                                             onChange={(e) => {
                                               this.setState({

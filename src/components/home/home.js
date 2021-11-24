@@ -79,8 +79,13 @@ class Home extends Component {
                     <button
                       type="button"
                       className="btn btn-sm btn-outline-secondary"
+                      onClick={() => {
+                        window.open(
+                          `https://www.google.com/maps/search/?api=1&query=${pd.Lat},${pd.Lng}`
+                        );
+                      }}
                     >
-                      View
+                      ดูแผนที่
                     </button>
                   </div>
 
@@ -132,12 +137,17 @@ class Home extends Component {
                     </p>
                     <div className="d-flex justify-content-between align-items-center">
                       <div className="btn-group">
-                        <button
-                          type="button"
-                          className="btn btn-sm btn-outline-secondary"
-                        >
-                          View
-                        </button>
+                      <button
+                      type="button"
+                      className="btn btn-sm btn-outline-secondary"
+                      onClick={() => {
+                        window.open(
+                          `https://www.google.com/maps/search/?api=1&query=${pd.Lat},${pd.Lng}`
+                        );
+                      }}
+                    >
+                      ดูแผนที่
+                    </button>
                       </div>
                       <small className="text-muted">
                         <p>จำนวนการฉีดวัคซีน {pd.Percent} %</p>
@@ -240,7 +250,7 @@ class Home extends Component {
                     value="11"
                     onClick={this.onChangeType}
                   >
-                    Restaurant
+                    ร้านอาหาร
                   </button>{" "}
                   <button
                     type="button"
@@ -248,7 +258,7 @@ class Home extends Component {
                     value="12"
                     onClick={this.onChangeType}
                   >
-                    Cafe
+                    คาเฟ่
                   </button>{" "}
                   <button
                     type="button"
@@ -256,7 +266,7 @@ class Home extends Component {
                     value="13"
                     onClick={this.onChangeType}
                   >
-                    Fastfood
+                    ฟาสต์ฟู้ด
                   </button>{" "}
                   <button
                     type="button"
@@ -264,7 +274,7 @@ class Home extends Component {
                     value="21"
                     onClick={this.onChangeType}
                   >
-                    Hotel
+                    โรงแรม
                   </button>{" "}
                   <button
                     type="button"
@@ -272,7 +282,7 @@ class Home extends Component {
                     value="22"
                     onClick={this.onChangeType}
                   >
-                    Hostel
+                    โฮสเทล
                   </button>{" "}
                   <button
                     type="button"
@@ -280,7 +290,7 @@ class Home extends Component {
                     value="23"
                     onClick={this.onChangeType}
                   >
-                    Resort
+                    รีสอร์ต
                   </button>{" "}
                   <button
                     type="button"
@@ -288,7 +298,7 @@ class Home extends Component {
                     value="14"
                     onClick={this.onChangeType}
                   >
-                    Buffet
+                    บุฟเฟ่ต์
                   </button>{" "}
                 </div>
                 <div className="input-group mb-3" style={{ marginTop: "15px" }}>

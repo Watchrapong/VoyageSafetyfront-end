@@ -221,7 +221,7 @@ class Welcome extends Component {
         <div className="px-4 py-5 my-5 text-center">
           <h2 className="display-5 fw-bold">VOYAGE SAFETY</h2>
           <div className="col-lg-7 mx-auto">
-            <p className="lead mb-4">
+            <p className="lead mb-4 font-prompt" >
               <b>Voyage Safety</b>{" "}
               ถูกพัฒนาขึ้นเพื่อช่วยให้ผู้ใช้สามารถลงทะเบียนบันทึกการฉีดวัคซีนของบุคลากรภายในร้านของท่าน
               <br />

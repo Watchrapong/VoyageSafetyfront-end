@@ -58,8 +58,8 @@ export const NETWORK_TIMEOUT_MESSAGE = 'A network timeout has occurred, Please t
 export const UPLOAD_PHOTO_FAIL_MESSAGE = 'An error has occurred. The photo was unable to upload.'
 
 
-export const apiUrl = "http://localhost:8085/api/v2";
-// export const apiUrl = "https://voyagesafetybackend.ninja/api/v2";
+// export const apiUrl = "http://localhost:8085/api/v2";
+export const apiUrl = "https://voyagesafetybackend.ninja/api/v2";
 //export const apiBlockChain = "http://localhost:4000/vaccination"
 export const apiBlockChain = "https://voyage-hospital-backend.herokuapp.com";
 export const apiCovidUrl = "https://covid19.ddc.moph.go.th/api/Cases/today-cases-all";

@@ -265,7 +265,7 @@ class Vaccinationstatus extends Component {
               </div>
             </div>
             <div className="simplert__footer">
-              <button className="simplert__close " onClick={() => this.hideModal()}>Close</button>
+              <button className="simplert__close " onClick={() => this.hideModal()}>ปิด</button>
             </div>
           </div>
         </Modal>
