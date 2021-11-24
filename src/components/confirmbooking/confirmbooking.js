@@ -18,18 +18,18 @@ class Confirmbooking extends Component {
       LastName: "",
       CitizenId: "",
       Est: "",
-      Modal: false,
+      showModal: false,
     };
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
   }
 
   showModal = () => {
-    this.setState({ Modal: true });
+    this.setState({ showModal: true });
   };
 
   hideModal = () => {
-    this.setState({ Modal: false });
+    this.setState({ showModal: false });
   };
 
   componentDidMount() {
@@ -86,7 +86,7 @@ class Confirmbooking extends Component {
   };
 
   render() {
-    const { Est, Date, Modal } = this.state;
+    const { Est, Date, showModal } = this.state;
     return (
       <div>
         <section
@@ -150,7 +150,7 @@ class Confirmbooking extends Component {
         </section>
         <Modal
                   size="sm"
-                  show={Modal}
+                  show={showModal}
                   aria-labelledby="example-modal-sizes-title-sm"
                   centered
                 >
