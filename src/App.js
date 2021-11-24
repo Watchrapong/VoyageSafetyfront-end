@@ -9,31 +9,53 @@ import {
 } from "react-router-dom";
 import { setApp } from "./actions/app.action";
 import { connect } from "react-redux";
-import CombineComponents from "./components/index";
-const {
-  Header,
-  Header2,
-  Footer,
-  Login,
-  Register,
-  Home,
-  Detail,
-  Addstore,
-  Verify,
-  Error,
-  Establishdetail,
-  Welcome,
-  Dashboard,
-  Profile,
-  Vaccinationstatus,
-  Forgetpassword,
-  Resetpassword,
-  Confirmbooking,
-  Viewstaff,
-  Thanksforbooking,
-  Editestabilishment,
-  Myestablishment,
-} = CombineComponents;
+import Header from "./components/header/header";
+import Footer from "./components/footer/footer";
+import Login from "./components/login/login";
+import Register from "./components/register/register";
+import Home from "./components/home/home";
+import Detail from "./components/detail/detail";
+import Header2 from "./components/header2/header2";
+import Addstore from "./components/addstore/addstore";
+import Verify from "./components/verify/verify";
+import Error from "./components/error/error";
+import Establishdetail from "./components/establishdetail/establishdetail";
+import Welcome from "./components/welcome/welcome";
+import Dashboard from "./components/dashboard/dashboard";
+import Profile from "./components/profile/profile";
+import Vaccinationstatus from "./components/vaccinationstatus/vaccinationstatus";
+import Forgetpassword from "./components/forgetpassword/forgetpassword";
+import Resetpassword from "./components/resetpassword/resetpassword";
+import Confirmbooking from "./components/confirmbooking/confirmbooking";
+import Viewstaff from "./components/viewstaff/viewstaff";
+import Thanksforbooking from "./components/thanksforbooking/thanksforbooking";
+import Editestabilishment from "./components/editestabilishment/editestabilishment";
+import Myestablishment from "./components/myestablishment/myestablishment";
+// import CombineComponents from "./components/index";
+// const {
+//   Header,
+//   Header2,
+//   Footer,
+//   Login,
+//   Register,
+//   Home,
+//   Detail,
+//   Addstore,
+//   Verify,
+//   Error,
+//   Establishdetail,
+//   Welcome,
+//   Dashboard,
+//   Profile,
+//   Vaccinationstatus,
+//   Forgetpassword,
+//   Resetpassword,
+//   Confirmbooking,
+//   Viewstaff,
+//   Thanksforbooking,
+//   Editestabilishment,
+//   Myestablishment,
+// } = CombineComponents;
 
 const isLoggedIn = () => {
   return localStorage.getItem(server.LOGIN_PASSED) === YES;

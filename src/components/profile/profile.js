@@ -567,7 +567,7 @@ class Profile extends Component {
                       variant="secondary"
                       onClick={this.hideResetPassModal}
                     >
-                      ปิก
+                      ปิด
                     </Button>
                     <Button
                       variant="primary"
