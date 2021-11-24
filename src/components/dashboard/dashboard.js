@@ -479,7 +479,7 @@ class Dashboard extends Component {
     return (
       <div>
         {dashboard}
-        <Line data={data}  option={lineOptions} />
+        <Line data={data} option={lineOptions} />
       </div>
     );
   }

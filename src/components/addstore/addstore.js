@@ -17,6 +17,8 @@ import novaccine from "../../assets/img/addstore/novaccination.png";
 
 const API_KEY = "AIzaSyATAXCWMqd7hmu44d93FCJpPTGcHLKN6lg";
 
+let url="";
+
 class Addstore extends Component {
   static defaultProps = {
     center: { lat: 13.761792924446304, lng: 100.44629630309848 },
@@ -123,6 +125,7 @@ class Addstore extends Component {
 
   async componentDidMount() {
     let token = localStorage.getItem("Token");
+    await this.getMyLocation();
     httpClient
       .get(server.LOGIN_USER, {
         headers: { Authorization: `Authorization ${token}` },
@@ -137,7 +140,7 @@ class Addstore extends Component {
       .catch((error) => {
         this.setState({ userId: null });
       });
-    await this.getMyLocation();
+    
   }
 
   onFileChange = (e) => {
@@ -228,7 +231,7 @@ class Addstore extends Component {
         userId == null ||
         Name == null ||
         CitizenId == null ||
-        type == 0 ||
+        type === 0 ||
         address == null ||
         Description == null ||
         district == null ||
@@ -243,7 +246,6 @@ class Addstore extends Component {
         if (images.length < 1) {
           this.setState({ ImgError: "โปรดเลือกไฟล์รูปใหม่" });
         } else {
-          var images = this.state.collectionImage;
           var formData = new FormData();
           // formData.append("EstId", "100")
           formData.append("Owner", userId);
@@ -305,7 +307,7 @@ class Addstore extends Component {
                   data-image-height={759}
                 >
                   <a
-                    href=""
+                    href={url}
                     onClick={(e) => {
                       e.preventDefault();
                       if (this.state.vaccine === true) {
@@ -327,7 +329,7 @@ class Addstore extends Component {
                   data-image-height={759}
                 >
                   <a
-                    href=""
+                    href={url}
                     onClick={(e) => {
                       e.preventDefault();
                       if (this.state.vaccine === true) {
@@ -363,12 +365,13 @@ class Addstore extends Component {
           id="sec-7c81"
         >
           <p className="u-text u-text-default u-text-1">
-            <a href="" onClick={() => this.setState({ view: null })}>
+            <a href={url} onClick={() => this.setState({ view: 0 })}>
               ลงทะเบียนสถานที่
             </a>{" "}
             / สร้างที่พักของคุณ
           </p>
           <img
+          alt="Thumbnail"
             className="u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-1"
             src={hotel}
             data-image-width={626}
@@ -604,7 +607,7 @@ class Addstore extends Component {
                   </div>
                   <div className="u-align-left u-form-group u-form-submit">
                     <a
-                      href="#"
+                      href={url}
                       className="u-btn u-btn-submit u-button-style"
                       onClick={this.handleSubmit}
                     >
@@ -656,6 +659,7 @@ class Addstore extends Component {
             <div className="u-img-upload">
               {collectionImage.length > 0 && (
                 <img
+                alt="Thumbnail 200x200"
                   height="200"
                   width="200"
                   src={URL.createObjectURL(collectionImage[0])}
@@ -667,11 +671,11 @@ class Addstore extends Component {
             <div className="row">
               {collectionImage.map((x) => (
                 <div className="col-md-4">
-                  <a href="" onClick={this.removeFile.bind(this, x)}>
+                  <a href={url} onClick={this.removeFile.bind(this, x)}>
                     <BsXCircle />
                   </a>
                   <div className="card mb-3 shadow-sm">
-                    <img src={URL.createObjectURL(x)}></img>
+                    <img alt="Thumbnail" src={URL.createObjectURL(x)}></img>
                   </div>
                 </div>
               ))}
@@ -935,6 +939,7 @@ class Addstore extends Component {
   };
 
   restaurant = () => {
+
     const { errors, lat, lng, collectionImage, ImgError, Error } = this.state;
     const Marker = () => {
       return <BiCurrentLocation style={{ fontSize: "20px", color: "blue" }} />;
@@ -946,12 +951,13 @@ class Addstore extends Component {
           id="sec-7c81"
         >
           <p className="u-text u-text-default u-text-1">
-            <a href="" onClick={() => this.setState({ view: null })}>
+            <a href={url} onClick={() => this.setState({ view: 0 })}>
               ลงทะเบียนสถานที่
             </a>{" "}
             / สร้างร้านอาหารของคุณ
           </p>
           <img
+          alt="Thumbnail"
             className="u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-1"
             src={restaurant}
             data-image-width={626}
@@ -1188,7 +1194,7 @@ class Addstore extends Component {
                   </div>
                   <div className="u-align-left u-form-group u-form-submit">
                     <a
-                      href="#"
+                      href={url}
                       className="u-btn u-btn-submit u-button-style"
                       onClick={this.handleSubmit}
                     >
@@ -1229,6 +1235,7 @@ class Addstore extends Component {
             <div className="u-img-upload">
               {collectionImage.length > 0 && (
                 <img
+                alt="Thumbnail 200x200"
                   height="200"
                   width="200"
                   src={URL.createObjectURL(collectionImage[0])}
@@ -1240,11 +1247,11 @@ class Addstore extends Component {
             <div className="row">
               {collectionImage.map((x) => (
                 <div className="col-md-4">
-                  <a href="" onClick={this.removeFile.bind(this, x)}>
+                  <a href={url} onClick={this.removeFile.bind(this, x)}>
                     <BsXCircle />
                   </a>
                   <div className="card mb-3 shadow-sm">
-                    <img src={URL.createObjectURL(x)}></img>
+                    <img alt="Thumbnail" src={URL.createObjectURL(x)}></img>
                   </div>
                 </div>
               ))}
@@ -1523,6 +1530,7 @@ class Addstore extends Component {
           <Modal.Body>
             <div className="text-center">
               <img
+              alt="Thumbnail 200x150"
                 className="d-block mx-auto mb-4"
                 src={pin}
                 width={200}
@@ -1535,7 +1543,7 @@ class Addstore extends Component {
                 เปิด
               </Button>
               <p />
-              <a href="" onClick={() => this.props.history.push("/home")}>
+              <a href={url} onClick={() => this.props.history.push("/home")}>
                 ข้าม
               </a>
             </div>
@@ -1552,6 +1560,7 @@ class Addstore extends Component {
           <Modal.Body>
             <div className="text-center">
               <img
+              alt="Thumbnail 200x200"
                 className="d-block mx-auto mb-4"
                 src={novaccine}
                 width={200}
@@ -1569,7 +1578,7 @@ class Addstore extends Component {
                 อัพเดทสถานะการฉีดวัคซีน
               </Button>
               <p />
-              <a href="" onClick={() => this.hideVaccineAlertModal()}>
+              <a href={url} onClick={() => this.hideVaccineAlertModal()}>
                 ข้าม
               </a>
             </div>

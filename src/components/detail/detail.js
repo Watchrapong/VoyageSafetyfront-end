@@ -1,4 +1,3 @@
-// import { Carousel } from "bootstrap";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as action from "../../actions/detail.action";
@@ -7,6 +6,8 @@ import "./detail2.css";
 import Carousel from "react-bootstrap/Carousel";
 import { WaveLoading } from "react-loadingg";
 import { Pie } from "react-chartjs-2";
+
+let url = "";
 
 class Detail extends Component {
   componentDidMount() {
@@ -25,7 +26,7 @@ class Detail extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    if (this.state.Date != "") {
+    if (this.state.Date !== "") {
       this.props.history.push(
         `/confirmbooking/${this.state.Date}/${this.state.EstId}`
       );
@@ -46,14 +47,14 @@ class Detail extends Component {
       } else {
         const data = result.result;
         const arrImg = result.arrImg;
-        console.log(result.percentageData);
+        console.log(result.percentageData); 
         const datachart = {
           labels: ["ได้รับวัคซีนแล้ว", "ยังไม่ได้รับวัคซีน"],
           datasets: [
             {
               label: "วัคซีน",
               data: [
-                parseInt(result.percentageData[0].Total) + 1,
+                parseInt(result.percentageData[0].Total) + 1 - parseInt(result.percentageData[0].NotVaccinated),
                 parseInt(result.percentageData[0].NotVaccinated),
               ],
               backgroundColor: [
@@ -89,7 +90,7 @@ class Detail extends Component {
                                 </Carousel.Item>
                               ))}
                             </Carousel>
-                            {arrImg.length == 0 && (
+                            {arrImg.length === 0 && (
                               <img
                                 src={"https://via.placeholder.com/700x350"}
                                 alt="mainImage"
@@ -129,7 +130,7 @@ class Detail extends Component {
                                         </div>
                                         <div class="col-lg-2">
                                           <a
-                                            href=""
+                                            href={url}
                                             className="u-btn u-btn-round u-btn-submit u-hover-palette-1-light-1 u-radius-6 u-button-style u-btn-1"
                                             style={{
                                               background: "#0F4A69",
@@ -211,6 +212,7 @@ class Detail extends Component {
                                   <div className="row">
                                     <div className="col-xl-6 col-lg-6">
                                       <img
+                                      alt="Thumbnail"
                                         src={`https://maps.googleapis.com/maps/api/staticmap?center=${data.Lat},${data.Lng}&zoom=18&size=500x500&key=AIzaSyATAXCWMqd7hmu44d93FCJpPTGcHLKN6lg&markers="https://img.icons8.com/dusk/64/000000/marker.png"|${data.Lat},${data.Lng}`}
                                         className="map-img"
                                       />

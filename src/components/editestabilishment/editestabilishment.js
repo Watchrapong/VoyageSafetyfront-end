@@ -118,7 +118,7 @@ class Editestabilishment extends Component {
   componentDidMount() {
     try {
       this.setState({ isFetching: true });
-      if (localStorage.getItem(server.LOGIN_PASSED) == YES) {
+      if (localStorage.getItem(server.LOGIN_PASSED) === YES) {
         let token = localStorage.getItem("Token");
         httpClient
           .get(server.LOGIN_USER, {
@@ -271,7 +271,7 @@ class Editestabilishment extends Component {
       const postData = slice.map((pd) => (
         <tr>
           <td>
-            <img src={pd.Img} height="auto" width="100" />
+            <img alt="Thumbnail" src={pd.Img} height="auto" width="100" />
           </td>
           <td>
             <a

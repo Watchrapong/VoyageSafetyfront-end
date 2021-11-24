@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Rooftop from "../../assets/img/rooftop.png";
 import Image from "react-bootstrap/Image";
 import { httpClient } from "../../utils/HttpClient";
-import { apiCovidUrl } from "../../constants";
+import { apiCovidUrl, server, YES } from "../../constants";
 import "./welcome.css";
 import { CommonLoading } from "react-loadingg";
 
@@ -23,6 +23,9 @@ class Welcome extends Component {
   }
 
    componentDidMount() {
+     if(localStorage.getItem(server.LOGIN_PASSED) === YES) {
+      this.props.history.push("/home")
+     }else{
      this.setState({ dashboard: (<section className="u-clearfix u-custom-color-7 section-dashboard" id="sec-7a63">
      <div className="u-align-left u-clearfix u-sheet u-sheet-1">
        <h3 className="u-text u-text-default u-text-1">ตัวเลขผู้ติดเชื้อ</h3>
@@ -66,7 +69,7 @@ class Welcome extends Component {
      </div>
    </section>) })
    setTimeout(() => this.dashboard(), 2000)
-    
+     }
   }
 
   dashboard = () => {
