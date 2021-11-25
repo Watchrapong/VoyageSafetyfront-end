@@ -143,13 +143,13 @@ class Profile extends Component {
       case "Password":
         errors.Password =
           value.length < 8 || !validPassword.test(value)
-            ? "Password must be 8 characters long!"
+            ? "รหัสผ่านต้องมีความยาวอย่างน้อย 8 ตัว"
             : "";
         break;
       case "Confirm_Password":
         errors.Confirmation_Password =
           value.length < 8 || !validPassword.test(value)
-            ? "Confirmation Password must be 8 characters long!"
+            ? "รหัสผ่านต้องมีความยาวอย่างน้อย 8 ตัว"
             : "";
         break;
       default:
@@ -165,11 +165,11 @@ class Profile extends Component {
     let errors = this.state.errors;
     switch (name) {
       case "Email":
-        errors.Email = validEmail.test(value) ? "" : "Email is not valid!";
+        errors.Email = validEmail.test(value) ? "" : "อีเมลไม่ถูกต้อง";
         break;
       case "Telno":
         errors.Telno =
-          value.length < 10 ? "Phone id must be 10 characters long!" : "";
+          value.length < 10 ? "กรุณากรอกเบอร์โทรศัพท์ให้ครบถ้วน" : "";
         break;
       default:
         break;
@@ -319,7 +319,7 @@ class Profile extends Component {
                   className="u-blog-control u-image u-image-default u-image-1"
                 />
                 <p className="u-text u-text-default u-text-2">
-                  อีเมลล์ :&nbsp;
+                  อีเมล :&nbsp;
                 </p>
                 <p className="u-text u-text-default u-text-3">เพศ :&nbsp;</p>
                 <p className="u-text u-text-default u-text-4">ชื่อ :</p>

@@ -6,7 +6,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 } */
-body,h1,h2,h3,h4 {
+body,h1,h2,h3,h4,h6 {
   margin: 0;
   font-family: 'Prompt' !important;
   -webkit-font-smoothing: antialiased;
