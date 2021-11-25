@@ -26,7 +26,7 @@ const doGetEstablishments = (dispatch) => {
       dispatch(setEstablishmentStateToSuccess(result.data));
     })
     .catch((error) => {
-      alert(JSON.stringify(error));
+      // alert(JSON.stringify(error));
       dispatch(setEstablishmentStateToFail());
     });
 };
