@@ -454,7 +454,7 @@ class Viewstaff extends Component {
                                     {result.result.LastName}
                                   </td>
                                   <td>ผู้จัดการร้าน</td>
-                                  <td>{result.ownerResult.vaccineName2}</td>
+                                  <td>{result.ownerResult.vaccineName1}</td>
                                   <td>{result.ownerResult.vaccineName2}</td>
                                 </tr>
                               </thead>
