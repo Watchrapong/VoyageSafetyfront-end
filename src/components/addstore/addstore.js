@@ -262,9 +262,7 @@ class Addstore extends Component {
             formData.append("images", images[i]);
           }
           httpClient
-            .post(server.ESTABLISH_URL, formData, {headers: {
-              'Access-Control-Allow-Origin': '*',
-           }},)
+            .post(server.ESTABLISH_URL, formData)
             .then((response) => {
               console.log(JSON.stringify(response.data));
               if (response.data.result === OK) {
