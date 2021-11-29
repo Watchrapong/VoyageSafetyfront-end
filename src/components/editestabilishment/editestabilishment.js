@@ -105,7 +105,9 @@ class Editestabilishment extends Component {
       var formData = new FormData();
       formData.append("image", file);
       formData.append("EstId", this.state.EstId);
-      httpClient.put(server.ADDMOREIMAGE, formData).then((response) => {
+      httpClient.put(server.ADDMOREIMAGE, formData, {headers: {
+        'Access-Control-Allow-Origin': '*',
+     }},).then((response) => {
         this.setState({ isFetching: true });
         setTimeout(() => {
           window.location.reload();
