@@ -255,6 +255,7 @@ class Viewstaff extends Component {
     e.preventDefault();
     const { Delete } = this.state;
     httpClient.delete(`${server.STAFF}/${Delete}`).then((response) => {
+      console.log(JSON.stringify(response.data));
       if (response.data.result === OK) {
         this.hideDeleteModal();
         this.showDeleteSuccessModal();
